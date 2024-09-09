@@ -50,7 +50,7 @@ Here are some ideas to get you started:
 ![CMS WebFlow](https://img.shields.io/badge/CMS-WebFlow-grey)
 
 
-## ⚗️ Download Pinkragon (Framework PHP)
+## ⚗️ Pinkragon (Framework PHP)
 
 [Go to Pinkragon repository](https://github.com/isaacnavajaspozo/Pinkragon-php)
 ```bash
