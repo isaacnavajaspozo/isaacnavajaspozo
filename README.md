@@ -64,7 +64,7 @@ Here are some ideas to get you started:
 
 [Go to Libraries repository](https://github.com/isaacnavajaspozo/Libraries)
 ```bash
-  cd ./Pinkragon/App/Public/
+  cd ./Pinkragon-PHP/App/Public/
   gh repo clone isaacnavajaspozo/Libraries
 ```
 
