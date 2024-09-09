@@ -15,20 +15,21 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/logoINP.png)
+![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/logo-INP.png)
 
-![Javascript JQuery](https://img.shields.io/badge/Javascript-JQuery-yellow)
-![Javascript Node](https://img.shields.io/badge/Javascript-Node-yellow)
-![Javascript Express.js](https://img.shields.io/badge/Javascript-Express.js-yellow)
-![Javascript Vue.js](https://img.shields.io/badge/Javascript-Vue.js-yellow)
-![Javascript React.js](https://img.shields.io/badge/Javascript-React.js-yellow)
-![Javascript TypeScript](https://img.shields.io/badge/Javascript-TypeScript-yellow)
-![Javascript ECMAScript](https://img.shields.io/badge/Javascript-ECMAScript-yellow)
+![Javascript JQuery](https://img.shields.io/badge/JavaScript-JQuery-yellow)
+![Javascript Node](https://img.shields.io/badge/JavaScript-Node-yellow)
+![Javascript Express.js](https://img.shields.io/badge/JavaScript-Express.js-yellow)
+![Javascript Vue.js](https://img.shields.io/badge/JavaScript-Vue.js-yellow)
+![Javascript React.js](https://img.shields.io/badge/JavaScript-React.js-yellow)
+![Javascript TypeScript](https://img.shields.io/badge/JavaScript-TypeScript-yellow)
+![Javascript ECMAScript](https://img.shields.io/badge/JavaScript-ECMAScript-yellow)
 
 ![PHP Laravel](https://img.shields.io/badge/PHP-Laravel-blue)
 ![PHP CodeIgniter](https://img.shields.io/badge/PHP-CodeIgniter-blue)
 ![PHP Pinkragon](https://img.shields.io/badge/PHP-TypeScript-blue)
-![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-blue)
+
+![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-pink)
 
 ![db Mysql](https://img.shields.io/badge/db-Mysql-green)
 ![db Mysql](https://img.shields.io/badge/db-SQL-green)
@@ -37,14 +38,19 @@ Here are some ideas to get you started:
 ![C C#](https://img.shields.io/badge/Native-C-red)
 ![Native Java](https://img.shields.io/badge/Native-Java-red)
 
-![HyperText HTML](https://img.shields.io/badge/HyperText-HTML-pink)
-![HyperText CSS](https://img.shields.io/badge/HyperText-CSS-pink)
-![HyperText Bootstrap](https://img.shields.io/badge/HyperText-Bootstrap-pink)
-![HyperText Foundation](https://img.shields.io/badge/HyperText-Foundation-pink)
+![HyperText HTML](https://img.shields.io/badge/HyperText-HTML-orange)
+![HyperText CSS](https://img.shields.io/badge/HyperText-CSS-orange)
+![HyperText Bootstrap](https://img.shields.io/badge/HyperText-Bootstrap-orange)
+![HyperText Foundation](https://img.shields.io/badge/HyperText-Foundation-orange)
 
-🔭 I’m currently working on ...
 
-## 🛠 Libraries
+## 👺 Download Pinkragon (Framework PHP)
+```bash
+  gh repo clone isaacnavajaspozo/Pinkragon-php
+```
+
+
+## ⛩️ Libraries
 Javascript, HTML, CSS...
 `API_KEY`
 
