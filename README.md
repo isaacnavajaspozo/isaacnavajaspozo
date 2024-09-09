@@ -19,7 +19,7 @@ Here are some ideas to get you started:
 
 
 ![Javascript JQuery](https://img.shields.io/badge/JavaScript-JQuery-yellow)
-![Javascript Node](https://img.shields.io/badge/JavaScript-Node-yellow)
+![Javascript Node.js](https://img.shields.io/badge/JavaScript-Node.js-yellow)
 ![Javascript Express.js](https://img.shields.io/badge/JavaScript-Express.js-yellow)
 ![Javascript Vue.js](https://img.shields.io/badge/JavaScript-Vue.js-yellow)
 ![Javascript React.js](https://img.shields.io/badge/JavaScript-React.js-yellow)
@@ -28,21 +28,26 @@ Here are some ideas to get you started:
 
 ![PHP Laravel](https://img.shields.io/badge/PHP-Laravel-blue)
 ![PHP CodeIgniter](https://img.shields.io/badge/PHP-CodeIgniter-blue)
-![PHP Pinkragon](https://img.shields.io/badge/PHP-TypeScript-blue)
+![PHP Sympony](https://img.shields.io/badge/PHP-Sympony-blue)
 
 ![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-pink)
 
-![db Mysql](https://img.shields.io/badge/db-Mysql-green)
-![db Mysql](https://img.shields.io/badge/db-SQL-green)
-![db Mysql](https://img.shields.io/badge/db-MongoDB-green)
+![database Mysql](https://img.shields.io/badge/database-Mysql-green)
+![database Mysql](https://img.shields.io/badge/database-SQL-green)
+![database Mysql](https://img.shields.io/badge/database-MongoDB-green)
 
 ![C C#](https://img.shields.io/badge/Native-C-red)
 ![Native Java](https://img.shields.io/badge/Native-Java-red)
 
 ![HyperText HTML](https://img.shields.io/badge/HyperText-HTML-orange)
 ![HyperText CSS](https://img.shields.io/badge/HyperText-CSS-orange)
+![HyperText XML](https://img.shields.io/badge/HyperText-XML-orange)
 ![HyperText Bootstrap](https://img.shields.io/badge/HyperText-Bootstrap-orange)
 ![HyperText Foundation](https://img.shields.io/badge/HyperText-Foundation-orange)
+
+![CMS WordPress](https://img.shields.io/badge/CMS-WordPress-grey)
+![CMS PrestaShop](https://img.shields.io/badge/CMS-PrestaShop-grey)
+![CMS WebFlow](https://img.shields.io/badge/CMS-WebFlow-grey)
 
 
 ## ⚗️ Download Pinkragon (Framework PHP)
@@ -52,7 +57,12 @@ Here are some ideas to get you started:
 ```
 
 ## 🔮 Libraries
-`API_KEY`, `ANOTHER_API_KEY`
+`Adminer`, `Fullcalendar`, `DataTable`, `PHP_XLSXWriter`, `FlagIcons`, `Chartjs`, `Highlight`, `Lunr`, `Moment`, `Dompdf`, `Quill`, `p0wny-shell`, `Bootstrap` ...
+
+```bash
+  cd ./Pinkragon/App/Public/
+  gh repo clone isaacnavajaspozo/Libraries
+```
 
 
 
