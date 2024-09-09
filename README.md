@@ -57,7 +57,7 @@ Here are some ideas to get you started:
 ```
 
 ## 🔮 Libraries
-`Adminer`, `Fullcalendar`, `DataTable`, `PHP_XLSXWriter`, `FlagIcons`, `Chartjs`, `Highlight`, `Lunr`, `Moment`, `Dompdf`, `Quill`, `p0wny-shell`, `Bootstrap` ...
+`Adminer`, `Fullcalendar`, `DataTable`, `PHP_XLSXWriter`, `Chartjs`, `Highlight`, `Lunr`, `Moment`, `Dompdf`, `Quill`, `p0wny-shell`, `Bootstrap` ...
 
 ```bash
   cd ./Pinkragon/App/Public/
