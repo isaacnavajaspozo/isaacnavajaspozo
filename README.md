@@ -45,19 +45,16 @@ Here are some ideas to get you started:
 ![HyperText Foundation](https://img.shields.io/badge/HyperText-Foundation-orange)
 
 
-## 🧙‍♂️ Download Pinkragon (Framework PHP)
+## ⚗️ Download Pinkragon (Framework PHP)
 ```bash
   gh repo clone isaacnavajaspozo/Pinkragon-php
 
 ```
 
-## ⚗️ Libraries
+## 🔮 Libraries
 `API_KEY`, `ANOTHER_API_KEY`
 
-## 🔮 Linux
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+
 
 
 
