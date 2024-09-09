@@ -15,6 +15,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-![Logo](https://isaacnavajaspozo.github.io/logoINP)
+![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/logoINP.png)
 
 🔭 I’m currently working on ...
