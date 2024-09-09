@@ -25,16 +25,19 @@ Here are some ideas to get you started:
 ![Javascript React.js](https://img.shields.io/badge/JavaScript-React.js-yellow)
 ![Javascript TypeScript](https://img.shields.io/badge/JavaScript-TypeScript-yellow)
 ![Javascript ECMAScript](https://img.shields.io/badge/JavaScript-ECMAScript-yellow)
+![Javascript api](https://img.shields.io/badge/JavaScript-api-yellow)
 
 ![PHP Laravel](https://img.shields.io/badge/PHP-Laravel-blue)
 ![PHP CodeIgniter](https://img.shields.io/badge/PHP-CodeIgniter-blue)
 ![PHP Sympony](https://img.shields.io/badge/PHP-Sympony-blue)
+![PHP api](https://img.shields.io/badge/PHP-api-blue)
 
 ![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-pink)
 
 ![database Mysql](https://img.shields.io/badge/database-Mysql-green)
 ![database Mysql](https://img.shields.io/badge/database-SQL-green)
 ![database Mysql](https://img.shields.io/badge/database-MongoDB-green)
+![database IndexDB](https://img.shields.io/badge/database-IndexDB-green)
 
 ![C C#](https://img.shields.io/badge/Native-C-red)
 ![Native Java](https://img.shields.io/badge/Native-Java-red)
@@ -44,6 +47,8 @@ Here are some ideas to get you started:
 ![HyperText XML](https://img.shields.io/badge/HyperText-XML-orange)
 ![HyperText Bootstrap](https://img.shields.io/badge/HyperText-Bootstrap-orange)
 ![HyperText Foundation](https://img.shields.io/badge/HyperText-Foundation-orange)
+![HyperText JSON](https://img.shields.io/badge/HyperText-JSON-orange)
+![HyperText YAML](https://img.shields.io/badge/HyperText-YAML-orange)
 
 ![CMS WordPress](https://img.shields.io/badge/CMS-WordPress-grey)
 ![CMS PrestaShop](https://img.shields.io/badge/CMS-PrestaShop-grey)
