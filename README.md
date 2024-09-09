@@ -14,8 +14,11 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-
-![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/logo-INP.png)
+markdown
+   ---
+   # Isaacnavajaspozo
+   ---
+![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/logo.png)
 
 ![Javascript JQuery](https://img.shields.io/badge/JavaScript-JQuery-yellow)
 ![Javascript Node](https://img.shields.io/badge/JavaScript-Node-yellow)
@@ -49,7 +52,6 @@ Here are some ideas to get you started:
   gh repo clone isaacnavajaspozo/Pinkragon-php
 
 ```
-
 
 ## ⛩️ Libraries
 `API_KEY`, `ANOTHER_API_KEY`
