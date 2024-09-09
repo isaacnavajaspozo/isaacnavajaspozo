@@ -47,11 +47,9 @@ Here are some ideas to get you started:
 ## 👺 Download Pinkragon (Framework PHP)
 ```bash
   gh repo clone isaacnavajaspozo/Pinkragon-php
+
 ```
 
 
 ## ⛩️ Libraries
-Javascript, HTML, CSS...
-`API_KEY`
-
-`ANOTHER_API_KEY`
+`API_KEY`, `ANOTHER_API_KEY`
