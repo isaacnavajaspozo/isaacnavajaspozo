@@ -62,7 +62,7 @@ Here are some ideas to get you started:
 [![Server Cacti](https://img.shields.io/badge/Server-Cacti-18c2c3)](https://webflow.com/)
 [![Server IPTables](https://img.shields.io/badge/Server-IPTables-18c2c3)](https://webflow.com/)
 [![Server Mikrotik](https://img.shields.io/badge/Server-Mikrotik-18c2c3)](https://webflow.com/)
-[![Server Mikrotik](https://img.shields.io/badge/Server-Mikrotik-18c2c3)](https://webflow.com/)
+[![Server Proxmox](https://img.shields.io/badge/Server-Proxmox-18c2c3)](https://webflow.com/)
 [![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-18c2c3)](https://webflow.com/)
 [![Server xfs](https://img.shields.io/badge/Server-xfs-18c2c3)](https://webflow.com/)
 
