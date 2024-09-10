@@ -66,10 +66,10 @@ Here are some ideas to get you started:
 [![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-18c2c3)]([https://webflow.com/](https://www.asterisk.org/))
 [![Server xfs](https://img.shields.io/badge/Server-xfs-18c2c3)](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
 
-[![Electronics PLCboard](https://img.shields.io/badge/Electronics-PLCboard-18c38d)](https://jlcpcb.com/)
-[![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-18c38d)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/))
-[![Electronics Raspberry](https://img.shields.io/badge/Electronics-Raspberry-18c38d)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.raspberrypi.com/))
-[![Electronics ESP32](https://img.shields.io/badge/Electronics-ESP32-18c38d)](https://www.espressif.com/en/products/socs/esp32)
+[![Electronics PLCboard](https://img.shields.io/badge/Electronics-PLCboard-000000)](https://jlcpcb.com/)
+[![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-000000)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/))
+[![Electronics Raspberry](https://img.shields.io/badge/Electronics-Raspberry-000000)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.raspberrypi.com/))
+[![Electronics ESP32](https://img.shields.io/badge/Electronics-ESP32-000000)](https://www.espressif.com/en/products/socs/esp32)
 
 ## ⚗️ Pinkragon (Framework PHP)
 
