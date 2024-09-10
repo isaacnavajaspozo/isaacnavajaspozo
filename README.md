@@ -55,6 +55,17 @@ Here are some ideas to get you started:
 [![CMS PrestaShop](https://img.shields.io/badge/CMS-PrestaShop-grey)](https://devdocs.prestashop-project.org/)
 [![CMS WebFlow](https://img.shields.io/badge/CMS-WebFlow-grey)](https://webflow.com/)
 
+[![Server Debian](https://img.shields.io/badge/Server-Debian-18c2c3)](https://webflow.com/)
+[![Server Kali](https://img.shields.io/badge/Server-Kali-18c2c3)](https://webflow.com/)
+[![Server Samba](https://img.shields.io/badge/Server-Samba-18c2c3)](https://webflow.com/)
+[![Server Nagios](https://img.shields.io/badge/Server-Nagios-18c2c3)](https://webflow.com/)
+[![Server Cacti](https://img.shields.io/badge/Server-Cacti-18c2c3)](https://webflow.com/)
+[![Server IPTables](https://img.shields.io/badge/Server-IPTables-18c2c3)](https://webflow.com/)
+[![Server Mikrotik](https://img.shields.io/badge/Server-Mikrotik-18c2c3)](https://webflow.com/)
+[![Server Mikrotik](https://img.shields.io/badge/Server-Mikrotik-18c2c3)](https://webflow.com/)
+[![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-18c2c3)](https://webflow.com/)
+[![Server xfs](https://img.shields.io/badge/Server-xfs-18c2c3)](https://webflow.com/)
+
 
 ## ⚗️ Pinkragon (Framework PHP)
 
