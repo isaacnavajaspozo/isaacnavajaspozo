@@ -61,6 +61,7 @@ Here are some ideas to get you started:
 [Go to Pinkragon repository](https://github.com/isaacnavajaspozo/Pinkragon-php)
 
 ```bash
+  # Download Pinkragon
   gh repo clone isaacnavajaspozo/Pinkragon-php
 
 ```
@@ -70,6 +71,7 @@ Here are some ideas to get you started:
 
 [Go to Libraries repository](https://github.com/isaacnavajaspozo/Libraries)
 ```bash
+  # Access Pinkragon and download the libraries into the appropriate folder.
   cd ./Pinkragon-PHP/App/Public/
   gh repo clone isaacnavajaspozo/Libraries
 ```
