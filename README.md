@@ -34,10 +34,10 @@ Here are some ideas to get you started:
 
 [![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-pink)](https://pinkragon.com/)
 
-[![Database Mysql](https://img.shields.io/badge/database-Mysql-green)](https://www.mysql.com/)
-[![Database Mysql](https://img.shields.io/badge/database-SQL-green)](https://www.iso.org/standard/76583.html)
-[![Database Mysql](https://img.shields.io/badge/database-MongoDB-green)](https://www.mongodb.com/es)
-[![Database IndexDB](https://img.shields.io/badge/database-IndexDB-green)](https://www.w3.org/TR/IndexedDB/)
+[![Database Mysql](https://img.shields.io/badge/Database-Mysql-green)](https://www.mysql.com/)
+[![Database Mysql](https://img.shields.io/badge/Database-SQL-green)](https://www.iso.org/standard/76583.html)
+[![Database Mysql](https://img.shields.io/badge/Database-MongoDB-green)](https://www.mongodb.com/es)
+[![Database IndexDB](https://img.shields.io/badge/Database-IndexDB-green)](https://www.w3.org/TR/IndexedDB/)
 
 [![C C#](https://img.shields.io/badge/Native-C-red)](https://www.iso.org/standard/74528.html)
 [![Native Java](https://img.shields.io/badge/Native-Java-red)](https://www.java.com/es/)
