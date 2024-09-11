@@ -1,4 +1,4 @@
-# CPU 👾
+# GPU tarjetas gráficas 👾
 Primero evaluo una GPU `AMD`
 ### RADEON RX 7800 XT
 
@@ -11,11 +11,11 @@ RADEON RX = Segmento de marca comercial
 
 
 7800 = Numeración del modelo de la GPU:
-| Segmento de numeración (7)              | Gama                                                                                   |
+| (7) - Segmento de numeración               | Gama                                                                                   |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 | 7                                    |     generación de la GPU, en este caso RDNA3             |      
 
-| Segmento de numeración (8)               | Gama                                                                                   |
+| (8) - Segmento de numeración                | Gama                                                                                   |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 | RX*500                                    |     gama más básica            |      
 | RX*600                                    |     gama intermedia             |      
@@ -23,7 +23,7 @@ RADEON RX = Segmento de marca comercial
 | RX*800                                    |    gama media-alta           |      
 | RX*900                                    |    gama ultra-extrema           |
 
-| Segmento de numeración (00)               | Gama                                                                                   |
+| (00) - Segmento de numeración                | Gama                                                                                   |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 | 00                                    |     gama normal            |      
 | 50                                    |     gama refinada y con poco Overclock             |      
