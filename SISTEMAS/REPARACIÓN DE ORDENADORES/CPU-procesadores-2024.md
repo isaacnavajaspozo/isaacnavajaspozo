@@ -1,4 +1,4 @@
-# CPU 👾
+# CPU - procesadores 👾
 Primero evaluo un procesador `AMD`
 ### RYZEN 7 1700 X
 
