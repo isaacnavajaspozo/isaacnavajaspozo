@@ -8,10 +8,10 @@ RYZEN = Segmento de marca comercial
 | `AMD RYZEN`                                    |     segmento de venta a domicilio            |      
 | `AMD RYZEN PRO`                                  |     segmento de venta para empresa          |  
 | `AMD RYZEN THREADRIPPER`                               |    segmento de venta para workstation      |  
-| `AMD ATHLON`                                  |     la gama más alta          |  
+| `AMD ATHLON`                                  |     la gama más sencilla         |  
 
 
-7 = Gama de potencia del procesador 
+7 = Gama de potencia del procesador:
 | Segmento de numeración               | Gama                                                                                   |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 | 3                                    |     baja             |      
@@ -19,14 +19,14 @@ RYZEN = Segmento de marca comercial
 | 7                                   |     alta            |  
 | 9                                   |     muy alta            |  
 
-1700 X=
+1700 X= Numeración del modelo (1700X):
 | Segmento de numeración               | Definición                                                                                    |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 | 1 (1.000)                                    |     generación (la 1.000 es la más antigua y la 7.000 es la más nueva)               |      
 | 7                                    |     preformance level (está enlazado a la gama del procesador en este caso RYZEN 7)              |  
 | 00                                    |     representa el modelo, asigna de fabrica qué puede operar             |  
 
-Última letra = 
+Última letra = Última letra del modelo:
 | Segmento de numeración               | Definición                                                                                    |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 |  `X`                                    |  multiplicador desbloqueado, se puede hacer Overclock             |  
@@ -35,6 +35,7 @@ RYZEN = Segmento de marca comercial
 |  `G`                                 | tarjeta gráfica integrada, compatible con gaming             |  
 |  `U`                               | versión para portátiles, eficiencia energética            |  
 |  `X3D`                                | caché para el procesador, (es el mejor para juegos o aplicaciones que utilicen mucho la caché)            |  
+
 
 
 
@@ -61,14 +62,14 @@ I7 = Gama de potencia del procesador
 | `INTEL CELERON`                                  |     para tareas muy ligeras y dispositivos de bajo costo          |  
  
 
-13900 =
+13900 = Numeración del modelo (1700X):
 | Segmento de numeración               | Definición                                                                                    |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 | 13                                    |     los primeros dos números indica la generación a la que pertenece               |      
 | 700                                    |     preformance level (está enlazado a la gama del procesador en este caso I7)              |  
 
 
-KS =
+KS = Última letra del modelo:
 | Segmento de numeración               | Definición                                                                                    |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 |  `KS`                                    |  multiplicador desbloqueado, se puede hacer Overclock             |  
