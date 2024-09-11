@@ -1,45 +1,76 @@
 # CPU 👾
-Primero evaluo un procesador `AMD`
-### RYZEN 7 1700 X
+Primero evaluo una GPU `AMD`
+### RADEON RX 7800 XT
 
-RYZEN = Segmento de marca comercial
+RADEON RX = Segmento de marca comercial
+
 | Segmento de numeración               | Uso estimado                                                                                   |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
-| `AMD RYZEN`                                    |     segmento de venta a domicilio            |      
-| `AMD RYZEN PRO`                                  |     segmento de venta para empresa          |  
-| `AMD RYZEN THREADRIPPER`                               |    segmento de venta para workstation      |  
-| `AMD ATHLON`                                  |     la gama más sencilla         |  
+| `AMD Radeon PRO`                                    |     perfectas para workstation            |      
+| `AMD Radeon RX`                                    |     grafica para gaming            |  
 
 
-7 = Gama de potencia del procesador:
-| Segmento de numeración               | Gama                                                                                   |
+7800 = Numeración del modelo de la GPU:
+| Segmento de numeración (7)              | Gama                                                                                   |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
-| 3                                    |     baja             |      
-| 5                                    |     media            |  
-| 7                                   |     alta            |  
-| 9                                   |     muy alta            |  
+| 7                                    |     generación de la GPU, en este caso RDNA3             |      
 
-1700 X= Numeración del modelo (1700X):
-| Segmento de numeración               | Definición                                                                                    |
+| Segmento de numeración (8)               | Gama                                                                                   |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
-| 1 (1.000)                                    |     generación (la 1.000 es la más antigua y la 7.000 es la más nueva)               |      
-| 7                                    |     preformance level (está enlazado a la gama del procesador en este caso RYZEN 7)              |  
-| 00                                    |     representa el modelo, asigna de fabrica qué puede operar             |  
+| RX*500                                    |     gama más básica            |      
+| RX*600                                    |     gama intermedia             |      
+| RX*700                                    |     gama media              |      
+| RX*800                                    |    gama media-alta           |      
+| RX*900                                    |    gama ultra-extrema           |
+
+| Segmento de numeración (00)               | Gama                                                                                   |
+|---------------------------------------|----------------------------------------------------------------------------------------------|
+| 00                                    |     gama normal            |      
+| 50                                    |     gama refinada y con poco Overclock             |      
 
 Última letra = Última letra del modelo:
 | Segmento de numeración               | Definición                                                                                    |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
-|  `X`                                    |  multiplicador desbloqueado, se puede hacer Overclock             |  
-|  `XT`                                   |  multiplicador desbloqueado, más potencia             |  
-|                                  |  cuando no tiene nada es un multiplicador desbloqueado, más barato             |  
-|  `G`                                 | tarjeta gráfica integrada, compatible con gaming             |  
+|                                  |  cuando no tiene nada es la gama más baja de ese modelo            |  
+|  `XT`                                   | versión estandar             |  
+|  `XTX`                                 | versión potente             |  
 |  `U`                               | versión para portátiles, eficiencia energética            |  
 |  `X3D`                                | caché para el procesador, (es el mejor para juegos o aplicaciones que utilicen mucho la caché)            |  
 
 
+Mirar las siguientes propiedades:
+
+`FSR` = Super resolution. Es una técnologia de reescalado de imagen y alarga la vida del producto
+
+`Radeon Rays` = Técnologia de trazado de rayos AMD. Tenemos qu eestar en la serie 6 (6.000) en adelante y sirve para luces sombras y reflejo de videojuegos.
+
+
+
+
+***
+
 
 
 Ahora evaluo un procesador `Intel`
+
+
+(he llegado hasta aqui gpu 8:55)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### INTEL CORE I7 - 13700 KS
 
 INTEL CORE = Segmento de marca comercial
