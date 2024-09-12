@@ -5,10 +5,11 @@ Primero evaluo un procesador `AMD`
 RYZEN = Segmento de marca comercial
 | Segmento de numeración               | Uso estimado                                                                                   |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
+| `AMD ATHLON`                                  |     la gama más sencilla         |  
 | `AMD RYZEN`                                    |     segmento de venta a domicilio            |      
 | `AMD RYZEN PRO`                                  |     segmento de venta para empresa          |  
 | `AMD RYZEN THREADRIPPER`                               |    segmento de venta para workstation      |  
-| `AMD ATHLON`                                  |     la gama más sencilla         |  
+
 
 
 7 = Gama de potencia del procesador:
