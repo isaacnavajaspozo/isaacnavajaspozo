@@ -30,6 +30,7 @@ Here are some ideas to get you started:
 [![PHP Laravel](https://img.shields.io/badge/PHP-Laravel-blue)](https://laravel.com/)
 [![PHP CodeIgniter](https://img.shields.io/badge/PHP-CodeIgniter-blue)](https://codeigniter.com/)
 [![PHP Sympony](https://img.shields.io/badge/PHP-Sympony-blue)](https://symfony.com/)
+[![PHP uFphp](https://img.shields.io/badge/PHP-uFphp-blue)](https://grafometal.es/)
 [![PHP api](https://img.shields.io/badge/PHP-api-blue)](https://www.php.net/manual/en/mysqlinfo.api.choosing.php)
 
 [![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-pink)](https://pinkragon.com/)
@@ -42,6 +43,7 @@ Here are some ideas to get you started:
 [![C C#](https://img.shields.io/badge/Native-C-red)](https://www.iso.org/standard/74528.html)
 [![Native Java](https://img.shields.io/badge/Native-Java-red)](https://www.java.com/es/)
 [![Native BashShell](https://img.shields.io/badge/Native-BashShell-red)](https://www.java.com/es/)
+[![Native MicroPython](https://img.shields.io/badge/Native-MicroPython-red)](https://www.java.com/es/)
 
 [![HyperText HTML](https://img.shields.io/badge/HyperText-HTML-orange)](https://www.w3.org/html/)
 [![HyperText CSS](https://img.shields.io/badge/HyperText-CSS-orange)](https://www.w3.org/Style/CSS/)
