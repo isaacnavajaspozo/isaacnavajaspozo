@@ -31,9 +31,8 @@ Here are some ideas to get you started:
 [![PHP CodeIgniter](https://img.shields.io/badge/PHP-CodeIgniter-blue)](https://codeigniter.com/)
 [![PHP Sympony](https://img.shields.io/badge/PHP-Sympony-blue)](https://symfony.com/)
 [![PHP uFphp](https://img.shields.io/badge/PHP-uFphp-blue)](https://grafometal.es/)
+[![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-blue)](https://pinkragon.com/)
 [![PHP api](https://img.shields.io/badge/PHP-api-blue)](https://www.php.net/manual/en/mysqlinfo.api.choosing.php)
-
-[![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-pink)](https://pinkragon.com/)
 
 [![Database Mysql](https://img.shields.io/badge/Database-Mysql-green)](https://www.mysql.com/)
 [![Database Mysql](https://img.shields.io/badge/Database-SQL-green)](https://www.iso.org/standard/76583.html)
@@ -43,7 +42,7 @@ Here are some ideas to get you started:
 [![C C#](https://img.shields.io/badge/Native-C-red)](https://www.iso.org/standard/74528.html)
 [![Native Java](https://img.shields.io/badge/Native-Java-red)](https://www.java.com/es/)
 [![Native BashShell](https://img.shields.io/badge/Native-BashShell-red)](https://www.java.com/es/)
-[![Native MicroPython](https://img.shields.io/badge/Native-MicroPython-red)](https://www.java.com/es/)
+[![Native MicroPython](https://img.shields.io/badge/Native-MicroPython-red)](https://micropython.org/)
 
 [![HyperText HTML](https://img.shields.io/badge/HyperText-HTML-orange)](https://www.w3.org/html/)
 [![HyperText CSS](https://img.shields.io/badge/HyperText-CSS-orange)](https://www.w3.org/Style/CSS/)
@@ -65,8 +64,11 @@ Here are some ideas to get you started:
 [![Server IPTables](https://img.shields.io/badge/Server-IPTables-18c2c3)](https://www.netfilter.org/projects/iptables/index.html)
 [![Server Mikrotik](https://img.shields.io/badge/Server-Mikrotik-18c2c3)](https://mikrotik.com/)
 [![Server Proxmox](https://img.shields.io/badge/Server-Proxmox-18c2c3)](https://www.proxmox.com/en/)
-[![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-18c2c3)]([https://webflow.com/](https://www.asterisk.org/))
-[![Server xfs](https://img.shields.io/badge/Server-xfs-18c2c3)](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
+[![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-18c2c3)](https://www.asterisk.org/)
+
+[![package ipTables](https://img.shields.io/badge/package-ipTables-pink)](https://www.netfilter.org/)
+[![package xfs](https://img.shields.io/badge/package-xfs-pink)](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
+[![package restic](https://img.shields.io/badge/package-restick-pink)](https://restic.net/)
 
 [![Electronics PLCboard](https://img.shields.io/badge/Electronics-PLCboard-000000)](https://jlcpcb.com/)
 [![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-000000)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/))
