@@ -18,6 +18,7 @@ Here are some ideas to get you started:
 ![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/logo.png)
 
 
+[![Javascript npm](https://img.shields.io/badge/JavaScript-npm/npx-yellow)](https://www.npmjs.com/)
 [![Javascript JQuery](https://img.shields.io/badge/JavaScript-JQuery-yellow)](https://jquery.com/)
 [![Javascript Node.js](https://img.shields.io/badge/JavaScript-Node.js-yellow)](https://nodejs.org/en)
 [![Javascript Express.js](https://img.shields.io/badge/JavaScript-Express.js-yellow)](https://expressjs.com/es/)
@@ -27,6 +28,7 @@ Here are some ideas to get you started:
 [![Javascript ECMAScript](https://img.shields.io/badge/JavaScript-ECMAScript-yellow)](https://ecma-international.org/)
 [![Javascript api](https://img.shields.io/badge/JavaScript-api-yellow)](https://www.javascript.com/)
 
+[![PHP Composer](https://img.shields.io/badge/PHP-Composer-blue)](https://getcomposer.org/)
 [![PHP Laravel](https://img.shields.io/badge/PHP-Laravel-blue)](https://laravel.com/)
 [![PHP CodeIgniter](https://img.shields.io/badge/PHP-CodeIgniter-blue)](https://codeigniter.com/)
 [![PHP Sympony](https://img.shields.io/badge/PHP-Sympony-blue)](https://symfony.com/)
@@ -69,6 +71,7 @@ Here are some ideas to get you started:
 [![package ipTables](https://img.shields.io/badge/package-ipTables-pink)](https://www.netfilter.org/)
 [![package xfs](https://img.shields.io/badge/package-xfs-pink)](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
 [![package restic](https://img.shields.io/badge/package-restick-pink)](https://restic.net/)
+
 
 [![Electronics PLCboard](https://img.shields.io/badge/Electronics-PLCboard-000000)](https://jlcpcb.com/)
 [![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-000000)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/))
