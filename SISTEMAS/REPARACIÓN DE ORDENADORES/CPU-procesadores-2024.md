@@ -9,6 +9,7 @@ RYZEN = Segmento de marca comercial
 | `AMD RYZEN`                                    |     segmento de venta a domicilio            |      
 | `AMD RYZEN PRO`                                  |     segmento de venta para empresa          |  
 | `AMD RYZEN THREADRIPPER`                               |    segmento de venta para workstation      |  
+| `AMD EPYC`                               |    para servidores y centros de datos      |  
 
 
 
@@ -19,11 +20,12 @@ RYZEN = Segmento de marca comercial
 | 5                                    |     media            |  
 | 7                                   |     alta            |  
 | 9                                   |     muy alta            |  
+| `AMD RYZEN THREADRIPPER`                               |    super gama alta     | 
 
 1700 X= Numeración del modelo (1700X):
 | Segmento de numeración               | Definición                                                                                    |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
-| 1 (1.000)                                    |     generación (la 1.000 es la más antigua y la 7.000 es la más nueva)               |      
+| 1 (1.000)       |  generación (la 1.000 es la más antigua "1º generación - 2.017" y la 7.000 es la más nueva) "5º generación - 2.022"   |  
 | 7                                    |     preformance level (está enlazado a la gama del procesador en este caso RYZEN 7)              |  
 | 00                                    |     representa el modelo, asigna de fabrica qué puede operar             |  
 
@@ -71,7 +73,7 @@ I7 = Gama de potencia del procesador
 13900 = Numeración del modelo (1700X):
 | Segmento de numeración               | Definición                                                                                    |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
-| 13                                    |     los primeros dos números indica la generación a la que pertenece               |      
+| 13 (13.000)  |     los primeros dos números indica la generación, (la 500 o 1.000 es la más antigua "1º generaión - 2.010" y la 13.000 es la más nueva "13º generación - 2.022")  |      
 | 700                                    |     preformance level (está enlazado a la gama del procesador en este caso I7)              |  
 
 
