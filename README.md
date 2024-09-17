@@ -59,19 +59,19 @@ Here are some ideas to get you started:
 [![CMS WebFlow](https://img.shields.io/badge/CMS-WebFlow-grey)](https://webflow.com/)
 
 [![Server Debian](https://img.shields.io/badge/Server-Debian-18c2c3)](https://www.debian.org/index.es.html)
-[![Server Kali](https://img.shields.io/badge/Server-Kali-18c2c3)](https://www.kali.org/)
-[![Server Samba](https://img.shields.io/badge/Server-Samba-18c2c3)](https://www.samba.org/)
-[![Server Nagios](https://img.shields.io/badge/Server-Nagios-18c2c3)](https://www.nagios.org/)
-[![Server Cacti](https://img.shields.io/badge/Server-Cacti-18c2c3)](https://www.cacti.net/)
-[![Server IPTables](https://img.shields.io/badge/Server-IPTables-18c2c3)](https://www.netfilter.org/projects/iptables/index.html)
+[![Server Kali Purple](https://img.shields.io/badge/Server-KaliPurple-18c2c3)](https://www.kali.org/blog/kali-linux-2023-1-release/)
+[![Server Ubuntu Server](https://img.shields.io/badge/Server-UbuntuServer-18c2c3)](https://www.kali.org/)
+[![Server Alpine]([https://img.shields.io/badge/Server-Alpine-18c2c3)](https://www.kali.org/](https://alpinelinux.org/))
 [![Server Mikrotik](https://img.shields.io/badge/Server-Mikrotik-18c2c3)](https://mikrotik.com/)
-[![Server Proxmox](https://img.shields.io/badge/Server-Proxmox-18c2c3)](https://www.proxmox.com/en/)
-[![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-18c2c3)](https://www.asterisk.org/)
 
-[![package ipTables](https://img.shields.io/badge/package-ipTables-pink)](https://www.netfilter.org/)
+[![package ipTables](https://img.shields.io/badge/package-ipTables-pink)]([https://www.netfilter.org/](https://www.netfilter.org/projects/iptables/index.html))
 [![package xfs](https://img.shields.io/badge/package-xfs-pink)](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
 [![package restic](https://img.shields.io/badge/package-restick-pink)](https://restic.net/)
-
+[![Server Proxmox](https://img.shields.io/badge/Server-Proxmox-pink)](https://www.proxmox.com/en/)
+[![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-pink)](https://www.asterisk.org/)
+[![Server Samba](https://img.shields.io/badge/Server-Samba-pink)](https://www.samba.org/)
+[![Server Nagios](https://img.shields.io/badge/Server-Nagios-pink)](https://www.nagios.org/)
+[![Server Cacti](https://img.shields.io/badge/Server-Cacti-pink)](https://www.cacti.net/)
 
 [![Electronics PLCboard](https://img.shields.io/badge/Electronics-PLCboard-000000)](https://jlcpcb.com/)
 [![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-000000)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/))
