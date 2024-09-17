@@ -63,11 +63,11 @@ Here are some ideas to get you started:
 [![Server Ubuntu Server](https://img.shields.io/badge/Server-UbuntuServer-18c2c3)](https://www.kali.org/)
 [![Server Alpine](https://img.shields.io/badge/Server-Alpine-18c2c3)](https://alpinelinux.org/)
 [![Server Mikrotik](https://img.shields.io/badge/Server-Mikrotik-18c2c3)](https://mikrotik.com/)
+[![Server Proxmox](https://img.shields.io/badge/Server-Proxmox-18c2c3)](https://www.proxmox.com/en/)
 
 [![package ipTables](https://img.shields.io/badge/package-ipTables-pink)]([https://www.netfilter.org/](https://www.netfilter.org/projects/iptables/index.html))
 [![package xfs](https://img.shields.io/badge/package-xfs-pink)](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
 [![package restic](https://img.shields.io/badge/package-restick-pink)](https://restic.net/)
-[![Server Proxmox](https://img.shields.io/badge/Server-Proxmox-pink)](https://www.proxmox.com/en/)
 [![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-pink)](https://www.asterisk.org/)
 [![Server Samba](https://img.shields.io/badge/Server-Samba-pink)](https://www.samba.org/)
 [![Server Nagios](https://img.shields.io/badge/Server-Nagios-pink)](https://www.nagios.org/)
