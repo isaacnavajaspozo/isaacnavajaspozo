@@ -1,0 +1,29 @@
+{
+  "Blog-manuales": [
+    {
+      "nombre": "Documento 1",
+      "fecha": "2024-10-10",
+      "url": "https://ejemplo.com/documento1"
+    },
+    {
+      "nombre": "Documento 2",
+      "fecha": "2024-09-15",
+      "url": "https://ejemplo.com/documento2"
+    },
+    {
+      "nombre": "Documento 3",
+      "fecha": "2024-08-25",
+      "url": "https://ejemplo.com/documento3"
+    },
+    {
+      "nombre": "Documento 4",
+      "fecha": "2024-07-05",
+      "url": "https://ejemplo.com/documento4"
+    },
+    {
+      "nombre": "Documento 5",
+      "fecha": "2024-06-30",
+      "url": "https://ejemplo.com/documento5"
+    }
+  ]
+}
