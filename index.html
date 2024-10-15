@@ -39,11 +39,11 @@
 
         /* Estilos personalizados para que la tabla mantenga el ancho sin thead */
         table.dataTable {
-            width: 100% !important; /* Asegura que mantenga el ancho completo */
+            width: 100% !important; 
         }
         table.dataTable th,
         table.dataTable td {
-            border: none !important; /* Elimina bordes */
+            border: none !important; 
         }
         /* Ocultar el encabezado de la tabla pero mantener el espacio */
         thead {
@@ -61,7 +61,7 @@
         }
 
         table.dataTable.no-footer {
-            border-bottom: none !important; /* Elimina el borde inferior de la tabla */
+            border-bottom: none !important;
         }
 
         td{
@@ -74,20 +74,20 @@
             text-decoration: none;
         }
 
-        td a:hover{color:#fff100 !important; ;}
+        td a:hover{color:#fff100 !important;}
 
 
 
 
-
+/* imagenes principales*/
         img {
-            display: block; /* Asegura que las imágenes se muestren en bloque */
-            margin: 0 auto; /* Centra las imágenes */
-            max-width: 100%; /* Se adapta al tamaño del contenedor */
+            display: block;
+            margin: 0 auto; 
+            max-width: 100%;
         }
 
         .imagen1 {
-            border-radius: 100% !important; /* Hace que la imagen sea circular */
+            border-radius: 100% !important; 
             width: 200px;
         }
 
@@ -97,35 +97,35 @@
         }
 
         .line {
-            width: 2px; /* Grosor de la línea */
-            height: 120px; /* Altura de la línea (ajusta según tus necesidades) */
-            background-color: #8e8e8e; /* Color de la línea */
-            margin: 0 5px; /* Espaciado alrededor de la línea */
+            width: 2px; 
+            height: 120px; 
+            background-color: #8e8e8e; 
+            margin: 0 5px;
         }
 
         header {
-            padding: 20px 0; /* Espaciado en la parte superior e inferior del encabezado */
+            padding: 20px 0; 
         }
 
         .text-white {
-            color: #ffffff; /* Asegúrate de que el texto sea blanco */
+            color: #ffffff;
         }
 
     
-
+/*tarjetas*/
         .card {
             background-color: #1e1e1e30;
             position: relative;
-            overflow: hidden; /* Para ocultar la superposición */
+            overflow: hidden; 
             height: 350px;
         }
 
         .card img {
-            transition: filter 0.5s ease; /* Transición suave para el efecto de difuminado */
+            transition: filter 0.5s ease; 
         }
 
         .card:hover img {
-            filter: blur(5px); /* Aplica difuminado a la imagen al hacer hover */
+            filter: blur(5px); 
         }
 
         .overlay {
@@ -134,19 +134,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #00000046; /* Fondo negro con opacidad */
+            background-color: #00000046; 
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.5rem;
-            opacity: 0; /* Inicialmente oculto */
-            transition: opacity 0.5s ease; /* Transición suave para la aparición del texto */
+            opacity: 0; 
+            transition: opacity 0.5s ease;
         }
 
         .card:hover .overlay {
             opacity: 1; /* Muestra el texto al hacer hover */
         }
+
 
     </style>
 </head>
@@ -177,45 +178,43 @@
         </header>
 
 
-<div class="row align-items-center mb-5 g-3">
+<div class="row align-items-center pb-4 g-3">
     <div class="col-4">
         <div class="card p-5">
-            <a href="google.es">
+            <a href="https://github.com/isaacnavajaspozo/pnkd-php" target="_blank">
             <div class="card-body">
                 <img src="./WEB/Pnkd.png" class="w-50">
-                <div class="overlay">Framwork php</div> <!-- Texto del primer proyecto -->
+                <strong class="overlay p-5 text-center">Framework php</strong> 
             </div>
         </a>
         </div>
     </div>
     <div class="col-4">
         <div class="card p-5">
-            <a href="google.es">
+            <a href="google.es" target="_blank">
             <div class="card-body">
-                <img src="./WEB/Pnkd.png" class="w-50">
-                <div class="overlay">Framwork WordPress</div> <!-- Texto del segundo proyecto -->
+                <img src="./WEB/otro.png" class="w-50">
+                <strong class="overlay p-5 text-center">Framework WordPress</strong>
             </div>
         </a>
         </div>
     </div>
     <div class="col-4">
         <div class="card p-5"> 
-            <a href="google.es">
             <div class="card-body">
                 <img src="./WEB/LogoBlog.png" class="w-50">
-                <div class="overlay">Manuales blog</div> 
+                <strong class="overlay p-5 text-center">Asesor en "Comput -9"</strong> 
+                <!-- Al darle clic en este que se vea una tabla con las empresas  -->
             </div>
-        </a>
         </div>
     </div>
 </div>
 
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- aqui meter un bloque texto como el que tenia en computkey con  precio borrado  -->
 
+<br>
         
-    <!-- Contenido principal -->
-
+    <!-- Tabla  -->
         <table id="documentos" class="table">
             <tbody>
                 <!-- Los datos se llenarán dinámicamente -->
@@ -223,6 +222,11 @@
         </table>
 
         <br><br><br><br><br><br><br>
+
+        <footer class="text-center pb-4">
+            <img src="./WEB/LogoBlog.png" style="width: 70px;" class="pb-4">
+            <p class="text-center pb-4">Desarrollado por Isaac Navajas Pozo</p>
+        </footer>
 
 
 </div>
@@ -263,14 +267,14 @@
                 ],
                 language: {
                     search: "",
-                    zeroRecords: "No se encontraron documentos"
+                    zeroRecords: "No se encontró el documento esperado."
                 },
                 // Mantener las columnas con su ancho original, sin encabezado
                 columnDefs: [
                     { targets: [0, 1], visible: true }
                 ],
                 // Aplicar estilos de Bootstrap solo al buscador
-                dom: '<"row"<"col-sm-12 text-start"f>>t',
+                dom: '<"row"<"col-sm-12 text-start pt-5"f>>t',
 
 initComplete: function() {
     // Ajustar el ancho del buscador
