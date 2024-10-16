@@ -12,10 +12,16 @@
 
   "Blog-trabajos": [
     {
-      "trabajo": "Montaje de ordenador"
+      "trabajo": "Montaje de ordenador software/hadware para pequeña pyme."
     },
     {
-      "trabajo": "Montaje de ordenadores"
+      "trabajo": "Asesoramiento y ayuda de web para eventos, excursiones y piragüismo."
+    },
+    {
+      "trabajo": "Asesoramiento y ayuda de web en php, para tienda de ropa urbana."
+    },    
+    {
+      "trabajo": "Asesoramiento y ayuda en instalación de servidores Linux en empresa de construcción."
     }
   ],
 

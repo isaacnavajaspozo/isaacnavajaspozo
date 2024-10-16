@@ -177,6 +177,11 @@
             font-size: 12px;
         }
 
+        #trabajos-list{
+            font-size: 12px;
+            line-height: 9px;
+        }
+
 
     </style>
 </head>
@@ -236,7 +241,7 @@
                  Al darle clic en este que se vea una tabla con las empresas  -->
                  <p>Versión framework PHP (pnkd): <span id="pnkd-version"></span></p>
                  <p>Versión tema WordPress (Fukiya): <span id="fukiya-version"></span></p>
-                 <h6 >Trabajos Realizados</h6>
+                 <h6 style="padding: 9px 0px; color:#8e8e8e !important;">Trabajos Realizados</h6>
                 <div id="trabajos-list" class="text-white"></div> <!-- Contenedor para trabajos -->
             </div>
         </div>
@@ -274,16 +279,15 @@
     <script>
         $(document).ready(function() {
             // URL del JSON
-            const urlDocumentos = 'https://raw.githubusercontent.com/isaacnavajaspozo/isaacnavajaspozo/main/Blog-manuales.json';
-            const urlTrabajos = './datos.json'; // Cambia esta URL a la ubicación correcta de tu JSON de trabajos.
-
+            const urlJson = 'https://raw.githubusercontent.com/isaacnavajaspozo/isaacnavajaspozo/main/Blog-manuales.json';
+    
             // Inicializar DataTable para documentos
             $('#documentos').DataTable({
                 paging: false,
                 searching: true,
                 info: false,
                 ajax: {
-                    url: urlDocumentos,
+                    url: urlJson,
                     dataSrc: 'Blog-manuales'
                 },
                 columns: [
@@ -312,29 +316,38 @@
                     $('div.dataTables_filter input').css({'width': '300px'});
                 }
             });
-
+    
             // Cargar versiones del JSON de documentos y actualizar el HTML
-            $.getJSON(urlDocumentos, function(data) {
-                data['Blog-versiones'].forEach(function(item) {
-                    if (item.nombre === "Pnkd") {
-                        $('#pnkd-version').text(item.version); // Añadir versión de pnkd
-                    } else if (item.nombre === "Fukiya") {
-                        $('#fukiya-version').text(item.version); // Añadir versión de Fukiya
-                    }
+            $.getJSON(urlJson)
+                .done(function(data) {
+                    data['Blog-versiones'].forEach(function(item) {
+                        if (item.nombre === "Pnkd") {
+                            $('#pnkd-version').text(item.version); // Añadir versión de pnkd
+                        } else if (item.nombre === "Fukiya") {
+                            $('#fukiya-version').text(item.version); // Añadir versión de Fukiya
+                        }
+                    });
+                })
+                .fail(function(jqxhr, textStatus, error) {
+                    console.error("Error en la carga del JSON de documentos:", textStatus, error);
                 });
-            });
-
+    
             // Cargar datos de trabajos del JSON
-            $.getJSON(urlTrabajos, function(data) {
-                // Cargar trabajos y actualizar el HTML
-                let trabajosHtml = ''; // Variable para almacenar el HTML de los trabajos
-                data['Blog-trabajos'].forEach(function(item) {
-                    trabajosHtml += `<p>${item.trabajo}</p>`; // Crear un párrafo por cada trabajo
+            $.getJSON(urlJson)
+                .done(function(data) {
+                    let trabajosHtml = ''; // Variable para almacenar el HTML de los trabajos
+                    data['Blog-trabajos'].forEach(function(item) {
+                        trabajosHtml += `<p>${item.trabajo}</p>`; // Crear un párrafo por cada trabajo
+                    });
+                    $('#trabajos-list').html(trabajosHtml); // Inyectar el HTML en el contenedor
+                    console.log(trabajosHtml);
+                })
+                .fail(function(jqxhr, textStatus, error) {
+                    console.error("Error en la carga del JSON de trabajos:", textStatus, error);
                 });
-                $('#trabajos-list').html(trabajosHtml); // Inyectar el HTML en el contenedor
-            });
         });
     </script>
+    
     
 </body>
 </html>
