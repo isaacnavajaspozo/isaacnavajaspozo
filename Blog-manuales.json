@@ -1,20 +1,20 @@
 {
   "Blog-versiones": [
     {
-      "nombre": "Documento 1",
-      "version": "2024-10-10"
+      "nombre": "Pnkd",
+      "version": "1.0.2"
     },
     {
       "nombre": "Fukiya",
-      "version": "2024-09-15"
+      "version": "1.0.0"
     }
   ],
 
   "Blog-manuales": [
     {
-      "nombre": "Documento 1",
+      "nombre": "LAMP · LINUX [php, mariadb, apache]",
       "fecha": "2024-10-10",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/prueba.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/LAMP.txt"
     },
     {
       "nombre": "Documento 2",
