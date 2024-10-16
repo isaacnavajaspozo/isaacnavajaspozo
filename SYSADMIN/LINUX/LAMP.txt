@@ -13,8 +13,10 @@ lc-messages-dir         = /usr/share/mysql
 lc-messages             = en_US
 skip-external-locking
 
-#bind-address            = 127.0.0.1
+# dejar comentado el bind si quiero consultas fuera de localhost
+# bind-address            = 127.0.0.1
 
+# tenemos que agregar el mismo character que tiene nuestra db
 collation-server=utf8mb4_spanish_ci
 
 # ===================== 3 =====================
@@ -24,13 +26,16 @@ a2ensite default-ssl
 a2enmod cgi cgid rewrite
 a2enmod headers
 
-# Reiniciamos apache
-systemctl reload apache2
-systemctl restart mysql
-
 # Configuracion minima para mysql (buenas prácticas de mysql)
 mysql_secure_installation
 
 current password: *********
 all yes
 
+# Reiniciamos apache
+systemctl reload apache2
+systemctl restart mysql
+
+# inicia automáticamente cada vez que el sistema arranque
+# systemctl enable apache2
+# systemctl enable mysql

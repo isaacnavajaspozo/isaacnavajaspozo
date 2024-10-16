@@ -10,10 +10,19 @@
     }
   ],
 
+  "Blog-trabajos": [
+    {
+      "trabajo": "Montaje de ordenador"
+    },
+    {
+      "trabajo": "Montaje de ordenadores"
+    }
+  ],
+
   "Blog-manuales": [
     {
       "nombre": "LAMP · LINUX [php, mariadb, apache]",
-      "fecha": "2024-10-10",
+      "fecha": "2024-10-16",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/LAMP.txt"
     },
     {
