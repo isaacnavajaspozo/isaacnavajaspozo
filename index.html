@@ -179,7 +179,10 @@
 
         #trabajos-list{
             font-size: 12px;
-            line-height: 9px;
+            line-height: 18px;
+        }
+        #trabajos-list p{
+            margin-bottom: 5px;
         }
 
 
@@ -241,7 +244,7 @@
                  Al darle clic en este que se vea una tabla con las empresas  -->
                  <p>Versión framework PHP (pnkd): <span id="pnkd-version"></span></p>
                  <p>Versión tema WordPress (Fukiya): <span id="fukiya-version"></span></p>
-                 <h6 style="padding: 9px 0px; color:#8e8e8e !important;">Trabajos Realizados</h6>
+                 <h6 style="padding: 10px 0px 2px 0px; color:#8e8e8e !important;">Trabajos Realizados</h6>
                 <div id="trabajos-list" class="text-white"></div> <!-- Contenedor para trabajos -->
             </div>
         </div>
@@ -337,7 +340,7 @@
                 .done(function(data) {
                     let trabajosHtml = ''; // Variable para almacenar el HTML de los trabajos
                     data['Blog-trabajos'].forEach(function(item) {
-                        trabajosHtml += `<p>${item.trabajo}</p>`; // Crear un párrafo por cada trabajo
+                        trabajosHtml += `<p><span style="color:#fff100; ">/tmp$:</span> ${item.trabajo}</p>`; // Crear un párrafo por cada trabajo
                     });
                     $('#trabajos-list').html(trabajosHtml); // Inyectar el HTML en el contenedor
                     console.log(trabajosHtml);
