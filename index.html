@@ -109,6 +109,7 @@
 
         .text-white {
             color: #ffffff;
+            font-size:16px;
         }
 
     
@@ -210,7 +211,7 @@
     </div>
     <div class="col-4">
         <div class="card ">
-            <a href="google.es" target="_blank">
+            <a href="https://github.com/isaacnavajaspozo/Fukiya-WordPress-Theme" target="_blank">
             <div class="card-body card-center">
                 <img src="./WEB/otro.png" class="w-50">
                 <strong class="overlay p-5 text-center">Tema WordPress</strong>
@@ -218,14 +219,74 @@
         </a>
         </div>
     </div>
+
+    
+    <!--versiones de frameworks json-->
+    <script>
+        $(document).ready(function() {
+            // URL del JSON
+            const url = 'https://raw.githubusercontent.com/isaacnavajaspozo/isaacnavajaspozo/main/Blog-manuales.json';
+
+            // Inicializar DataTable
+            $('#documentos').DataTable({
+                paging: false,
+                searching: true,
+                info: false,
+                ajax: {
+                    url: url,
+                    dataSrc: 'Blog-manuales'
+                },
+                columns: [
+                    { 
+                        data: 'nombre',
+                        render: function(data, type, row) {
+                            return '<a href="' + row.url + '" target="_blank">' + data + '</a>';
+                        }
+                    },
+                    { 
+                        data: 'fecha',
+                        width: '80px',
+                        className: 'text-end'
+                    }
+                ],
+                language: {
+                    search: "",
+                    zeroRecords: "No se encontró el documento esperado."
+                },
+                columnDefs: [
+                    { targets: [0, 1], visible: true }
+                ],
+                dom: '<"row"<"col-sm-12 text-start pt-5"f>>t',
+                initComplete: function() {
+                    $('div.dataTables_filter input').css({
+                        'width': '300px'
+                    });
+                }
+            });
+
+            // Cargar versiones del JSON y actualizar el HTML
+            $.getJSON(url, function(data) {
+                // Recorrer los datos de versiones
+                data['Blog-versiones'].forEach(function(item) {
+                    if (item.nombre === "Documento 1") {
+                        $('#pnkd-version').text(item.version); // Añadir versión de pnkd
+                    } else if (item.nombre === "Fukiya") {
+                        $('#fukiya-version').text(item.version); // Añadir versión de Fukiya
+                    }
+                });
+            });
+        });
+    </script>
     <div class="col-4">
         <div class="card p-2 card-data"> 
             <div class="card-body text-card">
                 <!--<img src="./WEB/LogoBlog.png" class="w-50">
                 <strong class="overlay p-5 text-center">Asesor en "Comput -9"</strong> 
                  Al darle clic en este que se vea una tabla con las empresas  -->
-                 <p>Version framework php (pnkd): 1.0.1</p>
-                 <p>Version tema Wordpress (Fukiya): 2.1.1</p>
+                 <p>Version framework php (pnkd): (version de json pnkd)</p>
+                 <p>Version tema Wordpress (Fukiya):(version de json fukiya)</p>
+                 <p>Versión framework PHP (pnkd): <span id="pnkd-version"></span></p>
+                 <p>Versión tema WordPress (Fukiya): <span id="fukiya-version"></span></p>
                  <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
                 </p>
             </div>
