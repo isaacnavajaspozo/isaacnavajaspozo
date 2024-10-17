@@ -1,5 +1,5 @@
 # ===================== 1 =====================
-apt-get install apache2 libapache2-mod-php php php-mysql php-gmp php-intl php-gd php-snmp php-ldap php-mbstring php-simplexml php-xml mariadb-server mariadb-client
+apt-get install apache2 libapache2-mod-php php php-mysql php-gmp php-intl php-gd php-snmp php-ldap php-mbstring php-simplexml php-xml php-zip mariadb-server mariadb-client
 
 # ===================== 2 =====================
 vim /etc/mysql/mariadb.conf.d/50-server.cnf

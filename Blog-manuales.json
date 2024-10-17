@@ -12,44 +12,49 @@
 
   "Blog-trabajos": [
     {
-      "trabajo": "Montaje de ordenador software/hadware para pequeña pyme."
+      "trabajo": "Actualemnte trabajando en una versión nueva para Pnkd (framework php)."
     },
     {
-      "trabajo": "Asesoramiento y ayuda de web para eventos, excursiones y piragüismo."
+      "trabajo": "Actualemnte trabajando en una versión nueva para Fukiya (tema WordPress)."
     },
     {
-      "trabajo": "Asesoramiento y ayuda de web en php, para tienda de ropa urbana."
-    },    
+      "trabajo": "Actualemnte trabajando en una ESP32 que sirva como API para monitorización del hogar."
+    },
     {
-      "trabajo": "Asesoramiento y ayuda en instalación de servidores Linux en empresa de construcción."
+      "trabajo": "Actualemnte trabajando en un SP con Linux deñ hogar."
     }
   ],
 
   "Blog-manuales": [
     {
-      "nombre": "LAMP · LINUX [php, mariadb, apache]",
+      "nombre": "Documentación HTML · Lenguaje de marcado [html]",
+      "fecha": "2024-09-15",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/HTML/documentacion.txt"
+    },,
+    {
+      "nombre": "Instalación LAMP · LINUX [php, mariadb, apache]",
       "fecha": "2024-10-16",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/LAMP.txt"
     },
     {
-      "nombre": "Documento 2",
+      "nombre": "Instalación y gestión de XFS · LINUX [xfs]",
       "fecha": "2024-09-15",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/prueba.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/XFS/instalacion-y-gestion.txt"
     },
     {
-      "nombre": "Documento 3",
+      "nombre": "Documentación comandos Git· CLI [git]",
       "fecha": "2024-08-25",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/prueba.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/GIT/comandos.txt"
     },
     {
-      "nombre": "Documento 4",
+      "nombre": "Componentes de ordenador · HARDWARE [ ]",
       "fecha": "2024-07-05",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/prueba.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/REPARACIÓN%20DE%20ORDENADORES/componentes.txt"
     },
     {
-      "nombre": "Documento 5",
+      "nombre": "Instalación SAMBA con active directory · LINUX [samba]",
       "fecha": "2024-06-30",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/prueba.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/SAMBA/samba-con-active-directory.txt"
     }
   ]
 }
