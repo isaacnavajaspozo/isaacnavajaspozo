@@ -12,23 +12,23 @@
 
   "Blog-trabajos": [
     {
-      "trabajo": "Actualemnte trabajando en una versión nueva para Pnkd (framework php)."
+      "trabajo": "Nueva versión nueva para Pnkd (framework php)."
     },
     {
-      "trabajo": "Actualemnte trabajando en una versión nueva para Fukiya (tema WordPress)."
+      "trabajo": "Nueva  versión nueva para Fukiya (tema WordPress)."
     },
     {
-      "trabajo": "Actualemnte trabajando en una ESP32 que sirva como API para monitorización del hogar."
+      "trabajo": "ESP32 que sirva como API para monitorización del hogar."
     },
     {
-      "trabajo": "Actualemnte trabajando en un SP con Linux deñ hogar."
+      "trabajo": "SP (hogar) con Linux · Debian."
     }
   ],
 
   "Blog-manuales": [
     {
-      "nombre": "Documentación HTML · Lenguaje de marcado [html]",
-      "fecha": "2024-09-15",
+      "nombre": "Documentación básica de HTML y CSS · Lenguaje de marcado [html, css]",
+      "fecha": "2020-02-10",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/HTML/documentacion.txt"
     },
     {
