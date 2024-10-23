@@ -75,6 +75,11 @@
       "nombre": "Teoría SQL · LINUX [sql, mariadb]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/DB/sql-teoria.txt"
+    },
+    {
+      "nombre": "Kali linux - raspberry pi : instalación inicial solo consola · LINUX [bootstrapping]",
+      "fecha": "2024-10-23",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/KALI/instalacion.txt"
     }
   ]
 }

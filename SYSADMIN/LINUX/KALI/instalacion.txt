@@ -1,0 +1,37 @@
+# Cambiar idioma
+sudo loadkeys es
+
+# Cambiar teclado español
+sudo nano /etc/default/keyboard
+XKBLAYOUT="es"
+
+# instalar paquete de ifconfig
+sudo apt install net-tools
+
+# Desinstalar interfaz gráfica con tasksel
+sudo apt-get install tasksel
+sudo tasksel
+
+# Agregar Wifi
+sudo nano /etc/netplan/50-cloud-init.yaml
+
+    network:
+    version: 2
+    renderer: networkd
+    wifis:
+        wlan0:
+        dhcp4: false  # Desactiva DHCP
+        addresses:
+            - 192.168.1.10/24  # Dirección IP estática y máscara de red 
+        gateway4: 192.168.1.1  # Dirección IP de la puerta de enlace 
+        access-points:
+            "MiRedWifi": "nombre_red_wifi" 
+            password: "tu_contraseña_wifi"
+        nameservers:
+            addresses: [8.8.8.8, 8.8.4.4]  
+
+
+#Para aplicar los cambios de configuración y reiniciar el servicio
+sudo netplan apply
+sudo systemctl restart systemd-networkd
+
