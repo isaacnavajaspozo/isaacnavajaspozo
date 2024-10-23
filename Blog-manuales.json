@@ -57,9 +57,24 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/SAMBA/samba-con-active-directory.txt"
     },
     {
-      "nombre": "Evaluador equipo ganador NBA · PHP [script]",
+      "nombre": "Bt-33 - evaluador del equipo ganador NBA · PHP [script PHP]",
       "fecha": "2024-06-30",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/nba.php"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/nba.txt"
+    },
+    {
+      "nombre": "Visual studio code · VSC [extensiones, plugins]",
+      "fecha": "2024-10-23",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/visual-studio-code.txt"
+    },
+    {
+      "nombre": "Uso y ejemplos de crontab · LINUX [crontab]",
+      "fecha": "2024-10-23",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/CRONTAB/crontab.txt"
+    },
+    {
+      "nombre": "Teoría SQL · LINUX [sql, mariadb]",
+      "fecha": "2024-10-23",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/DB/sql-teoria.txt"
     }
   ]
 }

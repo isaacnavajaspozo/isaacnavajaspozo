@@ -1,0 +1,105 @@
+0 - Principios de db y diagramas de venn (explicacion de innodb etc)
+1 - sql básico DML(Data Manipulation Language), DDL (Data Definition Language), y DCL (Data Control Language). Además, está la TCL (Transaction Control Language)
+2 - sql en linux
+3 - 
+triggers 
+functions 
+Procedimientos(Stored Procedures)  
+Transacciones(Transactions) // en TCL
+Índices(Indexes) 
+Particionado-de-Tablas(Table Partitioning)  
+CTE(Common Table Expressions)
+ConsultasRecursivas
+Disparadoresdeeventos(Event Schedulers)
+Replicación de Base de Datos
+RestriccionesyLlaves Foráneas(Foreign Key Constraints)
+Tablas Temporales (Temporary Tables)
+
+4 - tipos de datos y como se utilizan en la db
+
+###############################################################
+
+DML
+SELECT: Recupera datos de una o más tablas.
+INSERT: Inserta nuevas filas (registros) en una tabla.
+UPDATE: Modifica datos existentes en una tabla.
+DELETE: Elimina filas de una tabla.
+MERGE: Combina registros en función de condiciones específicas (menos común, pero útil para combinar operaciones INSERT y UPDATE).
+CALL: Llama a un procedimiento almacenado (puede implicar manipulación de datos).
+
+DDL
+CREATE: Crea una nueva tabla, índice, vista u otro objeto en la base de datos.
+ALTER: Modifica una tabla o cualquier objeto de la base de datos, añadiendo o modificando columnas, cambiando restricciones, etc.
+DROP: Elimina una tabla, vista, índice, o cualquier otro objeto.
+TRUNCATE: Elimina todas las filas de una tabla (es más rápido que DELETE porque no registra cada eliminación individualmente).
+RENAME: Cambia el nombre de una tabla u objeto de la base de datos.
+
+DCL
+GRANT: Otorga permisos a un usuario para realizar ciertas acciones (como los que mencionamos en la pregunta anterior).
+REVOKE: Revoca (elimina) los permisos otorgados a un usuario.
+
+TCL
+BEGIN o START TRANSACTION: Marca el inicio de una transacción.
+COMMIT: Confirma una transacción, aplicando todos los cambios realizados.
+ROLLBACK: Revierte (deshace) todos los cambios realizados dentro de la transacción desde el BEGIN o START TRANSACTION.
+SAVEPOINT: Crea un punto dentro de una transacción al cual se puede volver si es necesario.
+RELEASE SAVEPOINT: Elimina un punto de guardado dentro de la transacción.
+SET TRANSACTION: Establece el aislamiento de la transacción.
+
+########################################################################################
+
+# AVANZADO
+Otras características avanzadas:
+Además de los tipos de comandos mencionados, hay características avanzadas en SQL que suelen utilizarse en bases de datos grandes y complejas:
+
+Índices: Mejoran el rendimiento de las consultas (especialmente SELECT) creando estructuras de búsqueda.
+
+sql
+CREATE INDEX idx_nombre ON empleados(nombre);
+Vistas: Son consultas almacenadas que actúan como tablas virtuales.
+
+sql
+CREATE VIEW vista_empleados_altos AS SELECT nombre, salario FROM empleados WHERE salario > 5000;
+Procedimientos almacenados: Bloques de código SQL que se almacenan y se pueden reutilizar.
+
+sql
+CREATE PROCEDURE aumentar_salario(IN emp_id INT, IN aumento DECIMAL(10,2))
+BEGIN
+    UPDATE empleados SET salario = salario + aumento WHERE id = emp_id;
+END;
+Funciones definidas por el usuario (UDFs): Son similares a los procedimientos almacenados, pero pueden devolver un valor y utilizarse dentro de consultas SQL.
+
+Triggers: Son procedimientos que se ejecutan automáticamente antes o después de operaciones DML (INSERT, UPDATE, DELETE).
+
+sql
+CREATE TRIGGER actualiza_log AFTER INSERT ON empleados
+FOR EACH ROW
+BEGIN
+    INSERT INTO log_empleados (empleado_id, accion) VALUES (NEW.id, 'Insertado');
+END;
+Particionamiento de tablas: Técnica utilizada para dividir grandes tablas en subtablas más pequeñas y manejables para mejorar el rendimiento.
+
+###########################################################################
+
+# tipos de datos más utilizados en php
+
+1. Numéricos
+int: Utilizado para almacenar números enteros. Ideal para identificadores (IDs), contadores y otros valores que no requieren decimales.
+tinyint: Para valores pequeños y binarios (0-255 sin signo), como banderas o estados.
+float y double: Para almacenar números con decimales. float es menos preciso y double ofrece mayor precisión.
+
+2. Cadenas de Texto
+varchar: Para almacenar cadenas de longitud variable. Se utiliza comúnmente para nombres, descripciones y otros textos cortos. La longitud puede ser de hasta 65,535 caracteres (en teoría), pero es recomendable limitarla según el uso.
+text: Para almacenar textos más largos (hasta 65,535 caracteres). Se utiliza para descripciones detalladas, contenido de artículos, etc.
+
+3. Fechas y Horas
+datetime: Para almacenar fechas y horas, útil para registrar cuándo se creó o actualizó un registro.
+date: Solo para almacenar la fecha (sin hora).
+time: Solo para almacenar la hora.
+
+4. Booleanos
+tinyint(1): A menudo se usa para representar valores booleanos (verdadero/falso) donde 0 es falso y 1 es verdadero.
+
+5. Otros Tipos
+enum: Para almacenar un valor de un conjunto definido de valores (por ejemplo, "activo", "inactivo").
+set: Para almacenar múltiples valores de un conjunto definido (por ejemplo, "rojo", "verde", "azul").

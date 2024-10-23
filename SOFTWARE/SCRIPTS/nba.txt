@@ -1,3 +1,6 @@
+# tengo que cambiar la extensión por .php
+# Ejecutar script por consola
+
 <?php
 // Función para leer entrada desde la consola
 function leerDesdeConsola($mensaje) {
