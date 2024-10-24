@@ -33,7 +33,7 @@ Here are some ideas to get you started:
 [![PHP CodeIgniter](https://img.shields.io/badge/PHP-CodeIgniter-blue)](https://codeigniter.com/)
 [![PHP Sympony](https://img.shields.io/badge/PHP-Sympony-blue)](https://symfony.com/)
 [![PHP uFphp](https://img.shields.io/badge/PHP-uFphp-blue)](https://grafometal.es/)
-[![PHP Pinkragon](https://img.shields.io/badge/PHP-Pinkragon-blue)](https://pinkragon.com/)
+[![PHP pnkd](https://img.shields.io/badge/PHP-pnkd-blue)](https://github.com/isaacnavajaspozo/pnkd-php)
 [![PHP api](https://img.shields.io/badge/PHP-api-blue)](https://www.php.net/manual/en/mysqlinfo.api.choosing.php)
 
 [![Database Mysql](https://img.shields.io/badge/Database-Mysql-green)](https://www.mysql.com/)
@@ -79,9 +79,9 @@ Here are some ideas to get you started:
 [![Electronics Raspberry](https://img.shields.io/badge/Electronics-Raspberry-000000)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.raspberrypi.com/))
 [![Electronics ESP32](https://img.shields.io/badge/Electronics-ESP32-000000)](https://www.espressif.com/en/products/socs/esp32)
 
-## ⚗️ Pinkragon (Framework PHP)
+## ⚗️ Pnkd (Framework PHP)
 
-[Go to Pinkragon repository](https://github.com/isaacnavajaspozo/Pinkragon-php)
+[Go to Pinkragon repository](https://github.com/isaacnavajaspozo/pnkd-php)
 
 ```bash
   # Download Pinkragon
