@@ -49,7 +49,7 @@
     {
       "nombre": "Componentes de ordenador · HARDWARE [hardware pc]",
       "fecha": "2024-07-05",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/REPARACION-0ORDENADORES/componentes.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/REPARACION-ORDENADORES/componentes.txt"
     },
     {
       "nombre": "Instalación SAMBA con active directory · LINUX [samba]",
@@ -79,7 +79,7 @@
     {
       "nombre": "Kali linux - raspberry pi : instalación inicial solo consola · LINUX [bootstrapping]",
       "fecha": "2024-10-23",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/KALI/instalacion.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/KALI/instalacion.txt"
     }
   ]
 }

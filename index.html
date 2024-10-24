@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1024">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Plantilla con DataTables y Bootstrap</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- DataTables CSS básico (sin Bootstrap) -->
     <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
 
@@ -17,55 +18,60 @@
 
         /*Títulos*/
         .poppins-semibold {
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-style: normal;
-        color:#ff0000;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            color: #ff0000;
         }
 
         /*Párrafo*/
         .poppins-regular {
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        color:#8e8e8e;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #8e8e8e;
         }
 
-        *{color:#8e8e8e;}
-        
-        body{
-            background-color:#121212;
+        * {
+            color: #8e8e8e;
+        }
+
+        body {
+            background-color: #121212;
         }
 
         /* Estilos personalizados para que la tabla mantenga el ancho sin thead */
         table.dataTable {
-            width: 100% !important; 
+            width: 100% !important;
         }
+
         table.dataTable th,
         table.dataTable td {
-            border: none !important; 
+            border: none !important;
         }
+
         /* Ocultar el encabezado de la tabla pero mantener el espacio */
         thead {
             display: none;
         }
 
-        #documentos_wrapper{
-            margin:auto;
+        #documentos_wrapper {
+            margin: auto;
             width: 70%;
         }
 
-        input[type="search"]{
+        input[type="search"] {
             margin-bottom: 30px;
-            color:white;
+            color: white;
             font-size: 12px;
         }
 
-        input[type="search"]:focus, input[type="search"]:focus-visible{
-            outline: none;             
-            box-shadow: none;          
-            border: 2px solid #fff100; 
-            color:yellow;
+        input[type="search"]:focus,
+        input[type="search"]:focus-visible {
+            outline: none;
+            box-shadow: none;
+            border: 2px solid #fff100;
+            color: yellow;
         }
 
 
@@ -73,71 +79,73 @@
             border-bottom: none !important;
         }
 
-        td{
-            background-color:#121212 !important; 
-            color:#8e8e8e !important; 
+        td {
+            background-color: #121212 !important;
+            color: #8e8e8e !important;
         }
 
-        td a{
-            color:#8e8e8e;
+        td a {
+            color: #8e8e8e;
             text-decoration: none;
         }
 
-        td a:hover{color:#fff100 !important;}
+        td a:hover {
+            color: #fff100 !important;
+        }
 
 
 
 
-/* imagenes principales*/
+        /* imagenes principales*/
         img {
             display: block;
-            margin: 0 auto; 
+            margin: 0 auto;
             max-width: 100%;
         }
 
         .imagen1 {
-            border-radius: 100% !important; 
+            border-radius: 100% !important;
             width: 200px;
         }
 
         .imagen2 {
             width: 170px;
-            margin-left:0px;
+            margin-left: 0px;
         }
 
         .line {
-            width: 2px; 
-            height: 120px; 
-            background-color: #8e8e8e; 
+            width: 2px;
+            height: 120px;
+            background-color: #8e8e8e;
             margin: 0 5px;
         }
 
         header {
-            padding: 20px 0; 
+            padding: 20px 0;
         }
 
         .text-white {
             color: #ffffff;
-            font-size:16px;
+            font-size: 16px;
         }
 
-    
-/*tarjetas*/
+
+        /*tarjetas*/
         .card {
             background-color: #1e1e1e30;
             position: relative;
-            overflow: hidden; 
+            overflow: hidden;
             height: 350px;
         }
 
         .card img {
-            transition: filter 0.5s ease; 
+            transition: filter 0.5s ease;
             display: block;
 
         }
 
         .card:hover img {
-            filter: blur(5px); 
+            filter: blur(5px);
         }
 
         .overlay {
@@ -146,115 +154,128 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #00000046; 
+            background-color: #00000046;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.5rem;
-            opacity: 0; 
+            opacity: 0;
             transition: opacity 0.5s ease;
         }
 
         .card:hover .overlay {
-            opacity: 1; /* Muestra el texto al hacer hover */
+            opacity: 1;
+            /* Muestra el texto al hacer hover */
         }
 
-        .card-data{
-            border: 2px solid #fff100; 
-            border-radius: 10px; 
+        .card-data {
+            border: 2px solid #fff100;
+            border-radius: 10px;
         }
 
-        .card-center{
-            display: flex !important;                /* Activar Flexbox */
-            flex-direction: column !important;       /* Colocar elementos en una columna */
-            justify-content: center !important;       /* Centrar verticalmente */
-            align-items: center !important;           /* Centrar horizontalmente */
-            height: 340px !important;                /* Ajusta esta altura según sea necesario */
+        .card-center {
+            display: flex !important;
+            /* Activar Flexbox */
+            flex-direction: column !important;
+            /* Colocar elementos en una columna */
+            justify-content: center !important;
+            /* Centrar verticalmente */
+            align-items: center !important;
+            /* Centrar horizontalmente */
+            height: 340px !important;
+            /* Ajusta esta altura según sea necesario */
         }
 
-        .text-card{
+        .text-card {
             font-size: 12px;
         }
 
-        #trabajos-list{
+        #trabajos-list {
             font-size: 12px;
             line-height: 20px;
         }
-        #trabajos-list p{
+
+        #trabajos-list p {
             margin-bottom: 7px;
         }
-
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Encabezado -->
         <header>
             <div class="row align-items-center mt-5 mb-5"> <!-- Alinea verticalmente el contenido en la fila -->
-                <div class="col-2"> 
+                <div class="col-2">
                     <img src="./WEB/Foto.jpeg" class="imagen1">
                 </div>
-                
+
                 <div class="col-auto"> <!-- Columna para la línea vertical -->
                     <div class="line"></div>
                 </div>
-                
-                <div class="col-2"> 
+
+                <div class="col-2">
                     <img src="./WEB/LogoBlog.png" class="imagen2">
                 </div>
 
-                <div class="col-7 ms-4"> 
+                <div class="col-7 ms-4">
                     <h1 class="poppins-semibold">Manuales</h1>
                     <p class="lead text-white">
-                        Este espacio está dedicado a ofrecer guías y recursos prácticos para la gestión de un laboratorio en un SP. Mi objetivo es hacer que la instalación y configuración del servidor, así como la administración de paquetes, servicios y redes, sean accesibles para todos. A lo largo de las guías, se abordarán temas esenciales y avanzados de la informática, incluyendo la optimización del rendimiento, la seguridad de la red y la automatización de tareas. Este proyecto busca democratizar el conocimiento técnico, detallando instrucciones que permitan a cualquier técnico reutilizar estos proyectos que he ido desarrollando en mi tiempo libre.
+                        Este espacio está dedicado a ofrecer guías y recursos prácticos para la gestión de un
+                        laboratorio en un SP. Mi objetivo es hacer que la instalación y configuración del servidor, así
+                        como la administración de paquetes, servicios y redes, sean accesibles para todos. A lo largo de
+                        las guías, se abordarán temas esenciales y avanzados de la informática, incluyendo la
+                        optimización del rendimiento, la seguridad de la red y la automatización de tareas. Este
+                        proyecto busca democratizar el conocimiento técnico, detallando instrucciones que permitan a
+                        cualquier técnico reutilizar estos proyectos que he ido desarrollando en mi tiempo libre.
                     </p>
                 </div>
             </div>
         </header>
 
 
-<div class="row align-items-center pb-4 g-3">
-    <div class="col-4">
-        <div class="card ">
-            <a href="https://github.com/isaacnavajaspozo/pnkd-php" target="_blank">
-            <div class="card-body card-center">
-                <img src="./WEB/Pnkd.png" class="w-50">
-                <strong class="overlay p-5 text-center">Framework php</strong> 
+        <div class="row align-items-center pb-4 g-3">
+            <div class="col-4">
+                <div class="card ">
+                    <a href="https://github.com/isaacnavajaspozo/pnkd-php" target="_blank">
+                        <div class="card-body card-center">
+                            <img src="./WEB/Pnkd.png" class="w-50">
+                            <strong class="overlay p-5 text-center">Framework php</strong>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </a>
-        </div>
-    </div>
-    <div class="col-4">
-        <div class="card ">
-            <a href="https://github.com/isaacnavajaspozo/Fukiya-WordPress-Theme" target="_blank">
-            <div class="card-body card-center">
-                <img src="./WEB/otro.png" class="w-50">
-                <strong class="overlay p-5 text-center">Tema WordPress</strong>
+            <div class="col-4">
+                <div class="card ">
+                    <a href="https://github.com/isaacnavajaspozo/Fukiya-WordPress-Theme" target="_blank">
+                        <div class="card-body card-center">
+                            <img src="./WEB/otro.png" class="w-50">
+                            <strong class="overlay p-5 text-center">Tema WordPress</strong>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </a>
-        </div>
-    </div>
-    <div class="col-4">
-        <div class="card p-2 card-data"> 
-            <div class="card-body text-card">
-                <!--<img src="./WEB/LogoBlog.png" class="w-50">
+            <div class="col-4">
+                <div class="card p-2 card-data">
+                    <div class="card-body text-card">
+                        <!--<img src="./WEB/LogoBlog.png" class="w-50">
                 <strong class="overlay p-5 text-center">Asesor en "Comput -9"</strong> 
                  Al darle clic en este que se vea una tabla con las empresas  -->
-                 <p>Versión framework PHP (pnkd): <span id="pnkd-version"></span></p>
-                 <p>Versión tema WordPress (Fukiya): <span id="fukiya-version"></span></p>
-                 <h6 style="padding: 10px 0px 2px 0px; color:#8e8e8e !important;">Trabajos Realizados</h6>
-                <div id="trabajos-list" class="text-white"></div> <!-- Contenedor para trabajos -->
+                        <p>Versión framework PHP (pnkd): <span id="pnkd-version"></span></p>
+                        <p>Versión tema WordPress (Fukiya): <span id="fukiya-version"></span></p>
+                        <h6 style="padding: 10px 0px 2px 0px; color:#8e8e8e !important;">Trabajos Realizados</h6>
+                        <div id="trabajos-list" class="text-white"></div> <!-- Contenedor para trabajos -->
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- aqui meter un bloque texto como el que tenia en computkey con  precio borrado  -->
+        <!-- aqui meter un bloque texto como el que tenia en computkey con  precio borrado  -->
 
-<br>
-        
-    <!-- Tabla  -->
+        <br>
+
+        <!-- Tabla  -->
         <table id="documentos" class="table">
             <tbody>
                 <!-- Los datos se llenarán dinámicamente -->
@@ -269,7 +290,7 @@
         </footer>
 
 
-</div>
+    </div>
     <!-- jQuery, Bootstrap JS and DataTables JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -279,10 +300,10 @@
 
     <!--peticion de json-->
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // URL del JSON
             const urlJson = 'https://raw.githubusercontent.com/isaacnavajaspozo/isaacnavajaspozo/main/Blog-manuales.json';
-    
+
             // Inicializar DataTable para documentos
             $('#documentos').DataTable({
                 paging: false,
@@ -293,13 +314,13 @@
                     dataSrc: 'Blog-manuales'
                 },
                 columns: [
-                    { 
+                    {
                         data: 'nombre',
-                        render: function(data, type, row) {
+                        render: function (data, type, row) {
                             return '<a href="' + row.url + '" target="_blank">' + data + '</a>';
                         }
                     },
-                    { 
+                    {
                         data: 'fecha',
                         width: '80px',
                         className: 'text-end'
@@ -313,16 +334,16 @@
                     { targets: [0, 1], visible: true }
                 ],
                 dom: '<"row"<"col-sm-12 text-start pt-5"f>>t',
-                initComplete: function() {
+                initComplete: function () {
                     $('div.dataTables_filter input').attr('placeholder', 'Descripción · O.S [paquete]');
-                    $('div.dataTables_filter input').css({'width': '300px'});
+                    $('div.dataTables_filter input').css({ 'width': '300px' });
                 }
             });
-    
+
             // Cargar versiones del JSON de documentos y actualizar el HTML
             $.getJSON(urlJson)
-                .done(function(data) {
-                    data['Blog-versiones'].forEach(function(item) {
+                .done(function (data) {
+                    data['Blog-versiones'].forEach(function (item) {
                         if (item.nombre === "Pnkd") {
                             $('#pnkd-version').text(item.version); // Añadir versión de pnkd
                         } else if (item.nombre === "Fukiya") {
@@ -330,26 +351,27 @@
                         }
                     });
                 })
-                .fail(function(jqxhr, textStatus, error) {
+                .fail(function (jqxhr, textStatus, error) {
                     console.error("Error en la carga del JSON de documentos:", textStatus, error);
                 });
-    
+
             // Cargar datos de trabajos del JSON
             $.getJSON(urlJson)
-                .done(function(data) {
+                .done(function (data) {
                     let trabajosHtml = ''; // Variable para almacenar el HTML de los trabajos
-                    data['Blog-trabajos'].forEach(function(item) {
+                    data['Blog-trabajos'].forEach(function (item) {
                         trabajosHtml += `<p><span style="color:#fff100; ">/tmp$:</span> ${item.trabajo}</p>`; // Crear un párrafo por cada trabajo
                     });
                     $('#trabajos-list').html(trabajosHtml); // Inyectar el HTML en el contenedor
                     console.log(trabajosHtml);
                 })
-                .fail(function(jqxhr, textStatus, error) {
+                .fail(function (jqxhr, textStatus, error) {
                     console.error("Error en la carga del JSON de trabajos:", textStatus, error);
                 });
         });
     </script>
-    
-    
+
+
 </body>
+
 </html>

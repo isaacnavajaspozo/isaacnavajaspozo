@@ -106,8 +106,8 @@ $PM31 = obtenerDato("[ ⛹🏾][#tiros-tres-puntos-anotdos] - Dato 3PM (ej:13.5)
 $PA31 = obtenerDato("[ ⛹🏾][#intentos-tiros-tres-puntos] - Dato 3PA (ej:37.0) :");
 $P31 = obtenerDato("[ ⛹🏾][#intentos-tiros-tres-puntos] - Dato 3P% (ej:37.0) :");
 $FT1 = obtenerDato("[ ⛹🏾][#porcentaje-tiros-libres] - Dato FT% (ej:71.3) :");
-$OREB1 = obtenerDato("[ ⛹🏾][#rebotes-ofensivos] - Dato OREB% (ej:12.0) :");
-$DREB1 = obtenerDato("[ ⛹🏾][#rebotes-defensivos] - Dato DREB% (ej:33.0) :");
+$OREB1 = obtenerDato("[ ⛹🏾][#rebotes-ofensivos] - Dato OREB (ej:12.0) :");
+$DREB1 = obtenerDato("[ ⛹🏾][#rebotes-defensivos] - Dato DREB (ej:33.0) :");
 $REB1 = obtenerDato("[ ⛹🏾][#rebotes-totales] - Dato REB (ej:33.0) :");
 $AST1 = obtenerDato("[ ⛹🏾][#asistencias] - Dato AST (ej:33.0) :");
 $TOV1 = obtenerDato("[ ⛹🏾][#pérdidas-balón] - Dato TOV (ej:33.0) :");
@@ -130,8 +130,8 @@ $PM32 = obtenerDato("[ ⛹️ ][#tiros-tres-puntos-anotdos] - Dato 3PM (ej:13.5)
 $PA32 = obtenerDato("[ ⛹️ ][#intentos-tiros-tres-puntos] - Dato 3PA (ej:37.0) :");
 $P32 = obtenerDato("[ ⛹️ ][#intentos-tiros-tres-puntos] - Dato 3P% (ej:37.0) :");
 $FT2 = obtenerDato("[ ⛹️ ][#porcentaje-tiros-libres] - Dato FT% (ej:71.3) :");
-$OREB2 = obtenerDato("[ ⛹️ ][#rebotes-ofensivos] - Dato OREB% (ej:12.0) :");
-$DREB2 = obtenerDato("[ ⛹️ ][#rebotes-defensivos] - Dato DREB% (ej:33.0) :");
+$OREB2 = obtenerDato("[ ⛹️ ][#rebotes-ofensivos] - Dato OREB (ej:12.0) :");
+$DREB2 = obtenerDato("[ ⛹️ ][#rebotes-defensivos] - Dato DREB (ej:33.0) :");
 $REB2 = obtenerDato("[ ⛹️ ][#rebotes-totales] - Dato REB (ej:33.0) :");
 $AST2 = obtenerDato("[ ⛹️ ][#asistencias] - Dato AST (ej:33.0) :");
 $TOV2 = obtenerDato("[ ⛹️ ][#pérdidas-balón] - Dato TOV (ej:33.0) :");
@@ -197,8 +197,8 @@ $EficienciaDefensiva1 = ($PuntosPermitidos1 * 100) / $FGA2;
 echo ucfirst($equipo1) . " - Eficiencia defensiva: " . number_format($EficienciaDefensiva1, 3) . " \n";
 
 // Ofensiva
-$posesiones1 = $FGA1 + 0.44 * $FT1 + $TOV1 - $OREB1;
-$EficienciaOfensiva1 = ($PTS1 / $posesiones1) * 100;
+$Posesiones1 = $FGA1 + 0.44 * $FT1 + $TOV1 - $OREB1;
+$EficienciaOfensiva1 = ($PTS1 / $Posesiones1) * 100;
 echo ucfirst($equipo1) . " - Eficiencia ofensiva: " . number_format($EficienciaOfensiva1, 3) . " \n";
 
 // perdidas de balón
@@ -222,8 +222,8 @@ $RebotesTotales1 = ($OREB1 + $DREB1) / $REB1;
 echo ucfirst($equipo1) . " - Rebotes totales: " . number_format($RebotesTotales1, 3) . " \n";
 
 // asistencias
-$asistencias1 = $AST1 / $TOV1;
-echo ucfirst($equipo1) . " - oportunidades de tiro (asistencias): " . number_format($asistencias1, 3) . " \n";
+$Asistencias1 = $AST1 / $TOV1;
+echo ucfirst($equipo1) . " - oportunidades de tiro (asistencias): " . number_format($Asistencias1, 3) . " \n";
 
 // predicción
 echo "\n";
@@ -254,8 +254,8 @@ $EficienciaDefensiva2 = ($PuntosPermitidos2 * 100) / $FGA1;
 echo ucfirst($equipo2) . " - Eficiencia defensiva: " . number_format($EficienciaDefensiva2, 3) . " \n";
 
 // Ofensiva
-$posesiones2 = $FGA2 + 0.44 * $FT2 + $TOV2 - $OREB2;
-$EficienciaOfensiva2 = ($PTS2 / $posesiones2) * 100;
+$Posesiones2 = $FGA2 + 0.44 * $FT2 + $TOV2 - $OREB2;
+$EficienciaOfensiva2 = ($PTS2 / $Posesiones2) * 100;
 echo ucfirst($equipo2) . " - Eficiencia ofensiva: " . number_format($EficienciaOfensiva2, 3) . " \n";
 
 // perdidas de balón
@@ -279,8 +279,8 @@ $RebotesTotales2 = ($OREB2 + $DREB2) / $REB2;
 echo ucfirst($equipo2) . " - Rebotes totales: " . number_format($RebotesTotales2, 3) . " \n";
 
 // asistencias
-$asistencias2 = $AST2 / $TOV2;
-echo ucfirst($equipo2) . " - oportunidades de tiro (asistencias): " . number_format($asistencias2, 3) . " \n";
+$Asistencias2 = $AST2 / $TOV2;
+echo ucfirst($equipo2) . " - oportunidades de tiro (asistencias): " . number_format($Asistencias2, 3) . " \n";
 
 // predicción
 echo "\n";
@@ -334,22 +334,31 @@ if (strtolower($preguntaSeguir) == "no") {
     //Química del equipo: -4 puntos si hay rumores de problemas internos.
 
 
-
-    $RendimientoOfensivo1 = $EficienciaOfensiva1 + ($Asistencias1 * $FactorAsistencias) + ($PorcentajeTriples1 * $FactorPorcentajeTriples);
-    $RendimientoDefensivo1 = $EficienciaDefensiva1 + ($RebotesTotales1 * $FactorRebotes) - ($PorcentajePérdidas1 * $FactorPérdidas);
-    $RendimientoOfensivo1 = $EficienciaOfensiva2 - $EficienciaDefensiva1;
-    $RendimientoDefensivo1 = $EficienciaOfensiva2 - $EficienciaDefensiva1;
+    $FactorPorcentajeTriples1 = ($PM31 / $PA31) * 100;
+    $FactorAsistencias1 = $AST1 / $TOV1;
+    $FactorPerdidas1 = $TOV1 / $GP1;
+    $FactorRebotes1 = $REB1 / $GP1;
+    $PorcentajePerdidas1 = ($TOV1 / ($FGA1 + 0.44 * $FT1 + $TOV1)) * 100;
+    $RendimientoOfensivo1 = $EficienciaOfensiva1 + ($Asistencias1 * $FactorAsistencias1) + ($PorcentajeTriples1 * $FactorPorcentajeTriples1);
+    $RendimientoDefensivo1 = $EficienciaDefensiva1 + ($RebotesTotales1 * $FactorRebotes1) - ($PorcentajePerdidas1 * $FactorPerdidas1);
+    $RendimientoOfensivo1 = ($PTS1 / $Posesiones1) * 100;
+    $RendimientoDefensivo1 = ($DREB1 / $GP1) - ($TOV1 / $GP1);
     $EficienciaGeneral1 = (($EficienciaOfensiva1 / $EficienciaDefensiva1) * $PromedioPTS1) * 100;
-    $IndiceTiro1 = ($PromedioPTS1 * (1 / $PorcentajeTriples1)) * 1000;
-    $ValorEquipo1 = $EficienciaGeneral1 + $IndiceTiro1 + ($RebotesTotales1 * $asistencias1);
+    $IndiceTiro1 = ($PromedioPTS1 * (2 / $PorcentajeTriples1)) * 1000;
+    $ValorEquipo1 = ($EficienciaGeneral1 + $IndiceTiro1 + ($RebotesTotales1 * $Asistencias1)) / 1.4;
 
-    $RendimientoOfensivo2 = $EficienciaOfensiva2 + ($Asistencias2 * $FactorAsistencias) + ($PorcentajeTriples2 * $FactorPorcentajeTriples);
-    $RendimientoDefensivo2 = $EficienciaDefensiva2 + ($RebotesTotales2 * $FactorRebotes) - ($PorcentajePérdidas2 * $FactorPérdidas);
-    $RendimientoOfensivo2 = $EficienciaOfensiva2 - $EficienciaDefensiva2;
-    $RendimientoDefensivo2 = $EficienciaOfensiva2 - $EficienciaDefensiva2;
+    $FactorPorcentajeTriples2 = ($PM32 / $PA32) * 100;
+    $FactorAsistencias2 = $AST2 / $TOV2;
+    $FactorPerdidas2 = $TOV2 / $GP2;
+    $FactorRebotes2 = $REB2 / $GP2;
+    $PorcentajePerdidas2 = ($TOV2 / ($FGA2 + 0.44 * $FT2 + $TOV2)) * 100;
+    $RendimientoOfensivo2 = $EficienciaOfensiva2 + ($Asistencias2 * $FactorAsistencias2) + ($PorcentajeTriples2 * $FactorPorcentajeTriples2);
+    $RendimientoDefensivo2 = $EficienciaDefensiva2 + ($RebotesTotales2 * $FactorRebotes2) - ($PorcentajePerdidas2 * $FactorPerdidas2);
+    $RendimientoOfensivo2 = ($PTS2 / $Posesiones2) * 100;
+    $RendimientoDefensivo2 = ($DREB2 / $GP2) - ($TOV2 / $GP2);
     $EficienciaGeneral2 = (($EficienciaOfensiva2 / $EficienciaDefensiva2) * $PromedioPTS2) * 100;
     $IndiceTiro2 = ($PromedioPTS2 * (2 / $PorcentajeTriples2)) * 1000;
-    $ValorEquipo2 = $EficienciaGeneral2 + $IndiceTiro2 + ($RebotesTotales2 * $asistencias2);
+    $ValorEquipo2 = ($EficienciaGeneral2 + $IndiceTiro2 + ($RebotesTotales2 * $Asistencias2)) / 1.4;
 
     // Generador de gráficos
     $equipo1Graf = [
@@ -357,7 +366,7 @@ if (strtolower($preguntaSeguir) == "no") {
         'ÍNDICE DE TIRO        ' => number_format($IndiceTiro1, 2, '.', ''),
         'VALOR TOTAL DEL EQUIPO' => number_format($ValorEquipo1, 2, '.', ''),
         'RENDIMIENTO OFENSIVO  ' => number_format($RendimientoOfensivo1, 2, '.', ''),
-        'RENDIMIENTO DEFENSIVO ' => number_format($RendimientoOfensivo1, 2, '.', ''),
+        'RENDIMIENTO DEFENSIVO ' => number_format($RendimientoDefensivo1, 2, '.', ''),
     ];
 
     // Datos del equipo 2
@@ -366,7 +375,7 @@ if (strtolower($preguntaSeguir) == "no") {
         'ÍNDICE DE TIRO        ' => number_format($IndiceTiro2, 2, '.', ''),
         'VALOR TOTAL DEL EQUIPO' => number_format($ValorEquipo2, 2, '.', ''),
         'RENDIMIENTO OFENSIVO  ' => number_format($RendimientoOfensivo2, 2, '.', ''),
-        'RENDIMIENTO DEFENSIVO ' => number_format($RendimientoOfensivo2, 2, '.', ''),
+        'RENDIMIENTO DEFENSIVO ' => number_format($RendimientoDefensivo2, 2, '.', ''),
     ];
 
     // Función para generar gráfico de barras
@@ -374,15 +383,25 @@ if (strtolower($preguntaSeguir) == "no") {
         echo "\n";
         echo "Gráfico para $equipo\n";
         echo str_repeat('=', 80) . "\n";
+
         foreach ($data as $producto => $valor) {
             if ($producto !== key($data)) {
                 echo str_repeat('-', 80) . "\n";
             }
-            $barra = str_repeat('█', $valor / 2);
+
+            // Verificar si $valor es un número y no es negativo
+            if (!is_numeric($valor) || $valor < 0) {
+                echo "$producto | Valor no válido: $valor\n"; // Mensaje de error
+                continue; // Salta al siguiente producto
+            }
+
+            $barra = str_repeat('█', $valor / 2); // Generar la barra
             echo "$producto | $barra $valor\n";
         }
+
         echo str_repeat('=', 80) . "\n";
     }
+
 
     // Mostrar gráficos para ambos equipos
     mostrarGraficoConsola(ucfirst($equipo1), $equipo1Graf);
@@ -400,6 +419,8 @@ echo "\n";
 $preguntaGuardar = obtenerDato("¿Quieres guardar las estadísticas de este partido? si/no\n");
 
 if (strtolower($preguntaGuardar) == "no") {
+    echo "\n";
+    echo "Saliendo de Bt-33...";
     exit();
 } else {
     echo "Generando archivo...\n";
@@ -453,7 +474,7 @@ if (strtolower($preguntaGuardar) == "no") {
     $contenido .= ucfirst($equipo1) . " - Porcentaje triples: " . number_format($PorcentajeTriples1, 3) . " \n";
     $contenido .= ucfirst($equipo1) . " - Porcentaje perdidas de balón: " . number_format($PorcentajeTriples1, 3) . " \n";
     $contenido .= ucfirst($equipo1) . " - Rebotes totales: " . number_format($RebotesTotales1, 3) . " \n";
-    $contenido .= ucfirst($equipo1) . " - oportunidades de tiro (asistencias): " . number_format($asistencias1, 3) . " \n";
+    $contenido .= ucfirst($equipo1) . " - oportunidades de tiro (asistencias): " . number_format($Asistencias1, 3) . " \n";
     $contenido .= "\n";
     $contenido .= "🤖[Bt-33]$: La predicción del equipo " . ucfirst($equipo1) . " es de :" . number_format($TotalPrediccion1) . "%\n";
     $contenido .= "\n";
@@ -467,7 +488,7 @@ if (strtolower($preguntaGuardar) == "no") {
     $contenido .= ucfirst($equipo2) . " - Porcentaje triples: " . number_format($PorcentajeTriples2, 3) . " \n";
     $contenido .= ucfirst($equipo2) . " - Porcentaje perdidas de balón: " . number_format($PorcentajeTriples2, 3) . " \n";
     $contenido .= ucfirst($equipo2) . " - Rebotes totales: " . number_format($RebotesTotales2, 3) . " \n";
-    $contenido .= ucfirst($equipo2) . " - oportunidades de tiro (asistencias): " . number_format($asistencias2, 3) . " \n";
+    $contenido .= ucfirst($equipo2) . " - oportunidades de tiro (asistencias): " . number_format($Asistencias2, 3) . " \n";
     $contenido .= "\n";
     $contenido .= "🤖[Bt-33]$: La predicción del equipo " . ucfirst($equipo2) . " es de :" . number_format($TotalPrediccion2) . "%\n";
     $contenido .= "\n";
@@ -511,6 +532,7 @@ if (strtolower($preguntaGuardar) == "no") {
         $contenidoLimpio = limpiarCodigoANSI($contenido);
         fwrite($handle, $contenidoLimpio);
         fclose($handle);
+        echo "\n";
         echo "Archivo creado.";
         echo "\n";
         echo "Archivo creado correctamente en la ruta: $path";
