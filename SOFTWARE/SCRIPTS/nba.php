@@ -41,6 +41,7 @@ $rojo = "\033[31m";
 $verde = "\033[32m";
 $amarillo = "\033[33m";
 $azul = "\033[34m";
+$rosa = "\033[38;2;255;85;255m";
 $reset = "\033[0m"; // Para resetear el color
 
 $stats = "https://www.nba.com/stats/teams/traditional?sort=PTS&dir=-1";
@@ -362,18 +363,18 @@ if (strtolower($preguntaSeguir) == "no") {
 
     // Generador de gráficos
     $equipo1Graf = [
+        'VALOR TOTAL DEL EQUIPO' => number_format($ValorEquipo1, 2, '.', ''),
         'EFICIENCIA EQUIPO     ' => number_format($EficienciaGeneral1, 2, '.', ''),
         'ÍNDICE DE TIRO        ' => number_format($IndiceTiro1, 2, '.', ''),
-        'VALOR TOTAL DEL EQUIPO' => number_format($ValorEquipo1, 2, '.', ''),
         'RENDIMIENTO OFENSIVO  ' => number_format($RendimientoOfensivo1, 2, '.', ''),
         'RENDIMIENTO DEFENSIVO ' => number_format($RendimientoDefensivo1, 2, '.', ''),
     ];
 
     // Datos del equipo 2
     $equipo2Graf = [
+        'VALOR TOTAL DEL EQUIPO' => number_format($ValorEquipo2, 2, '.', ''),
         'EFICIENCIA EQUIPO     ' => number_format($EficienciaGeneral2, 2, '.', ''),
         'ÍNDICE DE TIRO        ' => number_format($IndiceTiro2, 2, '.', ''),
-        'VALOR TOTAL DEL EQUIPO' => number_format($ValorEquipo2, 2, '.', ''),
         'RENDIMIENTO OFENSIVO  ' => number_format($RendimientoOfensivo2, 2, '.', ''),
         'RENDIMIENTO DEFENSIVO ' => number_format($RendimientoDefensivo2, 2, '.', ''),
     ];
@@ -406,7 +407,40 @@ if (strtolower($preguntaSeguir) == "no") {
     // Mostrar gráficos para ambos equipos
     mostrarGraficoConsola(ucfirst($equipo1), $equipo1Graf);
     mostrarGraficoConsola(ucfirst($equipo2), $equipo2Graf);
+    echo "\n";
+    echo "\n";
 
+    //mostrar gráfico de simulación del partido 
+
+    echo $rosa . "╔═════════════════════════════╗\n";
+    echo "║   SIMULACIÓN DEL PARTIDO    ║\n";
+    echo "╚═════════════════════════════╝\n" . $reset;
+    echo "\n";
+    $SimulacionEficienciaGeneral = ($EficienciaGeneral1 > $EficienciaGeneral2) ? ucfirst($equipo1) : ucfirst($equipo2);
+    $SimulacionValorEquipo = ($ValorEquipo1 > $ValorEquipo2) ? ucfirst($equipo1) : ucfirst($equipo2);
+    $SimulacionIndiceTiro = ($IndiceTiro1 > $IndiceTiro2) ? ucfirst($equipo1) : ucfirst($equipo2);
+    $SimulacionRendimientoOfensivo = ($RendimientoOfensivo1 > $RendimientoOfensivo2) ? ucfirst($equipo1) : ucfirst($equipo2);
+    $SimulacionRendimientoDefensivo = ($RendimientoDefensivo1 > $RendimientoDefensivo2) ? ucfirst($equipo1) : ucfirst($equipo2);
+
+    $SimulacionPosesiones = ($EficienciaOfensiva1 > $EficienciaOfensiva2) ? ucfirst($equipo1) : ucfirst($equipo2);
+    $SimulacionDefensiva = ($EficienciaDefensiva1 > $EficienciaDefensiva2) ? ucfirst($equipo1) : ucfirst($equipo2);
+    $SimulacioPartidoGanador = ($indicePotenciaEquipo1 > $indicePotenciaEquipo2) ? ucfirst($equipo1) : ucfirst($equipo2);
+    if (($IndiceTiro1 > $IndiceTiro2) && ($PorcentajeTriples1 > $PorcentajeTriples2)) {
+        $SimulacioTiro = ucfirst($equipo1);
+    } elseif (($IndiceTiro1 < $IndiceTiro2) && ($PorcentajeTriples1 < $PorcentajeTriples2)) {
+        $SimulacioTiro = ucfirst($equipo2);
+    } else {
+        $SimulacioTiro = "(🤖[Bt-33]$: No estoy seguro)";
+    }
+
+    $SimulacionPosesion = ($SimulacionPosesiones == $SimulacionRendimientoOfensivo) ? $SimulacionPosesiones : "(🤖[Bt-33]$: No estoy seguro)";
+    $SimulacionDefensa = ($SimulacionDefensiva == $SimulacionRendimientoDefensivo) ? $SimulacionDefensiva : "(🤖[Bt-33]$: No estoy seguro)";
+    $SimulacionGanarPartido = (($SimulacionEficienciaGeneral == $SimulacionValorEquipo) && ($SimulacioPartidoGanador == $SimulacionEficienciaGeneral)) ? $SimulacionEficienciaGeneral : "(🤖[Bt-33]$: No estoy seguro)";
+
+    echo $rosa . "El equipo que va a dominar el partido ofensivamente es " . $SimulacionPosesion . "\n";
+    echo $rosa . "El equipo que va a dominar el partido defensivamente es " . $SimulacionDefensa . "\n";
+    echo $rosa . "El equipo que va a dominar el tiro va a ser " . $SimulacioTiro . "\n";
+    echo $rosa . "El equipo que va a ganar el partido es " . $SimulacionGanarPartido . "\n" . $reset;
 }
 
 ############################################################################################################
