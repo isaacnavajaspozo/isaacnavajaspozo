@@ -58,7 +58,7 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/SAMBA/samba-con-active-directory.txt"
     },
     {
-      "nombre": "tK-0 - script de generador de tareas · PHP [script, PHP]",
+      "nombre": "🤖 tK-0 - script de generador de tareas · PHP [script, PHP]",
       "fecha": "2024-06-30",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/TAREAS-tK-0.txt"
     },
@@ -76,6 +76,16 @@
       "nombre": "Teoría SQL · LINUX [sql, mariadb]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/DB/sql-teoria.txt"
+    },
+    {
+      "nombre": "Teoría VIM · LINUX [vim]",
+      "fecha": "2024-10-23",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/VIM/general.txt"
+    },
+    {
+      "nombre": "Lista de enlaces spam services · URL [spam]",
+      "fecha": "2024-10-28",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/CORREO/enemys.txt"
     },
     {
       "nombre": "Kali linux - raspberry pi : instalación inicial solo consola · LINUX [bootstrapping]",

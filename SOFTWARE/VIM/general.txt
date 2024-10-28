@@ -1,0 +1,110 @@
+# instalacion 
+apt install vim
+
+vim nombre_del_archivo
+
+# Cerrar Vim
+Salir sin guardar: :q!
+Guardar y salir: :wq o :wq! o ZZ
+
+3. Modos básicos
+Modo normal: Para navegación y comandos (al abrir Vim).
+Modo de inserción: Para editar texto. Presiona i para insertar antes del cursor o a para insertar después.
+Modo de comandos: Para ejecutar comandos como guardar o salir. Presiona : en modo normal.
+
+4. Navegación básica
+Hacia arriba: k
+Hacia abajo: j
+Hacia la izquierda: h
+Hacia la derecha: l
+Saltar a la línea siguiente: G (última línea) o gg (primera línea).
+Buscar texto: /texto y presiona Enter. Usa n para siguiente y N para anterior.
+
+5. Edición de texto
+Eliminar: x (borrar carácter), dw (borrar palabra), dd (borrar línea).
+Copiar (yank): yy (copiar línea), y seguido de movimiento para copiar texto.
+Pegar: p (pegar después del cursor).
+
+6. Deshacer y rehacer
+Deshacer: u
+Rehacer: Ctrl + r
+
+7. Personalización
+Archivo de configuración: Edita ~/.vimrc para personalizar Vim.
+Ejemplo: activar la numeración de líneas:
+vim
+Copiar código
+set number
+
+8. Atajos y combinaciones
+Guardar: :w
+Buscar y reemplazar: :%s/viejo/nuevo/g
+Abrir múltiples archivos: vim archivo1 archivo2, navega con :n y :prev.
+
+9. Plugins (avanzado)
+Usa un gestor de plugins como Vim-Plug para agregar funcionalidades.
+Ejemplo de instalación:
+vim
+Copiar código
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+call plug#end()
+
+10. Recursos adicionales
+Tutorial interno: Ejecuta vimtutor en la terminal para un tutorial interactivo.
+
+
+########################################################
+
+# .vimrc
+vim ~/.vimrc
+
+# configuración archivo .vimrc
+=========================================================
+" Habilitar numeración de líneas
+set number
+
+" Resaltar la línea actual
+set cursorline
+
+" Habilitar el uso del mouse
+set mouse=a
+
+" Mantener el cursor centrado al desplazarse
+set scrolloff=8
+
+" Habilitar la búsqueda incremental
+set incsearch
+
+" Resaltar coincidencias de búsqueda
+set hlsearch
+
+" Ignorar mayúsculas y minúsculas en las búsquedas
+set ignorecase
+set smartcase
+
+" Usar espacios en lugar de tabulaciones
+set expandtab
+set tabstop=4       " Número de espacios para un tabulador
+set shiftwidth=4     " Número de espacios para el autoindentar
+
+" Habilitar el modo de autocompletar
+set wildmenu
+
+" Habilitar el plegado de texto
+set foldmethod=indent
+set foldlevel=99     " Plegar automáticamente
+
+" Configurar el tema de color
+syntax on            " Activar la sintaxis
+set background=dark  " Para temas oscuros
+colorscheme desert    " Cambiar el esquema de color (puedes cambiar "desert" por otros)
+
+" Mostrar la línea de estado
+set laststatus=2
+
+" Desactivar el sonido de campana
+set noerrorbells
+
+" Guardar el historial de comandos
+set history=1000

@@ -285,7 +285,6 @@
         <br><br><br><br><br><br><br>
 
         <footer class="text-center pb-4">
-            <img src="./WEB/LogoBlog.png" style="width: 120px;" class="pb-4">
             <p class="text-center pb-4">Desarrollado por Isaac Navajas Pozo</p>
         </footer>
 
@@ -361,6 +360,7 @@
                     let trabajosHtml = ''; // Variable para almacenar el HTML de los trabajos
                     data['Blog-trabajos'].forEach(function (item) {
                         trabajosHtml += `<p><span style="color:#fff100; ">/tmp$:</span> ${item.trabajo}</p>`; // Crear un párrafo por cada trabajo
+                        trabajosHtml += "Cargando [██████████░░░░░░░░░░░░░░░░] 75%";
                     });
                     $('#trabajos-list').html(trabajosHtml); // Inyectar el HTML en el contenedor
                     console.log(trabajosHtml);
