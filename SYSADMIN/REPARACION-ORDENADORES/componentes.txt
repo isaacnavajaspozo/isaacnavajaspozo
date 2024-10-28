@@ -141,7 +141,6 @@ RADEON RX = Segmento de marca comercial
 Otras propiedades importantes:
 
 `FSR` = Super resolution. Tecnología de reescalado de imagen, prolonga la vida útil del producto.
-
 `Radeon Rays` = Tecnología de trazado de rayos AMD, permite gráficos realistas de luces, sombras y reflejos en videojuegos. Requiere serie 6 (6.000) o superior.
 
 ---
@@ -181,15 +180,15 @@ HDD = Dispositivo de almacenamiento magnético tradicional.
 
 #### Clasificación de los HDD según su tipo y capacidad:
 | Tipo                    | Uso y características                                |
-|-------------------------|-----------------------------------------------------|
-| `HDD Interno`           | capacidad de 500GB a 10TB, instalado en la PC       |
-| `HDD Externo`           | portátil, se conecta vía USB, capacidad de hasta 8TB|
+|-------------------------|------------------------------------------------------|
+| `HDD Interno`           | capacidad de 500GB a 10TB, instalado en la PC        |
+| `HDD Externo`           | portátil, se conecta vía USB, capacidad de hasta 8TB |
 
 ---
 
 ### SSD (Unidad de Estado Sólido)
-| Tipo de almacenamiento | Uso estimado                                                                                         |
-|------------------------|------------------------------------------------------------------------------------------------------|
+| Tipo de almacenamiento | Uso estimado                                                                                                               |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | `SSD SATA`             | Almacenamiento rápido, adecuado para el sistema operativo y programas de uso frecuente. Se conecta mediante un cable SATA. |
 
 `SSD` significa `Solid State Drive`. Es una unidad de almacenamiento que no contiene partes móviles y, en lugar de discos giratorios, utiliza chips de memoria para guardar los datos.
@@ -203,8 +202,8 @@ HDD = Dispositivo de almacenamiento magnético tradicional.
 ---
 
 ### NVMe SSD (Unidad de Estado Sólido NVMe)
-| Tipo de almacenamiento | Uso estimado                                                                                             |
-|------------------------|----------------------------------------------------------------------------------------------------------|
+| Tipo de almacenamiento | Uso estimado                                                                                                                   |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | `NVMe SSD`             | Almacenamiento ultrarrápido, ideal para sistemas avanzados y aplicaciones que requieren alta velocidad de lectura y escritura. |
 
 `NVMe` significa `Non-Volatile Memory Express`. Estos SSD se conectan a través de un puerto PCIe, proporcionando velocidades muy superiores a las de los SSD SATA.
@@ -244,11 +243,11 @@ SSD = Dispositivo de almacenamiento sin partes móviles, basado en tecnología f
 
 ### Comparativa de velocidad y capacidad
 
-| Tipo         | Velocidad de lectura/escritura | Capacidad máxima     | Costo por GB                    |
-|--------------|---------------------------------|-----------------------|-------------------------------|
-| `HDD`        | 80-160 MB/s                     | Hasta 20 TB o más    | Bajo                           |
-| `SSD`       | 200-550 MB/s                    | Hasta 4 TB o más     | Medio                           |
-| `NVMe`      | 1,000-7,000 MB/s                | Hasta 8 TB o más     | Alto                            |
+| Tipo         | Velocidad de lectura/escritura  | Capacidad máxima       | Costo por GB                    |
+|--------------|---------------------------------|------------------------|---------------------------------|
+| `HDD`        | 80-160 MB/s                     | Hasta 20 TB o más      | Bajo                            |
+| `SSD`        | 200-550 MB/s                    | Hasta 4 TB o más       | Medio                           |
+| `NVMe`       | 1,000-7,000 MB/s                | Hasta 8 TB o más       | Alto                            |
 
 ---
 
@@ -280,10 +279,10 @@ La RAM es la memoria a corto plazo de un ordenador, que guarda datos de uso inme
 
 ### Clasificación de la RAM según su formato físico
 
-| Formato de RAM              | Uso y características                                                                    |
-|-----------------------------|------------------------------------------------------------------------------------------|
-| `DIMM (Dual In-Line Memory Module)`     | Usado en computadoras de escritorio; tamaño estándar                         |
-| `SO-DIMM (Small Outline DIMM)`          | Compacto, usado en laptops y mini PC                                         |
+| Formato de RAM                        | Uso y características                                                        |
+|---------------------------------------|------------------------------------------------------------------------------|
+| `DIMM (Dual In-Line Memory Module)`   | Usado en computadoras de escritorio; tamaño estándar                         |
+| `SO-DIMM (Small Outline DIMM)`        | Compacto, usado en laptops y mini PC                                         |
 
 ---
 
@@ -377,7 +376,7 @@ El chipset es un conjunto de chips en la placa base que gestionan las comunicaci
 
 | Chipset                    | Gama y características                                                               |
 |----------------------------|--------------------------------------------------------------------------------------|
-| `Intel B560`               | Gama media, ideal para gaming sin overclock y uso general                           |
+| `Intel B560`               | Gama media, ideal para gaming sin overclock y uso general                            |
 | `Intel Z590`               | Gama alta, soporte de overclock y múltiples ranuras de expansión                     |
 | `Intel H510`               | Gama baja, funcionalidades básicas, sin overclock                                    |
 
@@ -385,9 +384,9 @@ El chipset es un conjunto de chips en la placa base que gestionan las comunicaci
 
 | Chipset                    | Gama y características                                                               |
 |----------------------------|--------------------------------------------------------------------------------------|
-| `AMD B550`                 | Gama media, compatible con PCIe 4.0, ideal para gaming                              |
-| `AMD X570`                 | Gama alta, PCIe 4.0 completo, múltiples opciones de expansión                       |
-| `AMD A520`                 | Gama baja, sin soporte de overclock, adecuado para tareas básicas                   |
+| `AMD B550`                 | Gama media, compatible con PCIe 4.0, ideal para gaming                               |
+| `AMD X570`                 | Gama alta, PCIe 4.0 completo, múltiples opciones de expansión                        |
+| `AMD A520`                 | Gama baja, sin soporte de overclock, adecuado para tareas básicas                    |
 
 ---
 
@@ -395,7 +394,7 @@ El chipset es un conjunto de chips en la placa base que gestionan las comunicaci
 
 | Característica adicional   | Descripción                                                                          |
 |----------------------------|--------------------------------------------------------------------------------------|
-| `Soporte de overclock`     | Permite aumentar el rendimiento de CPU y RAM, disponible en chipsets de gama alta   |
+| `Soporte de overclock`     | Permite aumentar el rendimiento de CPU y RAM, disponible en chipsets de gama alta    |
 | `Wi-Fi integrado`          | Conectividad inalámbrica sin necesidad de tarjetas adicionales                       |
 | `Bluetooth`                | Conexión inalámbrica para periféricos                                                |
 | `PCIe 4.0 / PCIe 5.0`      | Ranuras de expansión de alta velocidad para tarjetas gráficas y almacenamiento       |
@@ -425,9 +424,9 @@ La refrigeración mantiene los componentes en buenas condiciones de temperatura,
 
 | Tipo de Sistema               | Características y Aplicación                                                           |
 |-------------------------------|----------------------------------------------------------------------------------------|
-| `Refrigeración por Aire`      | Uso común, económico, fácil instalación, incluye disipador y ventilador               |
+| `Refrigeración por Aire`      | Uso común, económico, fácil instalación, incluye disipador y ventilador                |
 | `Refrigeración Líquida AIO`   | Sistema de circuito cerrado, fácil instalación, buen rendimiento para CPUs de gama alta|
-| `Refrigeración Personalizada` | Sistema de circuito abierto, máxima eficiencia, usado en PCs de alto rendimiento      |
+| `Refrigeración Personalizada` | Sistema de circuito abierto, máxima eficiencia, usado en PCs de alto rendimiento       |
 
 **Características adicionales**:
 - **Refrigeración por aire**: Utiliza ventiladores para mover el aire caliente hacia afuera del chasis. Ideal para ordenadores de oficina y gaming moderado.
@@ -442,11 +441,11 @@ La refrigeración mantiene los componentes en buenas condiciones de temperatura,
 
 #### Componentes de los Sistemas de Refrigeración Líquida
 
-| Componente                  | Función                                                                                |
-|-----------------------------|----------------------------------------------------------------------------------------|
+| Componente                  | Función                                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------------------|
 | `Bloque de Agua`            | Absorbe el calor de la CPU o GPU y lo transfiere al líquido                             |
-| `Radiador`                  | Disipa el calor del líquido mediante ventiladores                                      |
-| `Bomba`                     | Circula el líquido a través del sistema                                                |
+| `Radiador`                  | Disipa el calor del líquido mediante ventiladores                                       |
+| `Bomba`                     | Circula el líquido a través del sistema                                                 |
 | `Tuberías`                  | Conducen el líquido a través de todo el circuito de refrigeración                       |
 
 ---
@@ -466,12 +465,12 @@ La refrigeración mantiene los componentes en buenas condiciones de temperatura,
 
 ### Características Adicionales de los Chasis
 
-| Característica              | Descripción                                                                             |
-|-----------------------------|-----------------------------------------------------------------------------------------|
-| `Panel Frontal I/O`         | Conectividad en el panel frontal, incluye puertos USB, audio y botones de encendido     |
-| `Ventanas de Cristal Templado` | Paneles laterales que permiten ver los componentes internos                          |
-| `Iluminación RGB`           | Personalización con efectos de luz en ventiladores, tiras LED, etc.                     |
-| `Filtros de Polvo`          | Protegen los componentes internos del polvo, se colocan en entradas de ventilación      |
+| Característica                 | Descripción                                                                             |
+|--------------------------------|-----------------------------------------------------------------------------------------|
+| `Panel Frontal I/O`            | Conectividad en el panel frontal, incluye puertos USB, audio y botones de encendido     |
+| `Ventanas de Cristal Templado` | Paneles laterales que permiten ver los componentes internos                             |
+| `Iluminación RGB`              | Personalización con efectos de luz en ventiladores, tiras LED, etc.                     |
+| `Filtros de Polvo`             | Protegen los componentes internos del polvo, se colocan en entradas de ventilación      |
 
 ---
 
@@ -495,7 +494,7 @@ Evaluamos los tipos y características de las fuentes de alimentación, esencial
 ** Corsair RM750x 750W 80 PLUS Gold Full Modular **
 ### Tipos de PSU según su Factor de Forma
 
-| Factor de Forma             | Uso y Compatibilidad                                                                       |
+| Factor de Forma             | Uso y Compatibilidad                                                                        |
 |-----------------------------|---------------------------------------------------------------------------------------------|
 | `ATX`                       | Estándar para la mayoría de PCs de escritorio                                               |
 | `SFX`                       | Compacto, diseñado para chasis de factor de forma pequeño (SFF)                             |
@@ -505,11 +504,11 @@ Evaluamos los tipos y características de las fuentes de alimentación, esencial
 
 ### Clasificación de PSU según su Capacidad de Potencia
 
-| Capacidad de Potencia       | Aplicación recomendada                                                                    |
+| Capacidad de Potencia       | Aplicación recomendada                                                                     |
 |-----------------------------|--------------------------------------------------------------------------------------------|
-| `400W - 600W`               | Suficiente para equipos básicos y de bajo consumo                                         |
-| `600W - 800W`               | Adecuado para sistemas de gama media y gaming moderado                                    |
-| `800W - 1000W o más`        | Recomendado para sistemas de gama alta, configuraciones multi-GPU o con overclock         |
+| `400W - 600W`               | Suficiente para equipos básicos y de bajo consumo                                          |
+| `600W - 800W`               | Adecuado para sistemas de gama media y gaming moderado                                     |
+| `800W - 1000W o más`        | Recomendado para sistemas de gama alta, configuraciones multi-GPU o con overclock          |
 
 ---
 
@@ -528,11 +527,11 @@ Evaluamos los tipos y características de las fuentes de alimentación, esencial
 
 ### Clasificación de PSU según su Tipo de Cableado
 
-| Tipo de Cableado            | Descripción y ventajas                                                                    |
+| Tipo de Cableado            | Descripción y ventajas                                                                     |
 |-----------------------------|--------------------------------------------------------------------------------------------|
-| `Cableado Fijo`             | Cables integrados, ideal para sistemas económicos                                        |
-| `Semi-Modular`              | Algunos cables son removibles, mejora la gestión de cables                                |
-| `Full Modular`              | Todos los cables son removibles, facilita la instalación y organización                   |
+| `Cableado Fijo`             | Cables integrados, ideal para sistemas económicos                                          |
+| `Semi-Modular`              | Algunos cables son removibles, mejora la gestión de cables                                 |
+| `Full Modular`              | Todos los cables son removibles, facilita la instalación y organización                    |
 
 ---
 
@@ -551,11 +550,11 @@ Los monitores son esenciales para la interacción con el ordenador y su rendimie
 
 ### Tipos de monitores
 
-| Tipo de monitor          | Uso estimado                                                                   |
-|--------------------------|--------------------------------------------------------------------------------|
-| `LCD`                    | Común en oficinas y hogares; buena calidad de imagen y consumo energético bajo |
-| `LED`                    | Variante del LCD que usa tecnología de diodos para iluminar, mayor brillo      |
-| `OLED`                   | Excelente calidad de imagen, negros profundos y colores vibrantes              |
+| Tipo de monitor          | Uso estimado                                                                                             |
+|--------------------------|----------------------------------------------------------------------------------------------------------|
+| `LCD`                    | Común en oficinas y hogares; buena calidad de imagen y consumo energético bajo                           |
+| `LED`                    | Variante del LCD que usa tecnología de diodos para iluminar, mayor brillo                                |
+| `OLED`                   | Excelente calidad de imagen, negros profundos y colores vibrantes                                        |
 | `Gaming`                 | Monitores con alta tasa de refresco (144Hz o más) y tiempos de respuesta rápidos; ideales para jugadores |
 
 ########################################################################################################################################
@@ -568,18 +567,18 @@ Evaluamos los tipos de monitores y sus características clave para adaptarse a d
 ** LG UltraGear 27GN950-B 27" 4K UHD Nano IPS 144Hz **
 ### Tipos de Monitores según su Uso
 
-| Tipo de Monitor              | Características y Aplicación                                                          |
-|------------------------------|---------------------------------------------------------------------------------------|
-| `Monitores para Oficina`     | Resolución Full HD, 60Hz, buena relación calidad-precio para tareas de productividad  |
+| Tipo de Monitor              | Características y Aplicación                                                                   |
+|------------------------------|------------------------------------------------------------------------------------------------|
+| `Monitores para Oficina`     | Resolución Full HD, 60Hz, buena relación calidad-precio para tareas de productividad           |
 | `Monitores para Gaming`      | Alta tasa de refresco (120Hz+), baja latencia, tecnologías de sincronización (G-Sync, FreeSync)|
-| `Monitores para Diseño`      | Resoluciones altas (2K, 4K), excelente precisión de color y amplia gama cromática     |
-| `Monitores UltraWide`        | Relación de aspecto amplia (21:9 o 32:9), ideal para multitarea o experiencias inmersivas|
+| `Monitores para Diseño`      | Resoluciones altas (2K, 4K), excelente precisión de color y amplia gama cromática              |
+| `Monitores UltraWide`        | Relación de aspecto amplia (21:9 o 32:9), ideal para multitarea o experiencias inmersivas      |
 
 ---
 
 ### Clasificación de Monitores según su Resolución
 
-| Resolución                   | Descripción y uso recomendado                                                          |
+| Resolución                   | Descripción y uso recomendado                                                         |
 |------------------------------|---------------------------------------------------------------------------------------|
 | `Full HD (1920x1080)`        | Suficiente para uso general y gaming básico                                           |
 | `QHD / 2K (2560x1440)`       | Detalle mejorado, ideal para gaming y productividad                                   |
@@ -590,12 +589,12 @@ Evaluamos los tipos de monitores y sus características clave para adaptarse a d
 
 ### Clasificación de Monitores según su Tipo de Panel
 
-| Tipo de Panel                | Características y Aplicación                                                          |
-|------------------------------|---------------------------------------------------------------------------------------|
+| Tipo de Panel                | Características y Aplicación                                                                 |
+|------------------------------|----------------------------------------------------------------------------------------------|
 | `IPS (In-Plane Switching)`   | Amplios ángulos de visión y buena precisión de color, ideal para diseño y trabajo de oficina |
-| `TN (Twisted Nematic)`       | Tiempo de respuesta rápido, menor calidad de color y ángulos de visión, adecuado para gaming|
-| `VA (Vertical Alignment)`    | Buen contraste y negros profundos, balance entre IPS y TN, adecuado para multimedia  |
-| `OLED`                       | Negros puros y colores vivos, ideal para multimedia y gaming, costo elevado           |
+| `TN (Twisted Nematic)`       | Tiempo de respuesta rápido, menor calidad de color y ángulos de visión, adecuado para gaming |
+| `VA (Vertical Alignment)`    | Buen contraste y negros profundos, balance entre IPS y TN, adecuado para multimedia          |
+| `OLED`                       | Negros puros y colores vivos, ideal para multimedia y gaming, costo elevado                  |
 
 ---
 

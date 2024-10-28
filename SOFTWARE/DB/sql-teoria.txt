@@ -1,109 +1,130 @@
-0 - Principios de db y diagramas de venn (explicacion de innodb etc)
-1 - sql básico DML(Data Manipulation Language), DDL (Data Definition Language), y DCL (Data Control Language). Además, está la TCL (Transaction Control Language)
-2 - sql en linux
-3 - 
-triggers 
-functions 
-Procedimientos(Stored Procedures)  
-Transacciones(Transactions) // en TCL
-Índices(Indexes) 
-Particionado-de-Tablas(Table Partitioning)  
-CTE(Common Table Expressions)
-ConsultasRecursivas
-Disparadoresdeeventos(Event Schedulers)
-Replicación de Base de Datos
-RestriccionesyLlaves Foráneas(Foreign Key Constraints)
-Tablas Temporales (Temporary Tables)
-
-4 - tipos de datos y como se utilizan en la db
-
+###############################################################
+0 - PRINCIPIOS DE BASES DE DATOS Y DIAGRAMAS DE VENN
 ###############################################################
 
-DML
-SELECT: Recupera datos de una o más tablas.
-INSERT: Inserta nuevas filas (registros) en una tabla.
-UPDATE: Modifica datos existentes en una tabla.
-DELETE: Elimina filas de una tabla.
-MERGE: Combina registros en función de condiciones específicas (menos común, pero útil para combinar operaciones INSERT y UPDATE).
-CALL: Llama a un procedimiento almacenado (puede implicar manipulación de datos).
+Las bases de datos son sistemas diseñados para almacenar, gestionar y recuperar información de manera eficiente. En este contexto, InnoDB es un motor de almacenamiento para MySQL que ofrece soporte para transacciones, integridad referencial y bloqueo de nivel de fila. InnoDB utiliza un modelo de datos basado en tablas y es el motor por defecto en las versiones recientes de MySQL.
 
-DDL
-CREATE: Crea una nueva tabla, índice, vista u otro objeto en la base de datos.
-ALTER: Modifica una tabla o cualquier objeto de la base de datos, añadiendo o modificando columnas, cambiando restricciones, etc.
-DROP: Elimina una tabla, vista, índice, o cualquier otro objeto.
-TRUNCATE: Elimina todas las filas de una tabla (es más rápido que DELETE porque no registra cada eliminación individualmente).
-RENAME: Cambia el nombre de una tabla u objeto de la base de datos.
+Diagrama de Venn de Bases de Datos:
+- Datos: Información sin procesar que se almacena en la base de datos.
+- Información: Datos procesados que tienen significado.
+- Conocimiento: Información interpretada que puede ser utilizada para la toma de decisiones.
 
-DCL
-GRANT: Otorga permisos a un usuario para realizar ciertas acciones (como los que mencionamos en la pregunta anterior).
-REVOKE: Revoca (elimina) los permisos otorgados a un usuario.
+###############################################################
+1 - SQL BÁSICO
+###############################################################
 
-TCL
-BEGIN o START TRANSACTION: Marca el inicio de una transacción.
-COMMIT: Confirma una transacción, aplicando todos los cambios realizados.
-ROLLBACK: Revierte (deshace) todos los cambios realizados dentro de la transacción desde el BEGIN o START TRANSACTION.
-SAVEPOINT: Crea un punto dentro de una transacción al cual se puede volver si es necesario.
-RELEASE SAVEPOINT: Elimina un punto de guardado dentro de la transacción.
-SET TRANSACTION: Establece el aislamiento de la transacción.
+SQL (Structured Query Language) es un lenguaje estándar para la gestión y manipulación de bases de datos. Se divide en varias categorías:
 
-########################################################################################
+DML (Data Manipulation Language):
+- SELECT: Recupera datos de una o más tablas.
+- INSERT: Inserta nuevas filas en una tabla.
+- UPDATE: Modifica datos existentes en una tabla.
+- DELETE: Elimina filas de una tabla.
+- MERGE: Combina registros basados en condiciones específicas.
+- CALL: Llama a un procedimiento almacenado.
 
-# AVANZADO
-Otras características avanzadas:
-Además de los tipos de comandos mencionados, hay características avanzadas en SQL que suelen utilizarse en bases de datos grandes y complejas:
+DDL (Data Definition Language):
+- CREATE: Crea un nuevo objeto en la base de datos (tabla, índice, vista).
+- ALTER: Modifica un objeto existente.
+- DROP: Elimina un objeto de la base de datos.
+- TRUNCATE: Elimina todas las filas de una tabla.
+- RENAME: Cambia el nombre de un objeto.
 
-Índices: Mejoran el rendimiento de las consultas (especialmente SELECT) creando estructuras de búsqueda.
+DCL (Data Control Language):
+- GRANT: Otorga permisos a un usuario.
+- REVOKE: Revoca permisos otorgados.
 
-sql
-Copiar código
-CREATE INDEX idx_nombre ON empleados(nombre);
-Vistas: Son consultas almacenadas que actúan como tablas virtuales.
+TCL (Transaction Control Language):
+- BEGIN o START TRANSACTION: Marca el inicio de una transacción.
+- COMMIT: Confirma una transacción, aplicando los cambios.
+- ROLLBACK: Revierte los cambios realizados en la transacción.
+- SAVEPOINT: Crea un punto dentro de una transacción.
+- RELEASE SAVEPOINT: Elimina un punto de guardado.
+- SET TRANSACTION: Establece el aislamiento de la transacción.
 
-sql
-Copiar código
-CREATE VIEW vista_empleados_altos AS SELECT nombre, salario FROM empleados WHERE salario > 5000;
-Procedimientos almacenados: Bloques de código SQL que se almacenan y se pueden reutilizar.
+###############################################################
+2 - SQL EN LINUX
+###############################################################
 
-sql
-Copiar código
-CREATE PROCEDURE aumentar_salario(IN emp_id INT, IN aumento DECIMAL(10,2))
-BEGIN
-    UPDATE empleados SET salario = salario + aumento WHERE id = emp_id;
-END;
-Funciones definidas por el usuario (UDFs): Son similares a los procedimientos almacenados, pero pueden devolver un valor y utilizarse dentro de consultas SQL.
+El uso de SQL en Linux generalmente implica el uso de sistemas de gestión de bases de datos como MySQL, PostgreSQL o SQLite. Las operaciones básicas se realizan a través de la línea de comandos o mediante herramientas gráficas. A continuación, se describen algunas de las herramientas más utilizadas:
 
-Triggers: Son procedimientos que se ejecutan automáticamente antes o después de operaciones DML (INSERT, UPDATE, DELETE).
+- MySQL: Se accede a través del comando `mysql -u usuario -p`.
+- PostgreSQL: Se accede a través del comando `psql -U usuario -d base_de_datos`.
+- SQLite: Se accede mediante el comando `sqlite3 nombre_de_base_de_datos`.
 
-sql
-Copiar código
-CREATE TRIGGER actualiza_log AFTER INSERT ON empleados
-FOR EACH ROW
-BEGIN
-    INSERT INTO log_empleados (empleado_id, accion) VALUES (NEW.id, 'Insertado');
-END;
-Particionamiento de tablas: Técnica utilizada para dividir grandes tablas en subtablas más pequeñas y manejables para mejorar el rendimiento.
+###############################################################
+3 - FUNCIONES AVANZADAS EN SQL
+###############################################################
 
-###########################################################################
+Triggers:
+- Definición: Procedimientos que se ejecutan automáticamente antes o después de operaciones DML.
+- Ejemplo: `CREATE TRIGGER nombre_trigger BEFORE INSERT ON tabla FOR EACH ROW BEGIN ... END;`
 
-# tipos de datos más utilizados en php
+Funciones:
+- Definición: Bloques de código que pueden ser llamados en consultas.
+- Ejemplo: `CREATE FUNCTION nombre_funcion(parametros) RETURNS tipo_de_dato BEGIN ... END;`
 
-1. Numéricos
-int: Utilizado para almacenar números enteros. Ideal para identificadores (IDs), contadores y otros valores que no requieren decimales.
-tinyint: Para valores pequeños y binarios (0-255 sin signo), como banderas o estados.
-float y double: Para almacenar números con decimales. float es menos preciso y double ofrece mayor precisión.
+Procedimientos (Stored Procedures):
+- Definición: Bloques de código SQL que se almacenan y pueden ser reutilizados.
+- Ejemplo: `CREATE PROCEDURE nombre_procedimiento(parametros) BEGIN ... END;`
 
-2. Cadenas de Texto
-varchar: Para almacenar cadenas de longitud variable. Se utiliza comúnmente para nombres, descripciones y otros textos cortos. La longitud puede ser de hasta 65,535 caracteres (en teoría), pero es recomendable limitarla según el uso.
-text: Para almacenar textos más largos (hasta 65,535 caracteres). Se utiliza para descripciones detalladas, contenido de artículos, etc.
+Transacciones (Transactions):
+- Definición: Un conjunto de operaciones que se ejecutan como una sola unidad.
+- Comandos TCL: BEGIN, COMMIT, ROLLBACK.
 
-3. Fechas y Horas
-datetime: Para almacenar fechas y horas, útil para registrar cuándo se creó o actualizó un registro.
-date: Solo para almacenar la fecha (sin hora).
-time: Solo para almacenar la hora.
+Índices (Indexes):
+- Definición: Estructuras que mejoran el rendimiento de las consultas.
+- Ejemplo: `CREATE INDEX idx_nombre ON tabla(columna);`
 
-4. Booleanos
-tinyint(1): A menudo se usa para representar valores booleanos (verdadero/falso) donde 0 es falso y 1 es verdadero.
+Particionado de Tablas (Table Partitioning):
+- Definición: Técnica para dividir grandes tablas en subtablas más pequeñas.
+- Ventajas: Mejora el rendimiento y facilita la gestión.
 
-5. Otros Tipos
-enum: Para almacenar un valor de un conjunto definido de valores (por ejemplo, "activo", "inactivo").
-set: Para almacenar múltiples valores de un conjunto definido (por ejemplo, "rojo", "verde", "azul").
+CTE (Common Table Expressions):
+- Definición: Consultas temporales que se pueden referenciar dentro de una consulta principal.
+- Ejemplo: `WITH nombre_cte AS (SELECT ...) SELECT * FROM nombre_cte;`
+
+Consultas Recursivas:
+- Definición: Consultas que se llaman a sí mismas.
+- Ejemplo: `WITH RECURSIVE nombre_cte AS (SELECT ... UNION ALL SELECT ...) SELECT * FROM nombre_cte;`
+
+Disparadores de eventos (Event Schedulers):
+- Definición: Procedimientos que se ejecutan en intervalos específicos.
+- Ejemplo: `CREATE EVENT nombre_evento ON SCHEDULE AT ... DO ...;`
+
+Replicación de Base de Datos:
+- Definición: Técnica para mantener copias de bases de datos en múltiples servidores.
+- Tipos: Replicación maestra-esclavo, maestro-maestro.
+
+Restricciones y Llaves Foráneas (Foreign Key Constraints):
+- Definición: Reglas que aseguran la integridad referencial entre tablas.
+- Ejemplo: `ALTER TABLE tabla ADD CONSTRAINT fk_nombre FOREIGN KEY (columna) REFERENCES otra_tabla(columna);`
+
+Tablas Temporales (Temporary Tables):
+- Definición: Tablas que existen solo durante la sesión actual.
+- Ejemplo: `CREATE TEMPORARY TABLE nombre_tabla (...);`
+
+###############################################################
+4 - TIPOS DE DATOS Y CÓMO SE UTILIZAN EN LA DB
+###############################################################
+
+1. Numéricos:
+- **int**: Almacena números enteros.
+- **tinyint**: Para valores pequeños (0-255).
+- **float y double**: Para números con decimales.
+
+2. Cadenas de Texto:
+- **varchar**: Para cadenas de longitud variable.
+- **text**: Para textos más largos.
+
+3. Fechas y Horas:
+- **datetime**: Para almacenar fechas y horas.
+- **date**: Solo para almacenar la fecha.
+- **time**: Solo para almacenar la hora.
+
+4. Booleanos:
+- **tinyint(1)**: Representa valores booleanos (0 es falso, 1 es verdadero).
+
+5. Otros Tipos:
+- **enum**: Almacena un valor de un conjunto definido de valores.
+- **set**: Almacena múltiples valores de un conjunto definido.

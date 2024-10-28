@@ -1,15 +1,4 @@
 {
-  "Blog-versiones": [
-    {
-      "nombre": "Pnkd",
-      "version": "1.0.2"
-    },
-    {
-      "nombre": "Fukiya",
-      "version": "1.0.0"
-    }
-  ],
-
   "Blog-trabajos": [
     {
       "trabajo": "Nueva versión nueva para Pnkd (framework php)."
@@ -58,7 +47,7 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/SAMBA/samba-con-active-directory.txt"
     },
     {
-      "nombre": "(━┳━ _ ━┳━) tK-0 - script de generador de tareas · PHP [script, PHP]",
+      "nombre": "(━┳━ _ ━┳━) tK-0 - script generador de tareas · PHP [script, PHP]",
       "fecha": "2024-06-30",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/TAREAS-tK-0.txt"
     },
@@ -83,9 +72,14 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/VIM/general.txt"
     },
     {
-      "nombre": "Lista de enlaces spam services · URL [spam]",
+      "nombre": "Lista de enlaces spam services enemy · URL [spam]",
       "fecha": "2024-10-28",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/CORREO/enemys.txt"
+    },
+    {
+      "nombre": "Documentación protocolos red · x [x]",
+      "fecha": "2024-10-28",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/protocolos-red.txt"
     },
     {
       "nombre": "Kali linux - raspberry pi : instalación inicial solo consola · LINUX [bootstrapping]",

@@ -262,8 +262,7 @@
                         <!--<img src="./WEB/LogoBlog.png" class="w-50">
                 <strong class="overlay p-5 text-center">Asesor en "Comput -9"</strong> 
                  Al darle clic en este que se vea una tabla con las empresas  -->
-                        <p>Versión framework PHP (pnkd): <span id="pnkd-version"></span></p>
-                        <p>Versión tema WordPress (Fukiya): <span id="fukiya-version"></span></p>
+
                         <h6 style="padding: 10px 0px 2px 0px; color:#8e8e8e !important;">Trabajos Realizados</h6>
                         <div id="trabajos-list" class="text-white"></div> <!-- Contenedor para trabajos -->
                     </div>
@@ -338,21 +337,6 @@
                     $('div.dataTables_filter input').css({ 'width': '300px' });
                 }
             });
-
-            // Cargar versiones del JSON de documentos y actualizar el HTML
-            $.getJSON(urlJson)
-                .done(function (data) {
-                    data['Blog-versiones'].forEach(function (item) {
-                        if (item.nombre === "Pnkd") {
-                            $('#pnkd-version').text(item.version); // Añadir versión de pnkd
-                        } else if (item.nombre === "Fukiya") {
-                            $('#fukiya-version').text(item.version); // Añadir versión de Fukiya
-                        }
-                    });
-                })
-                .fail(function (jqxhr, textStatus, error) {
-                    console.error("Error en la carga del JSON de documentos:", textStatus, error);
-                });
 
             // Cargar datos de trabajos del JSON
             $.getJSON(urlJson)
