@@ -228,9 +228,8 @@ El elemento <fieldset> se utiliza para agrupar campos en formularios, proporcion
 El elemento <legend> define un título para un fieldset, describiendo el propósito del grupo de campos.
 
 ========================================================
-====================[ CSS Mejorado ]====================
+========================[ CSS ]=========================
 ========================================================
-
 
 # padding 
 El padding define el espacio interno entre el contenido de un elemento y su borde, creando separación visual.
