@@ -72,19 +72,24 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/VIM/general.txt"
     },
     {
-      "nombre": "Lista de enlaces spam services enemy · URL [spam]",
+      "nombre": "Lista de enlaces spam services · URL [spam]",
       "fecha": "2024-10-28",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/CORREO/enemys.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SYSADMIN/enemys.txt"
     },
     {
       "nombre": "Documentación protocolos red · x [x]",
       "fecha": "2024-10-28",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/protocolos-red.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/protocolos-red.txt"
     },
     {
       "nombre": "Documentación del framework pnkd php · PHP [pnkd]",
       "fecha": "2024-10-30",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/pnkd/documentacion.txt"
+    },
+    {
+      "nombre": "Documentación del framework pnkd php · PHP [pnkd]",
+      "fecha": "2024-11-03",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/srv.odinhost999/documentacion.txt"
     },
     {
       "nombre": "Kali linux - raspberry pi : instalación inicial solo consola · LINUX [bootstrapping]",

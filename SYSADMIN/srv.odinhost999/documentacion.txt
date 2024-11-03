@@ -1,0 +1,320 @@
+# cambiar ip estática
+su 
+nano /etc/network/interfaces
+
+---------------------------------------------------------------
+    # Configuración de la interfaz WiFi
+
+    # Interfaz de red
+    auto eth0
+    iface eth0 inet static
+        address 192.168.1.57      # IP estática
+        netmask 255.255.255.0    
+        gateway 192.168.1.1      
+        dns-nameservers 8.8.8.8 8.8.4.4 
+
+    auto wlan0
+    iface wlan0 inet static
+        address 192.168.1.58       # IP estática Wifi
+        netmask 255.255.255.0     
+        gateway 192.168.1.1      
+        dns-nameservers 8.8.8.8 8.8.4.4   
+
+        # Configuración de red inalámbrica
+        wpa-ssid "Nombre_de_red"        # Nombre de tu red WiFi
+        wpa-psk "Contraseña_de_red"     # Contraseña de tu red WiFi
+---------------------------------------------------------------
+
+# amplio tiempo de ssh y deshabilitar la suspensión
+su
+systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+nano /etc/ssh/sshd_config
+---------------------------------------------------------------
+     ServerAliveInterval 60
+     ServerAliveCountMax 5
+---------------------------------------------------------------
+
+
+# instalo paquete de redes
+apt install net-tools
+
+nano /etc/hostname
+---------------------------------------------------------------
+    srv.odinhost999
+---------------------------------------------------------------
+
+su
+nano /etc/hostname
+---------------------------------------------------------------
+    srv.odinhost999
+---------------------------------------------------------------
+
+sudo nano /etc/hosts
+---------------------------------------------------------------
+X.X.X.X       localhost
+X.X.X.X       srv.odinhost999   odinhost999
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+---------------------------------------------------------------
+
+
+# modifico configuración de terminal de usuario (lo agrego al final de los alias, antes de  if [ -f ~/.bash_aliases ]; then...)
+# desde un usuario Linux
+nano ~/.bashrc
+
+---------------------------------------------------------------
+    # configuro alias
+    alias ls='ls --color=auto'
+    alias la='ls $LS_OPTIONS -lhai'
+    
+    # Cambiar prompt
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[0;90m\]debian🎅\[\e[1;33m\][srv.odinhost999] \[\e[1;32m\]\w \[\e[1;32m>
+
+    # Set colors for ls
+    export LS_COLORS="di=1;32:fi=0;37:ln=1;35:so=0;38;5;208:pi=0;34:bd=0;33:cd=0;33:or=0;31:mi=0;31:ex=1;31"
+---------------------------------------------------------------
+source ~/.bashrc
+
+
+# modifico configuración de terminal de super
+# entro como super para hacer otra configuración
+su 
+nano ~/.bashrc
+
+---------------------------------------------------------------
+    PS1="\[\e[1;31m\]debian🎅[srv.odinhost999] \w \$:\[\e[0m\] "
+
+    # umask 022
+
+    export LS_COLORS="di=1;32:fi=0;37:ln=1;35:so=0;38;5;208:pi=0;34:bd=0;33:cd=0;33:or=0;31:mi=0;31:ex=1;31:*.tar=0;38;5;208:*.gz=0;38;5;208:*.zip=0;38;5;208:*.bz2=0;38;5;208:*.xz=0;38;5;208:*.rar=0;38;5;208:*.7z=0"
+
+    alias ls='ls --color=auto'
+    alias la='ls $LS_OPTIONS -lhai'
+
+    # información inicio de sesión
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMWWXKOkxddooooooddxkO0KNWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMWX0kolc::;;;::;;;;;;;;::cloxOKNWMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMWN0dl:;:;;:;;;;;;;;;;;;;;;;;;;;:clxOXWWMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMWXko::;;;;;;;;;;;;;;;;;;;;;;;;;;;;:;;:cdOXWMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMWNOl:;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:;;::;;;:lkKWMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMWKd:;:;;;;;::;:;;;;;;;;;;;;;;;;;;;;;;;::;;;:;:lkXWMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMW0o:;;;;;;;;:;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:;;;:lONMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMWKo:;;;::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;cxXWMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMXd:;:;;::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:dXWMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMWOc::;:;;;;;;;;;;;;:;;;:;;;;;;;;;;;;;;;;;;;;:;;:;;;;;;:xNMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMNd:;;;;;;;;;;;;;;;::;;;;;:;;:;;;::;;;;;;;;;;;;;;;;;;:;:l0WMMMMMMMMMM"
+    echo "MMMMMMMMMMMWKo;;;;;;;;;:;::;;;:;::;;;::cllllc::;;;;;;;;;;;;;;;;;;;:cdKNMMMMMMMMM"
+    echo "MMMMMMMMMMMWKo;;;;;;;;;;;:cc:;;;;;;:looollccc::;;;;;;;;;;;;;;;;;:;:::cxXMMMMMMMM"
+    echo "MMMMMMMMMMMMXo:;:;;;;;;;;::ll:;;;;cdxl::;:lol:;::;;;;;;;;;;;;;;;:cdkoccxNMMMMMMM"
+    echo "MMMMMMMMMMMMNx:;;;;::;;;::;col::;:xkl::lokXNKd::;;;;;;;;;;;;;;;;:xXXxc:oKMMMMMMM"
+    echo "MMMMMMMMMMMMW0l:;;;;;;;;;:;:loc:cxKx:;cOXWMMWOc;:;;;;;;;;;;;;;;;l0WNx::oKWMMMMMM"
+    echo "MMMMMMMMMMMMMNkc;;::;;;;;;;::oxk0K0o:;oXWWMMNx:;;;;;;;;;;;;:;;;;l0WXd::dXMMMMMMM"
+    echo "MMMMMMMMMMMMMMNkc;;::;;;:;;:;:clllol;:dXWMMW0l:;:;;;;;;;;;::::;;cONKo;:kNMMMMMMM"
+    echo "MMMMMMMMMMMMMMMNkc:::;;;;;:::;;;;:c:;:oKWWMNx::;;;;;;;;;;::;:;::ckN0l;cOWMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMW0dc::::;;cl:;;:::::;:l0WWMXd;;;;;;;;;;;;;:;;;::ckN0l;l0WMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMN0o:;;;;col:::;::::;lKWWMXo;;;;;;;;;;;;:cl::;:cON0l;l0WMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMWNOoc:;:lxo:;;:c:;;oKWWWKo:;:;;:;;;;;:lOkc:;;lONOc;lKWMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMWN0occ:dOxl:ll:::xNWWWOl:;;;;:;;;:::dXKo:;;:dOdc:dXMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMNkodlcxXX00d:;:kNWWWOl:;;:;;:;;::dKWNkc;::ccccdKWMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMWNOoc:oXWWNk:;:oOKK0xl:::::;;;::dKNXN0l;cxkxx0NWMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMNkc:xNMMWKd::::ccccoxO0Oxl::;:xKOkKOl:lKWWMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMNx:l0WMMMWN0xddddk0NWMWNxlc::::cc:cl::lKMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMW0lcONMMMMMMMWWWWWMMMMMWKo:;:c:;:::;cl:oKMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMWOcl0WMMMMMMMMMMMMMMMMMWkc;;coc;:ll:odoONMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMWKocxXWMMMMMMMMMMMMMMMMW0dlokdc:oxod0XNWMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMWKdlok0KNWWMMMMMMMMMMMMWNXNWX0KNNNWWMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMWKOdollokKKO0KXWWWWNX0dkXWMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWNKOdlll::cdxdkOdodloKWMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWKxc:::cc:clccdkKWMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNkc;;;;;:::dKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN0dooodoldKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWWWWNXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+    echo ""
+    echo "Información del sistema:"
+    echo "CPU: $(grep 'model name' /proc/cpuinfo | head -1 | cut -d ':' -f 2)"
+    echo "Memoria libre: $(free -h | awk '/^Mem:/ {print $4}')"
+    echo "Espacio en disco: $(df -h / | awk '/\// {print $4}')"
+    echo ""
+
+---------------------------------------------------------------
+source ~/.bashrc
+
+=================================================================================
+# secuencia de colores de ls:
+
+# 1. color verde: directorios
+# 2. color gris: archivos regulares
+# 3. color rosa: los enlaces simbolicos 
+# 4. color amarillo: enlaces especiales, dispositivos de bloque y los de caracter
+# 5. color azul: FIFO,
+# 6. color rojo: archivos huérfanos Archivos con errores Archivos ejecutables
+# 7. fondo magenta color negro: .tar o comprimidos
+=================================================================================
+
+# instalo sudo
+su
+apt install sudo
+
+# le doy privilegios sudo a mi usuario
+/usr/sbin/usermod -aG sudo mi_usuario
+
+# instalo htop 
+sudo apt install htop
+htop
+
+# instalo paquete sensors
+sudo apt install lm-sensors
+sensors
+
+# reinicio servidor
+su
+sudo shutdown
+
+# compruebo que desde mi usuario tengo permisos sudo
+sudo apt update
+sudo apt upgrade
+
+
+# instalo vim 
+sudo apt install vim
+
+# creo el archivo vimrc
+sudo nano ~/.vimrc
+
+# archivo .vimrc
+---------------------------------------------------------------
+    " configuración archivo .vimrc
+    "=========================================================
+    " Habilitar numeración de líneas
+    set number
+    " Resaltar la línea actual
+    set cursorline
+    " Habilitar el uso del mouse (si se habilita no permite copia y pegar en ssh)
+    "set mouse=a
+    " Mantener el cursor centrado al desplazarse
+    set scrolloff=8
+    " Habilitar la búsqueda incremental
+    set incsearch
+    " Resaltar coincidencias de búsqueda
+    set hlsearch
+    " Ignorar mayúsculas y minúsculas en las búsquedas
+    set ignorecase
+    set smartcase
+    " Usar espacios en lugar de tabulaciones
+    set expandtab
+    set tabstop=4          " Número de espacios para un tabulador
+    set shiftwidth=4       " Número de espacios para el autoindentar
+    " Habilitar el modo de autocompletar
+    set wildmenu
+    " Habilitar el plegado de texto
+    set foldmethod=indent
+    set foldlevel=99       " Plegar automáticamente
+    " Configurar el esquema de color
+    syntax on              " Activar la sintaxis
+    set background=dark    " Para temas oscuros
+    colorscheme industry  " Cambiar el esquema de color (puedes cambiar 'industry' o 'blue' entre otros)
+    highlight Comment ctermfg=Green guifg=#00FF00        " Color para comentarios en el código
+    highlight LineNr ctermfg=Magenta                     " Color para números de línea en el margen
+    highlight CursorLineNr ctermfg=DarkMagenta           " Color para el número de línea de la línea actual
+    highlight Normal ctermfg=White ctermbg=DarkGray      " Color de fondo y texto del área principal
+    highlight Keyword ctermfg=LightGray                  " Color para palabras clave del lenguaje
+    highlight Function ctermfg=Yellow                    " Color para nombres de funciones
+    highlight Type ctermfg=Magenta                       " Color para tipos de datos (int, float, etc.)
+    highlight Constant ctermfg=Magenta                   " Color para constantes (números, booleanos)
+    highlight Identifier ctermfg=White                   " Color para identificadores (nombres de variables)
+    highlight Statement ctermfg=Yellow                   " Color para sentencias del lenguaje (return, break, etc.)
+    highlight Error ctermfg=White ctermbg=Red            " Color para errores de sintaxis
+    highlight Search ctermfg=Black ctermbg=Yellow        " Color para coincidencias de búsqueda
+    highlight Visual ctermbg=Grey                        " Color de fondo para selección en modo visual
+    highlight Keyword ctermfg=White                      " (Redundante) Color para palabras clave del lenguaje
+    highlight StatusLine ctermfg=Blue ctermbg=White      " Color para la línea de estado activa
+    highlight StatusLineNC ctermfg=Blue ctermbg=DarkGray " Color para la línea de estado inactiva
+    highlight Special ctermfg=Blue                       " Color para símbolos especiales (@, #, etc.)
+    highlight PreProc ctermfg=Grey                       " Color para preprocesadores (por ejemplo, en C/C++)
+    highlight Type ctermfg=Grey                          " Color para tipos de datos (redundante)
+    highlight Todo ctermfg=Black ctermbg=Yellow          " Color para tareas pendientes (TODO, FIXME, etc.)
+    highlight Underlined ctermfg=White                   " Color para texto subrayado
+    highlight Pmenu ctermbg=DarkGray                     " Color de fondo del menú emergente (completado)
+    highlight PmenuSel ctermbg=Blue ctermfg=White        " Color de fondo y texto del elemento seleccionado en el menú
+    highlight DiffAdd ctermbg=Green                      " Color para líneas añadidas en comparación
+    highlight DiffChange ctermbg=Yellow                   " Color para líneas cambiadas en comparación
+    highlight DiffDelete ctermbg=Red                     " Color para líneas eliminadas en comparación
+    highlight Folded ctermfg=White ctermbg=DarkBlue      " Color para líneas plegadas
+
+    " Mostrar la línea de estado
+    set laststatus=2
+    " Desactivar el sonido de campana
+    set noerrorbells
+    " Guardar el historial de comandos
+    set history=1000
+    " habilitar copiar y pegar desde ssh
+    set clipboard=unnamedplus
+---------------------------------------------------------------
+
+# La misma configuración anterior tengo que guardarla en el archivo vimrc correspondiente a sudo 
+sudo nano /root/.vimrc
+
+
+=================================================================================
+=================================================================================
+# en esta parte con todo correcto tengo que instalar LAMPP 
+# tengo la documentacion en https://isaacnavajaspozo.com/SYSADMIN/LINUX/LAMP.txt
+=================================================================================
+=================================================================================
+
+
+[ ] RESTIC
+---------------------------------------------------------------
+# Proyecto restic
+# tengo que hacer que backups (copias de seguridad) se envien a algún sitio externo al servidor por si hay algún fallo que se puedan recuperar los datos.
+# con un cron para enviar los datos
+# quiero utilizar el paquete de Rclone para enviar mis backups a una cuenta de google drive o a mega.
+---------------------------------------------------------------
+
+
+[ ] SAMBA CON XFS
+---------------------------------------------------------------
+# Proyecto SAMBA CON XFS
+# Este es un proyecto con tres carpetas uno Isaac otro Paula y otro Compartido, que sirva como servidor de archivos.
+# Con xfs tengo que limitar cuotas en las carpetas 
+=================================================================================
+=================================================================================
+# tengo que hacer una documentación con el nombre de:
+# Instalación SAMBA sin active directory · LINUX [samba]
+=================================================================================
+=================================================================================
+---------------------------------------------------------------
+
+
+[ ] APACHE
+---------------------------------------------------------------
+# Proyecto APACHE
+# voy hacer un servidor web con dos espacios uno para un adminer con dbs y otro para un proyecto con el framework pnkd para guardar contraeñas.
+---------------------------------------------------------------
+
+
+[ ] NAGIOS CACTI
+---------------------------------------------------------------
+# Proyecto NAGIOS y CACTI
+# tengo que hacer una documentacion para un servidor de monitorizacion con nagios y cacti
+# me gustaria tambien cofigurar el correo para que me envie mensajes al gmail
+---------------------------------------------------------------
+
+
+[ ] SEGURIDAD
+---------------------------------------------------------------
+# Proyecto SEGURIDAD
+# Instalar 2fa y bloqueo de fuerza bruta en linux
+---------------------------------------------------------------
+
+
+[ ] LABORATORIO BÁSICO DE CIBERSEGURIDAD
+---------------------------------------------------------------
+# Instalar paquetes apropiados para jugar con hackthebox
+---------------------------------------------------------------

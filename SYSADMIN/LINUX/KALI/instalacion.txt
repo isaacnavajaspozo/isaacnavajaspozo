@@ -12,6 +12,33 @@ sudo apt install net-tools
 sudo apt-get install tasksel
 sudo tasksel
 
+# Meter ip estática
+sudo nano /etc/network/interfaces
+
+    # Configuración de la interfaz Wi-Fi (wlan0)
+    auto wlan0
+    iface wlan0 inet static
+        address 192.168.1.10     # Dirección IP estática
+        netmask 255.255.255.0    # Máscara de subred
+        gateway 192.168.1.1      # Puerta de enlace
+        dns-nameservers 8.8.8.8 8.8.4.4  # Servidores DNS
+        wpa-ssid "MiRedWifi"     # Nombre de la red Wi-Fi
+        wpa-psk "tu_contraseña_wifi"  # Contraseña de la red Wi-Fi
+
+    # Configuración de la interfaz Ethernet (eth0)
+    auto eth0
+    iface eth0 inet static
+        address 192.168.1.10     # Dirección IP estática
+        netmask 255.255.255.0    # Máscara de subred
+        gateway 192.168.1.1      # Puerta de enlace
+        dns-nameservers 8.8.8.8 8.8.4.4  # Servidores DNS
+
+sudo systemctl restart networking
+
+
+
+
+
 # Agregar Wifi
 sudo nano /etc/netplan/50-cloud-init.yaml
 

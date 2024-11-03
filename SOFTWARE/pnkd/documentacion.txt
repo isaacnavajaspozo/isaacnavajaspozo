@@ -14,7 +14,7 @@
 
 =======[ NUMERACIÓN DE LA DOCUMENTACIÓN ]=======
 
-# Código de búsqueda:
+# Documentación marcada (# BOOKMARK: <5.a.cod>):
 <1.cod> + Controladores:
     <1.a.cod> · errorController.php.
     <1.b.cod> · $this->model('exampleModel.php').
@@ -36,6 +36,7 @@
 ================================================
 ===============[ CONTROLADORES ]================
 ================================================
+# BOOKMARK: <1.cod>
 
 # Existe un controlador especial para las paginas que no coinciden con ninguna ruta.
 # desde aquí puedes controlar la página 404.
@@ -149,6 +150,7 @@ public function getUser($id) {
 ================================================
 ===================[ VISTAS ]===================
 ================================================
+# BOOKMARK: <2.cod>
 
 # vista html (.php):
 # desde las vistas podemos llamar a los valores dinámicos que le pasamos desde el controlador
@@ -159,6 +161,7 @@ public function getUser($id) {
 ================================================
 ==================[ MODELOS ]===================
 ================================================
+# BOOKMARK: <3.cod>
 
 ------------------------------------------------
 ************************************************
@@ -194,6 +197,7 @@ public function postUser() {
 ================================================
 =================[ ENRUTADOR ]==================
 ================================================
+# BOOKMARK: <4.cod>
 
 # en el caso de que estemos haciendo una API es recomendado crear otro archivo enrutador asociado a web.php
 
@@ -225,9 +229,11 @@ Http::post('/post', ['controller' => 'ExampleController', 'method' => 'store']);
 ================================================
 ==================[ DEBUGGER ]==================
 ================================================
+# BOOKMARK: <4.cod>
 
 # Todos estos métodos solo se activarán si desde nuestro .env tenemos "ERRORS=true"
 
+# BOOKMARK: <5.a.cod>
 # Método para depurar código desde /srv 
 # Debug::kill es un atajo que detectará el tipo de archivo automáticamente para hacer un print_r o var_dump según convenga.
 Debug::kill($data);
