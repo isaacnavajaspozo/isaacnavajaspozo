@@ -1,3 +1,9 @@
+# Instalo la última imagen de debian min
+# Creo la instalación en una sola partición interna en una M2 de 500GB:
+#   1. una partición de 514MB para /boot/efi
+#   2. sin partición para la SWAP
+# Tabién dispongo de una memoria SSD interna de 60GB que utilizaré después
+---------------------------------------------------------------
 # cambiar ip estática
 su 
 nano /etc/network/interfaces
@@ -67,9 +73,11 @@ ff02::2 ip6-allrouters
 nano ~/.bashrc
 
 ---------------------------------------------------------------
-    # configuro alias
+    ## configuro alias
     alias ls='ls --color=auto'
     alias la='ls $LS_OPTIONS -lhai'
+    # Liberar caché de la memoria
+    alias odin_liberarespacioram='sudo sync; echo 1 | sudo tee /proc/sys/vm/drop_caches | echo "petición realizada correctamente." && echo "" && free -h'
     
     # Cambiar prompt
     PS1='${debian_chroot:+($debian_chroot)}\[\e[0;90m\]debian🎅\[\e[1;33m\][srv.odinhost999] \[\e[1;32m\]\w \[\e[1;32m>
@@ -92,8 +100,11 @@ nano ~/.bashrc
 
     export LS_COLORS="di=1;32:fi=0;37:ln=1;35:so=0;38;5;208:pi=0;34:bd=0;33:cd=0;33:or=0;31:mi=0;31:ex=1;31:*.tar=0;38;5;208:*.gz=0;38;5;208:*.zip=0;38;5;208:*.bz2=0;38;5;208:*.xz=0;38;5;208:*.rar=0;38;5;208:*.7z=0"
 
+    ## configuro alias
     alias ls='ls --color=auto'
     alias la='ls $LS_OPTIONS -lhai'
+    # Liberar caché de la memoria
+    alias odin_liberarespacioram='sudo sync; echo 1 | sudo tee /proc/sys/vm/drop_caches | echo "petición realizada correctamente." && echo "" && free -h'
 
     # información inicio de sesión
     echo "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
@@ -141,7 +152,6 @@ nano ~/.bashrc
     echo "Memoria libre: $(free -h | awk '/^Mem:/ {print $4}')"
     echo "Espacio en disco: $(df -h / | awk '/\// {print $4}')"
     echo ""
-
 ---------------------------------------------------------------
 source ~/.bashrc
 
@@ -260,6 +270,89 @@ sudo nano ~/.vimrc
 # La misma configuración anterior tengo que guardarla en el archivo vimrc correspondiente a sudo 
 sudo nano /root/.vimrc
 
+# [x] Hasta aquí fin de la configuración inicial
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+# [x] - Opcional (configurar swap)
+# otras configuracion
+
+# creo un archivo swap
+# bs tiene que estar siempre en 1, count son los GB de RAM virtualizada
+sudo dd if=/dev/zero of=/swapfile bs=1G count=4
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon --show
+
+# configuro swap para forzar su inicio
+sudo nano /etc/sysctl.conf
+    vm.swappiness = 60
+
+# aplicar los cambios
+sudo sysctl -p
+
+# comprobar memoria 
+vmstat 1
+
+# asegurar swap trás el reinicio 
+sudo nano /etc/fstab
+    # archoivo SWAP 4G
+    /swapfile none swap sw 0 0
+/////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+# [x] - Opcional (reestablecer particiones y asignar espacio a carpeta)
+# en mi caso como he agregado un disco SSD de 57GB tengo que borrar lo que tenga y agregarlo a la carpeta /smb-data 
+
+# desmonto las particiones
+sudo umount /dev/mmcblk1p1
+sudo umount /dev/mmcblk1p3
+sudo umount /dev/mmcblk1p4
+
+# borro las particiones
+sudo fdisk /dev/mmcblk1
+d
+1
+d
+2
+d 
+3 
+w
+
+# formatear partición 
+sudo mkfs.ext4 /dev/mmcblk1p1
+
+# crear punto de montaje
+sudo mkdir -p /smb-data
+
+# montar la nueva partición
+sudo mount /dev/mmcblk1p1 /smb-data
+
+# hacer que el montaje sea persistente
+sudo vim /etc/fstab
+    # montaje de /smb-data 
+    /dev/mmcblk1p1 /smb-data ext4 defaults 0 2
+
+# verificar la nueva partición
+df -h
+    # /dev/mmcblk1p1    57G    24K   54G   1% /smb-data
+
+# verificar discos
+lsblk
+    sda            8:0    0 238,5G  0 disk
+    ├─sda1         8:1    0   512M  0 part /boot/efi
+    └─sda2         8:2    0   237G  0 part /
+    mmcblk1      179:0    0  57,6G  0 disk
+    └─mmcblk1p1  179:1    0  57,6G  0 part /smb-data
+    mmcblk1boot0 179:256  0     4M  1 disk
+    mmcblk1boot1 179:512  0     4M  1 disk
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
 
 =================================================================================
 =================================================================================
@@ -267,7 +360,6 @@ sudo nano /root/.vimrc
 # tengo la documentacion en https://isaacnavajaspozo.com/SYSADMIN/LINUX/LAMP.txt
 =================================================================================
 =================================================================================
-
 
 [ ] RESTIC
 ---------------------------------------------------------------
