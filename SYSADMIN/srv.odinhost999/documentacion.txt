@@ -354,12 +354,6 @@ lsblk
 /////////////////////////////////////////////////////////////////////////////////
 
 
-=================================================================================
-=================================================================================
-# en esta parte con todo correcto tengo que instalar LAMPP 
-# tengo la documentacion en https://isaacnavajaspozo.com/SYSADMIN/LINUX/LAMP.txt
-=================================================================================
-=================================================================================
 
 [ ] RESTIC
 ---------------------------------------------------------------
@@ -368,6 +362,56 @@ lsblk
 # con un cron para enviar los datos
 # quiero utilizar el paquete de Rclone para enviar mis backups a una cuenta de google drive o a mega.
 ---------------------------------------------------------------
+
+
+=================================================================================
+=================================================================================
+# [x] - Opcional (LAMPP)
+# instalo LAMPP (PHP, mariadb (sql), apache) en tres sencillos pasos:
+
+# ===================== 1 =====================
+apt-get install apache2 libapache2-mod-php php php-mysql php-gmp php-intl php-gd php-snmp php-ldap php-mbstring php-simplexml php-xml php-zip mariadb-server mariadb-client
+
+# ===================== 2 =====================
+vim /etc/mysql/mariadb.conf.d/50-server.cnf
+
+user                    = mysql
+pid-file                = /run/mysqld/mysqld.pid
+basedir                 = /usr
+datadir                 = /var/lib/mysql
+tmpdir                  = /tmp
+lc-messages-dir         = /usr/share/mysql
+lc-messages             = en_US
+skip-external-locking
+
+# dejar comentado el bind si quiero consultas fuera de localhost
+# bind-address            = 127.0.0.1
+
+# tenemos que agregar el mismo character que tiene nuestra db
+collation-server=utf8mb4_spanish_ci
+
+# ===================== 3 =====================
+# Habilitamos https
+a2enmod ssl
+a2ensite default-ssl
+a2enmod cgi cgid rewrite
+a2enmod headers
+
+# Configuracion minima para mysql (buenas prácticas de mysql)
+mysql_secure_installation
+
+current password: *********
+all yes
+
+# Reiniciamos apache
+systemctl reload apache2
+systemctl restart mysql
+
+# inicia automáticamente cada vez que el sistema arranque
+# systemctl enable apache2
+# systemctl enable mysql
+=================================================================================
+=================================================================================
 
 
 [ ] SAMBA CON XFS
