@@ -142,17 +142,22 @@
         }
 
 
-        /*tarjetas*/
-        .card {
+               /*tarjetas*/
+               .card {
             background-color: #1e1e1e30;
             position: relative;
             overflow: hidden;
             height: 350px;
         }
 
-        .card .blur {
+        .card img {
             transition: filter 0.5s ease;
             display: block;
+
+        }
+
+        .card:hover img {
+            filter: blur(5px);
         }
 
         .overlay {
@@ -203,40 +208,36 @@
         }
 
         .bloque-texto-vertical {
-            display: flex; /* Flexbox para alinear los elementos horizontalmente */
-            flex-direction: row; /* Los elementos se alinean en una fila */
-            align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
-            height: 50%; /* Permite que el bloque ocupe toda la altura de la columna */
-            width: 100%; /* Asegura que ocupe todo el ancho disponible en col-1 */
+            display: flex; 
+            flex-direction: row;
+            align-items: flex-start; 
+            height: 50%; 
+            width: 100%;
         }
 
         .texto-vertical {
             align-items: flex-start;
-            display: flex; /* Flexbox para alinear ícono y texto */
-            flex-direction: column; /* Los elementos dentro de cada texto estarán alineados verticalmente */
+            display: flex;
+            flex-direction: column;
             margin-top:-125px;
-            transform: rotate(90deg); /* Rota el texto 90 grados */
+            transform: rotate(90deg); 
             font-size: 12px; 
-            white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-            letter-spacing: 7px; /* Espacio entre letras */
-            margin-right: 10px; /* Espacio entre cada bloque de texto */
-            min-width: 10px; /* Ancho mínimo para evitar que se superpongan */
+            white-space: nowrap; 
+            letter-spacing: 7px; 
+            margin-right: 10px;
+            min-width: 10px; 
         }
 
         .bi-circle-fill {
-            font-size: 7px; /* Tamaño del ícono */
-            margin-bottom: 3px; /* Espacio entre el ícono y el texto */
-            color: yellow; /* Color amarillo para los íconos */
+            font-size: 7px; 
+            margin-bottom: 3px; 
+            color: yellow;
             animation: blink-animation 1s steps(1, end) infinite;
             margin-bottom: -50px;
         }
 
         .verde{
             color:greenyellow !important;
-        }
-
-        .rojo{
-            color:red !important;
         }
 
         @keyframes blink-animation {
@@ -261,7 +262,7 @@
                             <p><i class="bi bi-circle-fill verde"></i> isaacnavajaspozo</p>
                         </div>
                         <div class="texto-vertical">
-                            <p><i class="bi bi-circle-fill rojo"></i> srv.freyahost.com</p>
+                            <p><i class="bi bi-circle-fill "></i> srv.freyahost.com</p>
                         </div>
                         <div class="texto-vertical">
                             <p><i class="bi bi-circle-fill"></i> srv.thorhost.com</p>
