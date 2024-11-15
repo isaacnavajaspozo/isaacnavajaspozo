@@ -1,7 +1,10 @@
 # ==================================[ ciclo de vida ]====================================
+
 Directorio ---------------------------- Staging ---------------------------- Repositorio
 git init ------(git add . )------- "valor trackeado" ----(git commit -m" ")------ ' '
+
 # ==================================[ !ciclo de vida ]====================================
+
 
 # git init
 inicia un repositorio de git.

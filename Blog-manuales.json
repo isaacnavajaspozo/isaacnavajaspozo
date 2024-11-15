@@ -97,6 +97,16 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/RED/documentacion.txt"
     },
     {
+      "nombre": "Instalación y configuración inicial de hMailServer · Windows Server [hMailServer]",
+      "fecha": "2024-11-15",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/WINDOWS-SERVER/HMAILSERVER/instalacion.txt"
+    },
+    {
+      "nombre": "Gestión de máquinas virtuales · VMWare [VMW]",
+      "fecha": "2024-11-13",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/VMWARE/documentacion.txt"
+    },
+    {
       "nombre": "Kali linux - USB booteable live : instalación inicial solo consola · LINUX [bootstrapping]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/KALI/instalacion.txt"

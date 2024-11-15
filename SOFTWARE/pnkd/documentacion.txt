@@ -1,6 +1,6 @@
-================================================
-=========[ COMPOSICIÓN DE CARPETAS ]============
-================================================
+=================================================================================
+=========[ COMPOSICIÓN DE CARPETAS ]=============================================
+=================================================================================
 
 |- /bin : sirve para guardar todos los scripts | El script "cli_script.php" sirve para ejecutar archivos desde consola.
 |- /etc : es el núcleo del framework, aquí está la lógica del http, el kernel, el ORM, los helpers, la conexión de db y un sistema básico de seguridad.
@@ -9,33 +9,39 @@
 |- /var : en la cache puedo guardar archivos en memoria como cache, logs o archivos que hayan subido los usuarios desde la web.
 |- index.php : este archivo es el que inicializa el framework.
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 =======[ NUMERACIÓN DE LA DOCUMENTACIÓN ]=======
 
-# Documentación marcada (# BOOKMARK: <5.a.cod>):
-<1.cod> + Controladores:
-    <1.a.cod> · errorController.php.
-    <1.b.cod> · $this->model('exampleModel.php').
-    <1.c.cod> · $this->view('landingPage.php', $data).
-<2.cod> + vistas:
-    <2.a.cod> · $data["version"].
-<3.cod> + Modelos:
-    <3.a.cod> · $this->select.
-<4.cod> + Enrutador:
-    <4.a.cod> · Http::get('/example', ['controller' => 'ExampleController', 'method' => 'index']).
-<5.cod> + Debug:
-    <5.a.cod> · Debug::kill($data).
+# Documentación marcada:
 
+|-> <1.cod> + Controladores:
+|-----> <1.a.cod> · errorController.php.
+|-----> <1.b.cod> · $this->model('exampleModel.php').
+|-----> <1.c.cod> · $this->view('landingPage.php', $data).
+|-----> <1.d.cod> · ejecución de modelo.
+|
+|-> <2.cod> + vistas:
+|-----> <2.a.cod> · $data["version"].
+|
+|-> <3.cod> + Modelos:
+|-----> <3.a.cod> · $this->select.
+|
+|-> <4.cod> + Enrutador:
+|-----> <4.a.cod> · Http::get('/example', ['controller' => 'ExampleController', 'method' => 'index']).
+|
+|-> <5.cod> + Debug:
+|-----> <5.a.cod> · Debug::kill($data).
+|
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@[ EJEMPLOS ]@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-================================================
-===============[ CONTROLADORES ]================
-================================================
+================================================================================
+===============[ CONTROLADORES ]================================================
+================================================================================
 # BOOKMARK: <1.cod>
 
 # Existe un controlador especial para las paginas que no coinciden con ninguna ruta.
@@ -47,6 +53,7 @@ errorController.php
 ------------------------------------------------
 # errorController.php:
 ------------------------------------------------
+# BOOKMARK: <1.a.cod>
 class ErrorController {
     public function notFound() {
         echo "Página no encontrada";
@@ -93,6 +100,7 @@ class ExampleController extends db {
 # $this->model('exampleModel.php');
 ------------------------------------------------
 public function test() {
+    # BOOKMARK: <1.b.cod>
     $this->model('exampleModel.php');
     $exampleModel = new exampleModel;
     $data = $exampleModel->onemethod($id);
@@ -115,6 +123,7 @@ public function index() {
     $data['version'] = getenv('VERSION');
     $data['kernelFile'] = file_exists('./etc/kernel.php') ? true : false;
     $data['ORMDir'] = is_dir('./etc/ORM') ? true : false;
+    # BOOKMARK: <1.c.cod>
     $this->view('landingPage.php', $data);
 }
 ------------------------------------------------
@@ -131,6 +140,7 @@ public function index() {
 # otro ejemplo de método:
 ------------------------------------------------
 public function getUser($id) {
+    # BOOKMARK: <1.d.cod>
     $this->model('exampleModel.php');
     $exampleModel = new exampleModel;
     $data = $exampleModel->getUserById($id);
@@ -141,26 +151,27 @@ public function getUser($id) {
         echo "Usuario no encontrado";
     }
 }
-------------------------------------------------
-************************************************
-------------------------------------------------
+--------------------------------------------------------------------------------
+********************************************************************************
+--------------------------------------------------------------------------------
 
 
 
-================================================
-===================[ VISTAS ]===================
-================================================
+================================================================================
+===================[ VISTAS ]===================================================
+================================================================================
 # BOOKMARK: <2.cod>
 
 # vista html (.php):
-# desde las vistas podemos llamar a los valores dinámicos que le pasamos desde el controlador
+# desde las vistas podemos llamar a los valores dinámicos que le pasamos desde el controlador (este ejemplo es el mismo que he utilizado en el controlador):
+# BOOKMARK: <2.a.cod>
 <p><span><?= $data["version"]; ?></span></p>
 
 
 
-================================================
-==================[ MODELOS ]===================
-================================================
+================================================================================
+==================[ MODELOS ]===================================================
+================================================================================
 # BOOKMARK: <3.cod>
 
 ------------------------------------------------
@@ -170,6 +181,7 @@ public function getUser($id) {
 ------------------------------------------------
 public function getUserById($id) {
     // Utilizar el método select para obtener el usuario por ID
+    # BOOKMARK: <3.a.cod>
     $user = $this->select("*", "usuarios", "WHERE id = '$id'");
     return $user;
 }
@@ -188,15 +200,15 @@ public function postUser() {
     $id = $this->insert("usuarios", "id, titulo", "'7', '44'");
     return $id;
 }
-------------------------------------------------
-************************************************
-------------------------------------------------
+--------------------------------------------------------------------------------
+********************************************************************************
+--------------------------------------------------------------------------------
 
 
 
-================================================
-=================[ ENRUTADOR ]==================
-================================================
+================================================================================
+=================[ ENRUTADOR ]==================================================
+================================================================================
 # BOOKMARK: <4.cod>
 
 # en el caso de que estemos haciendo una API es recomendado crear otro archivo enrutador asociado a web.php
@@ -217,24 +229,26 @@ require_once('./srv/controllers/errorController.php');
 Http::get('/', ['controller' => 'LandingPage', 'method' => 'index']);
 
 //Ejemplo
+# BOOKMARK: <4.a.cod>
 Http::get('/example', ['controller' => 'ExampleController', 'method' => 'index']);
 Http::get('/user/:id', ['controller' => 'ExampleController', 'method' => 'getUser']);
 Http::post('/post', ['controller' => 'ExampleController', 'method' => 'store']);
-------------------------------------------------
-************************************************
-------------------------------------------------
+--------------------------------------------------------------------------------
+********************************************************************************
+--------------------------------------------------------------------------------
 
 
 
-================================================
-==================[ DEBUGGER ]==================
-================================================
+================================================================================
+==================[ DEBUGGER ]==================================================
+================================================================================
 # BOOKMARK: <4.cod>
 
 # Todos estos métodos solo se activarán si desde nuestro .env tenemos "ERRORS=true"
 
 # BOOKMARK: <5.a.cod>
 # Método para depurar código desde /srv 
-# Debug::kill es un atajo que detectará el tipo de archivo automáticamente para hacer un print_r o var_dump según convenga.
+# Debug::killes un atajo que detectará el tipo de archivo automáticamente para hacer un print_r o var_dump según convenga.
+# BOOKMARK: <5.a.cod>
 Debug::kill($data);
 
