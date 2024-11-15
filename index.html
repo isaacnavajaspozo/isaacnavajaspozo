@@ -21,28 +21,21 @@
 
 
     <style>
+        /* Primero carga la fuente local */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400; 
+            src: url('./WEB/Poppins-Regular.ttf') format('ttf'), 
+                /*url('fonts/Poppins-Regular.woff') format('woff');*/
+        }
+
+        /* Si a fuente local no existe la pide de la CDN */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         :root {
             --color-principal: #e75320;
             --fuente-principal: "Poppins", sans-serif;
-        }
-
-        /*Títulos*/
-        .poppins-semibold {
-            font-family: var(--fuente-principal);
-            font-weight: 600;
-            font-style: normal;
-            /*color: #ff0000;*/
-            color: var(--color-principal);
-        }
-
-        /*Párrafo*/
-        .poppins-regular {
-            font-family: var(--fuente-principal);
-            font-weight: 400;
-            font-style: normal;
-            color: #8e8e8e;
         }
 
         * {
@@ -58,10 +51,6 @@
         }
 
         body {
-            /*background-color: #121212;*/
-
-            background-repeat: repeat;
-            background-size: 100% auto;
             background-color: rgb(18, 18, 18)
         }
 
@@ -109,10 +98,14 @@
             text-decoration: none;
         }
 
+        .fecha{
+            width: 90px;
+        }
+
         /* Efecto hover para las filas */
         tr:hover {
             color: var(--color-principal) !important;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         tr:hover td {
@@ -132,15 +125,15 @@
         /* QUITAR X DEL BUSCADOR */
         /* Quitar x para navegadores Webkit (Chrome, Safari, Opera) */
         input[type="search"]::-webkit-search-cancel-button {
-            display: none;  /* Ocultar el botón de borrar */
+            display: none;  
         }
         /* Quitar x para Firefox */
         input[type="search"]::-moz-search-clear-button {
-            display: none;  /* Ocultar el botón de borrar */
+            display: none;  
         }
         /* Quitar x para Internet Explorer y Edge */
         input[type="search"]::-ms-clear {
-            display: none;  /* Ocultar el botón de borrar */
+            display: none; 
         }
         /* estilizar x  */
         input[type="search"] {
@@ -200,7 +193,7 @@
                     {
                         data: 'fecha',
                         width: '120px',
-                        className: 'text-end'
+                        className: 'fecha'
                     }
                 ],
                 language: {
