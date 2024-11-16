@@ -1,14 +1,15 @@
+# Esta configuración la realizo de esta manera para después gestionar cada punto a través de la terminal:
 # Instalo la última imagen de debian min
 # Creo la instalación en una sola partición interna en una M2 de 500GB:
 #   1. una partición de 514MB para /boot/efi
 #   2. sin partición para la SWAP
 # Tabién dispongo de una memoria SSD interna de 60GB que utilizaré después
+
 ---------------------------------------------------------------
 # cambiar ip estática
 su 
 nano /etc/network/interfaces
-
----------------------------------------------------------------
+===========================================================================
     # Configuración de la interfaz WiFi
 
     # Interfaz de red
@@ -29,35 +30,35 @@ nano /etc/network/interfaces
         # Configuración de red inalámbrica
         wpa-ssid "Nombre_de_red"        # Nombre de tu red WiFi
         wpa-psk "Contraseña_de_red"     # Contraseña de tu red WiFi
----------------------------------------------------------------
+===========================================================================
 
 # amplio tiempo de ssh y deshabilitar la suspensión
 su
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 nano /etc/ssh/sshd_config
----------------------------------------------------------------
+===========================================================================
      ServerAliveInterval 60
      ServerAliveCountMax 5
----------------------------------------------------------------
+===========================================================================
 
 
 # instalo paquete de redes
 apt install net-tools
 
 nano /etc/hostname
----------------------------------------------------------------
+===========================================================================
     srv.odinhost999
----------------------------------------------------------------
+===========================================================================
 
 su
 nano /etc/hostname
----------------------------------------------------------------
+===========================================================================
     srv.odinhost999
----------------------------------------------------------------
+===========================================================================
 
 sudo nano /etc/hosts
----------------------------------------------------------------
+===========================================================================
 X.X.X.X       localhost
 X.X.X.X       srv.odinhost999   odinhost999
 
@@ -65,14 +66,14 @@ X.X.X.X       srv.odinhost999   odinhost999
 ::1     localhost ip6-localhost ip6-loopback
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
----------------------------------------------------------------
+===========================================================================
 
 
 # modifico configuración de terminal de usuario (lo agrego al final de los alias, antes de  if [ -f ~/.bash_aliases ]; then...)
 # desde un usuario Linux
 nano ~/.bashrc
 
----------------------------------------------------------------
+===========================================================================
     ## configuro alias
     alias ls='ls --color=auto'
     alias la='ls $LS_OPTIONS -lhai'
@@ -84,7 +85,7 @@ nano ~/.bashrc
 
     # Set colors for ls
     export LS_COLORS="di=1;32:fi=0;37:ln=1;35:so=0;38;5;208:pi=0;34:bd=0;33:cd=0;33:or=0;31:mi=0;31:ex=1;31"
----------------------------------------------------------------
+===========================================================================
 source ~/.bashrc
 
 
@@ -93,7 +94,7 @@ source ~/.bashrc
 su 
 nano ~/.bashrc
 
----------------------------------------------------------------
+===========================================================================
     PS1="\[\e[1;31m\]debian🎅[srv.odinhost999] \w \$:\[\e[0m\] "
 
     # umask 022
@@ -152,9 +153,10 @@ nano ~/.bashrc
     echo "Memoria libre: $(free -h | awk '/^Mem:/ {print $4}')"
     echo "Espacio en disco: $(df -h / | awk '/\// {print $4}')"
     echo ""
----------------------------------------------------------------
+===========================================================================
 source ~/.bashrc
 
+=================================================================================
 =================================================================================
 # secuencia de colores de ls:
 
@@ -165,6 +167,7 @@ source ~/.bashrc
 # 5. color azul: FIFO,
 # 6. color rojo: archivos huérfanos Archivos con errores Archivos ejecutables
 # 7. fondo magenta color negro: .tar o comprimidos
+=================================================================================
 =================================================================================
 
 # instalo sudo
@@ -198,7 +201,7 @@ sudo apt install vim
 sudo nano ~/.vimrc
 
 # archivo .vimrc
----------------------------------------------------------------
+===========================================================================
     " configuración archivo .vimrc
     "=========================================================
     " Habilitar numeración de líneas
@@ -265,7 +268,7 @@ sudo nano ~/.vimrc
     set history=1000
     " habilitar copiar y pegar desde ssh
     set clipboard=unnamedplus
----------------------------------------------------------------
+===========================================================================
 
 # La misma configuración anterior tengo que guardarla en el archivo vimrc correspondiente a sudo 
 sudo nano /root/.vimrc
@@ -356,12 +359,12 @@ lsblk
 
 
 [ ] RESTIC
----------------------------------------------------------------
+===========================================================================
 # Proyecto restic
 # tengo que hacer que backups (copias de seguridad) se envien a algún sitio externo al servidor por si hay algún fallo que se puedan recuperar los datos.
 # con un cron para enviar los datos
 # quiero utilizar el paquete de Rclone para enviar mis backups a una cuenta de google drive o a mega.
----------------------------------------------------------------
+===========================================================================
 
 
 =================================================================================

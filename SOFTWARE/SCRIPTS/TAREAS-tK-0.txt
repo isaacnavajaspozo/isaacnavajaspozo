@@ -1,6 +1,9 @@
 <?php
 // TODO:Guardar el archivo con una extensión .php y ejecutarlo desde una terrminal:
+// como se genera un .json de las tareas es recomendable crear una carpeta para guardar el script.
 
+// ===============================================================================================
+/* aquí empieza el script */
 // Archivo de tareas
 define('TASK_FILE', 'tasks.json');
 

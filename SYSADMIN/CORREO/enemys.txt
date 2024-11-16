@@ -32,7 +32,8 @@
 
 ---
 
-**Advertencia**: Estos servicios pueden ser considerados como actividades de acoso o violación de la privacidad en muchas jurisdicciones. Asegúrate de usar esta lista solo para propósitos legítimos y éticos.
+**Advertencia**: Estos servicios pueden ser considerados como actividades de acoso o violación de la privacidad en muchas jurisdicciones. 
+                 En mi caso solo uso esta lista para propósitos legítimos y éticos en un entorno de laboratorío controlado.
 
 --- 
 

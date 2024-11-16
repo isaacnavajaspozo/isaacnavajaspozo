@@ -113,13 +113,12 @@
         }
 
         .fecha{
-            width: 90px;
+            width: 120px;
         }
 
         /* Efecto hover para las filas */
         tr:hover {
             color: var(--color-principal) !important;
-            font-weight: 500;
         }
 
         tr:hover td {
@@ -130,11 +129,12 @@
             color: var(--color-principal)  !important; 
         }
 
-        .text-white {
-            color:var(--color-principal);
-            font-size: 16px;
-        }
+        .dataTables_empty{
+            color: #8e8e8e !important;
+            font-weight: 400;
+            pointer-events: none;
 
+        }
 
         /* QUITAR X DEL BUSCADOR */
         /* Quitar x para navegadores Webkit (Chrome, Safari, Opera) */
@@ -148,6 +148,26 @@
         /* Quitar x para Internet Explorer y Edge */
         input[type="search"]::-ms-clear {
             display: none; 
+        }
+        /* estilizar x  */
+        input[type="search"] {
+            -webkit-appearance: none;  
+            -moz-appearance: textfield; 
+            appearance: none; 
+        }
+
+        /* QUITAR X */
+        /* Quitar x para navegadores Webkit (Chrome, Safari, Opera) */
+        input[type="search"]::-webkit-search-cancel-button {
+            display: none;  /* Ocultar el botón de borrar */
+        }
+        /* Quitar x para Firefox */
+        input[type="search"]::-moz-search-clear-button {
+            display: none;  /* Ocultar el botón de borrar */
+        }
+        /* Quitar x para Internet Explorer y Edge */
+        input[type="search"]::-ms-clear {
+            display: none;  /* Ocultar el botón de borrar */
         }
         /* estilizar x  */
         input[type="search"] {
@@ -222,8 +242,8 @@
                     $('div.dataTables_filter input').css({ 'width': '300px' });
                 }
             });
-
         });
+
     </script>
 
 
