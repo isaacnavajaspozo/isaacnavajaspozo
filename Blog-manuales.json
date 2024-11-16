@@ -1,19 +1,4 @@
 {
-  "Blog-trabajos": [
-    {
-      "trabajo": "Nueva versión nueva para Pnkd (framework php)."
-    },
-    {
-      "trabajo": "Nueva  versión nueva para Fukiya (tema WordPress)."
-    },
-    {
-      "trabajo": "ESP32 que sirva como API para monitorización del hogar."
-    },
-    {
-      "trabajo": "SP (hogar) con Linux · Debian."
-    }
-  ],
-
   "Blog-manuales": [
     {
       "nombre": "Documentación básica de HTML y CSS · Lenguaje de marcado [html, css]",
@@ -22,27 +7,27 @@
     },
 
     {
-      "nombre": "Instalación LAMP · LINUX [php, mariadb, apache]",
+      "nombre": "Instalación LAMP · LINUX [php, mariadb, apache2]",
       "fecha": "2024-10-16",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LAMP/LAMP.txt"
     },
     {
-      "nombre": "Instalación y gestión de XFS · LINUX [xfs]",
+      "nombre": "Instalación y gestión de XFS (recuperación de archivos) · LINUX [xfs]",
       "fecha": "2024-09-15",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/XFS/instalacion-y-gestion.txt"
     },
     {
-      "nombre": "Documentación comandos Git GitHub· CLI [git, github]",
+      "nombre": "Documentación comandos Git GitHub · CLI [git, github]",
       "fecha": "2024-08-25",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/GIT/git-github.txt"
     },
     {
-      "nombre": "Componentes de ordenador · HARDWARE [hardware pc]",
+      "nombre": "Documentación de los componentes de un ordenador · HARDWARE [hardware pc]",
       "fecha": "2024-07-05",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/REPARACION-ORDENADORES/componentes.txt"
     },
     {
-      "nombre": "Instalación SAMBA con active directory · LINUX [samba]",
+      "nombre": "Instalación y gestión SAMBA con o sin active directory · LINUX [samba]",
       "fecha": "2024-06-30",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/SAMBA/samba-con-active-directory.txt"
     },
@@ -52,22 +37,22 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/TAREAS-tK-0.txt"
     },
     {
-      "nombre": "Visual studio code · VSC [extensiones, plugins]",
+      "nombre": "Uso de Visual studio code · VSC [extensiones, plugins]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/visual-studio-code.txt"
     },
     {
-      "nombre": "Uso y ejemplos de crontab · LINUX [crontab]",
+      "nombre": "Uso de crontab · LINUX [crontab]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/CRONTAB/crontab.txt"
     },
     {
-      "nombre": "Teoría SQL · LINUX [sql, mariadb]",
+      "nombre": "Documentación de la teoría SQL · LINUX [sql, mariadb]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/DB/sql-teoria.txt"
     },
     {
-      "nombre": "Teoría VIM · LINUX [vim]",
+      "nombre": "Uso de VIM · LINUX [vim]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/VIM/general.txt"
     },
@@ -82,7 +67,7 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/protocolos-red.txt"
     },
     {
-      "nombre": "Documentación del framework pnkd php · PHP [pnkd]",
+      "nombre": "Manual framework pnkd php · PHP [pnkd]",
       "fecha": "2024-10-30",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/pnkd/documentacion.txt"
     },
@@ -102,12 +87,12 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/WINDOWS-SERVER/HMAILSERVER/instalacion.txt"
     },
     {
-      "nombre": "Gestión de máquinas virtuales · VMWare [VMW]",
+      "nombre": "Documentación de máquinas virtuales · VMWare [VMW]",
       "fecha": "2024-11-13",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/VMWARE/documentacion.txt"
     },
     {
-      "nombre": "Kali linux - USB booteable live : instalación inicial solo consola · LINUX [bootstrapping]",
+      "nombre": "Uso de Kali linux - USB_booteable_live:instalación_consola · LINUX [bootstrapping]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/KALI/instalacion.txt"
     }
