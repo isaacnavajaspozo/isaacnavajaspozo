@@ -142,8 +142,8 @@
         }
 
 
-               /*tarjetas*/
-               .card {
+        /*tarjetas*/
+        .card {
             background-color: #1e1e1e30;
             position: relative;
             overflow: hidden;
@@ -248,6 +248,26 @@
                 opacity: 0; /* Invisible en el medio de la animación */
             }
         }
+
+        /* QUITAR X */
+        /* Quitar x para navegadores Webkit (Chrome, Safari, Opera) */
+        input[type="search"]::-webkit-search-cancel-button {
+            display: none;  /* Ocultar el botón de borrar */
+        }
+        /* Quitar x para Firefox */
+        input[type="search"]::-moz-search-clear-button {
+            display: none;  /* Ocultar el botón de borrar */
+        }
+        /* Quitar x para Internet Explorer y Edge */
+        input[type="search"]::-ms-clear {
+            display: none;  /* Ocultar el botón de borrar */
+        }
+        /* estilizar x  */
+        input[type="search"] {
+            -webkit-appearance: none;  
+            -moz-appearance: textfield; 
+            appearance: none; 
+        }
     </style>
 </head>
 
@@ -268,7 +288,7 @@
                             <p><i class="bi bi-circle-fill"></i> srv.thorhost.com</p>
                         </div>
                         <div class="texto-vertical">
-                            <p><i class="bi bi-circle-fill"></i> boot.baldurusb.com</p>
+                            <p><i class="bi bi-circle-fill"></i> boot.kali-rusb.com</p>
                         </div>
                         <div class="texto-vertical">
                             <p><i class="bi bi-circle-fill"></i> srv.odinhost.com</p>
