@@ -1,22 +1,18 @@
-## Hi there 👋
+## Hi friend 👋
 
 <!--
 **isaacnavajaspozo/isaacnavajaspozo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
 -->
 
-![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/logo.png)
+- 🔭 I’m currently working on Grafometal.
+- 🌱 I’m currently learning UOC
+- 👯 I’m looking to collaborate on GE (Giga engineering)
+- 📫 How to reach me: isaacnavajasit@duck.com
+- ⚡ Fun fact: "Follow the white rabbit"
 
+### アイザック・ナバハス・ポゾ
 
 [![Javascript npm](https://img.shields.io/badge/JavaScript-npm/npx-yellow)](https://www.npmjs.com/)
 [![Javascript JQuery](https://img.shields.io/badge/JavaScript-JQuery-yellow)](https://jquery.com/)
@@ -65,7 +61,7 @@ Here are some ideas to get you started:
 [![Server Mikrotik](https://img.shields.io/badge/Server-Mikrotik-18c2c3)](https://mikrotik.com/)
 [![Server Proxmox](https://img.shields.io/badge/Server-Proxmox-18c2c3)](https://www.proxmox.com/en/)
 
-[![package ipTables](https://img.shields.io/badge/package-ipTables-pink)]([https://www.netfilter.org/](https://www.netfilter.org/projects/iptables/index.html))
+[![package ipTables](https://img.shields.io/badge/package-ipTables-pink)](<[https://www.netfilter.org/](https://www.netfilter.org/projects/iptables/index.html)>)
 [![package xfs](https://img.shields.io/badge/package-xfs-pink)](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
 [![package git](https://img.shields.io/badge/package-Git-pink)](https://git-scm.com/)
 [![package restic](https://img.shields.io/badge/package-restick-pink)](https://restic.net/)
@@ -75,8 +71,8 @@ Here are some ideas to get you started:
 [![Server Cacti](https://img.shields.io/badge/Server-Cacti-pink)](https://www.cacti.net/)
 
 [![Electronics PLCboard](https://img.shields.io/badge/Electronics-PLCboard-000000)](https://jlcpcb.com/)
-[![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-000000)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/))
-[![Electronics Raspberry](https://img.shields.io/badge/Electronics-Raspberry-000000)]([https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.raspberrypi.com/))
+[![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-000000)](<[https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/)>)
+[![Electronics Raspberry](https://img.shields.io/badge/Electronics-Raspberry-000000)](<[https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.raspberrypi.com/)>)
 [![Electronics ESP32](https://img.shields.io/badge/Electronics-ESP32-000000)](https://www.espressif.com/en/products/socs/esp32)
 
 ## ⚗️ Pnkd (Framework PHP)
@@ -85,21 +81,18 @@ Here are some ideas to get you started:
 
 ```bash
   # Download Pinkragon
-  gh repo clone isaacnavajaspozo/Pinkragon-php
+  git clone https://github.com/isaacnavajaspozo/pnkd-php
 
 ```
 
 ## 🔮 Libraries
+
 `Adminer`, `Fullcalendar`, `DataTable`, `PHP_XLSXWriter`, `Chartjs`, `Highlight`, `Moment`, `Dompdf`, `Quill`, `p0wny-shell`, `Bootstrap` ...
 
 [Go to Libraries repository](https://github.com/isaacnavajaspozo/Libraries)
+
 ```bash
   # Access Pinkragon and download the libraries into the appropriate folder.
-  cd ./Pinkragon-PHP/App/Public/
-  gh repo clone isaacnavajaspozo/Libraries
+  cd ./Pinkragon-PHP/srv/
+  git clone https://github.com/isaacnavajaspozo/Libraries libreries
 ```
-
-
-
-
-

@@ -1,4 +1,6 @@
 <?php
+// TODO:Guardar el archivo con una extensión .php y ejecutarlo desde una terrminal:
+
 // Archivo de tareas
 define('TASK_FILE', 'tasks.json');
 

@@ -102,6 +102,14 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/WINDOWS-SERVER/HMAILSERVER/instalacion.txt"
     },
     {
+<<<<<<< HEAD
+=======
+      "nombre": "Gestión de máquinas virtuales · VMWare [VMW]",
+      "fecha": "2024-11-13",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/VMWARE/documentacion.txt"
+    },
+    {
+>>>>>>> de30c69ebc28ab173d7c7b40821684a5c131ee95
       "nombre": "Kali linux - USB booteable live : instalación inicial solo consola · LINUX [bootstrapping]",
       "fecha": "2024-10-23",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/KALI/instalacion.txt"
