@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/WEB/icon.png)
+![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/WEB/V.png)
 
 # Never stop learning
 
@@ -86,7 +86,7 @@ Here are some ideas to get you started:
 
 ```bash
   # Download Pinkragon
-  gh repo clone isaacnavajaspozo/Pinkragon-php
+  git clone https://github.com/isaacnavajaspozo/pnkd-php
 
 ```
 
@@ -98,6 +98,6 @@ Here are some ideas to get you started:
 
 ```bash
   # Access Pinkragon and download the libraries into the appropriate folder.
-  cd ./Pinkragon-PHP/App/Public/
-  gh repo clone isaacnavajaspozo/Libraries
+  cd ./Pinkragon-PHP/srv/
+  git clone https://github.com/isaacnavajaspozo/Libraries libreries
 ```
