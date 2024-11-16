@@ -15,7 +15,9 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/WEB/logo.png)
+![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/WEB/icon.png)
+
+# アイザック・ナバハス・ポゾ
 
 [![Javascript npm](https://img.shields.io/badge/JavaScript-npm/npx-yellow)](https://www.npmjs.com/)
 [![Javascript JQuery](https://img.shields.io/badge/JavaScript-JQuery-yellow)](https://jquery.com/)
