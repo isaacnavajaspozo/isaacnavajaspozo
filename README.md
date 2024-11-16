@@ -17,7 +17,7 @@ Here are some ideas to get you started:
 
 ![Logo](https://isaacnavajaspozo.github.io/isaacnavajaspozo/WEB/icon.png)
 
-# アイザック・ナバハス・ポゾ
+# Never stop learning
 
 [![Javascript npm](https://img.shields.io/badge/JavaScript-npm/npx-yellow)](https://www.npmjs.com/)
 [![Javascript JQuery](https://img.shields.io/badge/JavaScript-JQuery-yellow)](https://jquery.com/)
