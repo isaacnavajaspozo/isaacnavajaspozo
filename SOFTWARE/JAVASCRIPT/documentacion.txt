@@ -1,0 +1,375 @@
+# ====================[ JavaScript ]====================
+# ======================================================
+
+# Variables y constantes
+#-------------------------------------------------
+
+var x = 10; // Variable con var
+let y = 20; // Variable con let
+const PI = 3.14; // Constante
+
+# Tipos de datos
+let num = 42; // Número
+let texto = "Hola, mundo!"; // Cadena
+let esActivo = true; // Booleano
+let colores = ["rojo", "verde", "azul"]; // Arreglo
+let persona = { nombre: "Juan", edad: 30 }; // Objeto
+
+
+# Estructuras de control
+#-------------------------------------------------
+
+# Condicionales
+if (x > 10) {
+  console.log("Mayor a 10");
+} else {
+  console.log("10 o menor");
+}
+
+# switch
+switch (colores[0]) {
+  case "rojo":
+    console.log("Color rojo");
+    break;
+  case "verde":
+    console.log("Color verde");
+    break;
+  default:
+    console.log("Otro color");
+}
+
+
+# Ciclos
+#-------------------------------------------------
+
+# for
+for (let i = 0; i < 5; i++) {
+  console.log(i); // Imprime 0 a 4
+}
+
+# foreach
+// Usando forEach para recorrer el array numeros
+let numeros = [1, 2, 3, 4, 5];
+numeros.forEach((numero, indice) => {
+  console.log(`Índice: ${indice}, Valor: ${numero}`);
+});
+
+# while
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+# do while
+do {
+  console.log(i);
+  i++;
+} while (i < 10);
+
+
+# Funciones
+#-------------------------------------------------
+function suma(a, b) {
+  return a + b; // Retorna la suma de a y b
+}
+
+const resta = (a, b) => a - b; // Arrow Functions
+
+console.log(suma(5, 3)); // 8
+console.log(resta(5, 3)); // 2
+
+
+# Objetos y métodos
+#-------------------------------------------------
+let coche = {
+  marca: "Toyota",
+  modelo: "Corolla",
+  arrancar: function () {
+    console.log("El coche está en marcha");
+  },
+};
+
+coche.arrancar(); // Llama al método arrancar
+
+
+# Métodos útiles
+#-------------------------------------------------
+let mensaje = "JavaScript es genial";
+console.log(mensaje.toUpperCase()); // "JAVASCRIPT ES GENIAL"
+console.log(mensaje.split(" ")); // ["JavaScript", "es", "genial"]
+
+
+# Arreglos
+#-------------------------------------------------
+let numeros = [1, 2, 3, 4];
+numeros.push(5); // Agrega 5 al final del arreglo
+console.log(numeros); // [1, 2, 3, 4, 5]
+
+
+# Asincronía
+#-------------------------------------------------
+setTimeout(() => {
+  console.log("Esto se ejecuta después de 2 segundos");
+}, 2000);
+
+let promesa = new Promise((resolve, reject) => {
+  let exito = true;
+  if (exito) {
+    resolve("Éxito!");
+  } else {
+    reject("Error");
+  }
+});
+
+promesa
+  .then((mensaje) => console.log(mensaje)) // Éxito!
+  .catch((error) => console.error(error));
+
+# Manipulación del DOM
+let boton = document.createElement("button");
+boton.textContent = "Haz clic aquí";
+document.body.appendChild(boton);
+
+boton.addEventListener("click", () => {
+  alert("¡Hola desde JavaScript!");
+});
+
+
+# Clases
+#-------------------------------------------------
+class Animal {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+  hablar() {
+    console.log(`${this.nombre} está haciendo un ruido.`);
+  }
+}
+
+class Perro extends Animal {
+  hablar() {
+    console.log(`${this.nombre} dice: ¡Guau!`);
+  }
+}
+
+let miPerro = new Perro("Firulais");
+miPerro.hablar(); // "Firulais dice: ¡Guau!"
+
+# Módulos (ES6)
+export function saludar(nombre) {
+  return `Hola, ${nombre}!`;
+}
+
+import { saludar } from "./miModulo.js";
+console.log(saludar("Juan")); // "Hola, Juan!"
+
+
+# JSON
+#-------------------------------------------------
+
+let usuario = { id: 1, nombre: "Ana" };
+let json = JSON.stringify(usuario); // Convierte a JSON
+console.log(json); // '{"id":1,"nombre":"Ana"}'
+
+let obj = JSON.parse(json); // Convierte de JSON a objeto
+console.log(obj); // { id: 1, nombre: 'Ana' }
+
+
+#######################################################################################
+
+
+# ====================[ Métodos de JavaScript ]====================
+# =================================================================
+
+## getElementById()
+# El método getElementById() selecciona un elemento del DOM por su atributo id. 
+let elemento = document.getElementById("miId");
+
+# ==================================================
+
+## querySelector()
+# Este método selecciona el primer elemento que coincida con un selector CSS o etiqueta.
+let parrafo = document.querySelector(".miClase");
+
+# ==================================================
+
+## querySelectorAll()
+# Devuelve una NodeList con todos los elementos que coincidan con un selector CSS o etiqueta.
+let elementos = document.querySelectorAll("p");
+elementos.forEach((el) => console.log(el)); // Itera por todos los <p> en el documento
+
+# ==================================================
+
+## getElementsByClassName()
+# Selecciona todos los elementos que coincidan con una clase.
+let clases = document.getElementsByClassName("miClase");
+
+# ==================================================
+
+## getElementsByTagName()
+# Selecciona todos los elementos que coincidan con un nombre de etiqueta.
+let etiquetas = document.getElementsByTagName("div");
+
+# ==================================================
+
+## addEventListener()
+# Vincula un evento a un elemento del DOM.
+# Este método se usa para escuchar eventos como clics, teclas, etc.
+let boton = document.getElementById("miBoton");
+boton.addEventListener("click", () => {
+  console.log("¡Botón presionado!");
+});
+
+# ==================================================
+
+## removeEventListener()
+# Elimina un evento previamente asociado a un elemento.
+function accion() {
+  console.log("Evento activado");
+}
+boton.addEventListener("click", accion);
+boton.removeEventListener("click", accion); // Elimina el evento
+
+# ==================================================
+
+## innerHTML
+# Propiedad que establece o devuelve el contenido HTML de un elemento.
+let contenedor = document.getElementById("miDiv");
+contenedor.innerHTML = "<p>Nuevo contenido</p>"; // Modifica el contenido del elemento
+
+# ==================================================
+
+## textContent
+# Propiedad que establece o devuelve el contenido textual de un elemento, excluyendo etiquetas HTML.
+contenedor.textContent = "Solo texto sin HTML"; // Cambia el texto del elemento
+
+# ==================================================
+
+## classList
+# Proporciona métodos para manipular las clases de un elemento:
+# - add() para agregar una clase
+# - remove() para eliminar una clase
+# - toggle() para alternar una clase
+# - contains() para verificar si un elemento tiene una clase
+contenedor.classList.add("nuevaClase");
+contenedor.classList.remove("nuevaClase");
+contenedor.classList.toggle("otraClase"); // Agrega o elimina la clase
+
+# ==================================================
+
+## style
+# Propiedad que permite modificar estilos CSS en línea de un elemento.
+contenedor.style.backgroundColor = "blue"; // Cambia el color de fondo a azul
+contenedor.style.fontSize = "20px"; // Cambia el tamaño de la fuente
+
+# ==================================================
+
+## appendChild()
+# Agrega un nuevo nodo como hijo del elemento especificado.
+let nuevoElemento = document.createElement("p");
+nuevoElemento.textContent = "Soy un nuevo párrafo";
+contenedor.appendChild(nuevoElemento); // Agrega el nuevo elemento dentro del contenedor
+
+# ==================================================
+
+## removeChild()
+# Elimina un nodo hijo de un elemento especificado.
+contenedor.removeChild(nuevoElemento); // Elimina el elemento añadido previamente
+
+# ==================================================
+
+## setAttribute() y getAttribute()
+# setAttribute() establece un atributo en un elemento.
+# getAttribute() devuelve el valor de un atributo.
+contenedor.setAttribute("id", "nuevoId");
+console.log(contenedor.getAttribute("id")); // "nuevoId"
+
+# ==================================================
+
+## localStorage
+# Permite almacenar datos en el navegador de forma persistente (incluso si se cierra el navegador).
+localStorage.setItem("nombre", "Juan"); // Guarda un valor
+console.log(localStorage.getItem("nombre")); // "Juan"
+localStorage.removeItem("nombre"); // Elimina un valor
+localStorage.clear(); // Limpia todo el almacenamiento local
+
+# ==================================================
+
+## sessionStorage
+# Similar a localStorage, pero los datos se eliminan al cerrar la pestaña.
+sessionStorage.setItem("sesion", "activa");
+console.log(sessionStorage.getItem("sesion")); // "activa"
+sessionStorage.clear(); // Limpia todo el almacenamiento de sesión
+
+# ==================================================
+
+## JSON.stringify() y JSON.parse()
+# JSON.stringify() convierte un objeto JavaScript a una cadena JSON.
+# JSON.parse() convierte una cadena JSON a un objeto JavaScript.
+let objeto = { nombre: "Ana", edad: 25 };
+let json = JSON.stringify(objeto); // '{"nombre":"Ana","edad":25}'
+console.log(JSON.parse(json)); // { nombre: 'Ana', edad: 25 }
+
+# ==================================================
+
+## fetch()
+# Realiza solicitudes HTTP de forma asincrónica y devuelve una Promesa.
+fetch("https://api.example.com/datos")
+  .then((respuesta) => respuesta.json())
+  .then((datos) => console.log(datos))
+  .catch((error) => console.error("Error:", error));
+
+# fetch más elaborado: 
+// Función para cargar datos desde la API
+const cargarDatos = async () => {
+  try {
+    // Realizar la solicitud usando fetch a una API pública de usuarios
+    const respuesta = await fetch('https://api.ejmplo-api.com/users/1');   
+    // Verificar si la respuesta es exitosa (status 200-299)
+    if (!respuesta.ok) {
+      throw new Error('Error al obtener los datos');
+    }
+
+    // Convertir la respuesta en formato JSON
+    const datosUsuario = await respuesta.json();
+
+    // Mostrar los datos en los elementos del DOM
+    nombreElemento.textContent = datosUsuario.name;
+    correoElemento.textContent = datosUsuario.email;
+    direccionElemento.textContent = `${datosUsuario.address.street}, ${datosUsuario.address.city}`;
+
+    // Ocultar el mensaje de error en caso de éxito
+    divError.style.display = 'none';
+    
+  } catch (error) {
+    // Manejo de errores en caso de que algo falle (como problemas de red)
+    console.error('Hubo un problema con la solicitud Fetch:', error);
+    
+    // Mostrar el mensaje de error en el DOM
+    divError.style.display = 'block';
+  }
+};
+
+// Asignar el evento al botón para cargar los datos
+botonCargarDatos.addEventListener('click', cargarDatos);
+
+
+# ==================================================
+
+## setTimeout() y setInterval()
+# setTimeout() ejecuta una función después de un tiempo especificado.
+setTimeout(() => {
+  console.log("Esto se ejecuta después de 2 segundos");
+}, 2000);
+
+# setInterval() ejecuta una función repetidamente cada cierto tiempo.
+let intervalo = setInterval(() => {
+  console.log("Esto se repite cada segundo");
+}, 1000);
+
+# clearInterval() detiene el intervalo.
+clearInterval(intervalo);
+
+# ==================================================
+

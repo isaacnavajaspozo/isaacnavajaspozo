@@ -1,8 +1,8 @@
 # Creo el archivo con este nombre: oN-999999999.sh 
 # chmod +x oN-999999999.sh
 # sudo ./oN-999999999.sh
-
 #=======================================[ La documentación comienza aquí ]================================================
+
 #!/bin/bash
 
 # Función para configurar la red cableada

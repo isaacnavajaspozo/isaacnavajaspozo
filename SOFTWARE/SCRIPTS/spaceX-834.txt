@@ -2,8 +2,8 @@
 # sudo apt install apache2
 # chmod +x spaceX-834.sh
 # sudo ./spaceX-834.sh
-
 #=======================================[ La documentación comienza aquí ]================================================
+
 #!/bin/bash
 
 # Verificar que el script se ejecuta como root
