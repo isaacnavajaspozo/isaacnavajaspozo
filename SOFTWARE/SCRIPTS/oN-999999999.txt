@@ -1,4 +1,4 @@
-# Creo el archiv con este nombre: oN-999999999.sh 
+# Creo el archivo con este nombre: oN-999999999.sh 
 # chmod +x oN-999999999.sh
 # sudo ./oN-999999999.sh
 
