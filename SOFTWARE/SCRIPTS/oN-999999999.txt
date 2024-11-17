@@ -1,0 +1,182 @@
+# Creo el archiv con este nombre: oN-999999999.sh 
+# chmod +x oN-999999999.sh
+# sudo ./oN-999999999.sh
+
+#=======================================[ La documentación comienza aquí ]================================================
+#!/bin/bash
+
+# Función para configurar la red cableada
+configurar_red_cableada() {
+    echo "¿Quieres configurar una IP estática para la red cableada? (y/n): "
+    read configurar_ip_estatica
+    if [ "$configurar_ip_estatica" == "y" ]; then
+        echo "Introduce la IP estática para la red cableada (ej. 192.168.1.57):"
+        read ip_estatica
+        echo "Introduce la máscara de red (ej. 255.255.255.0):"
+        read mascara_red
+        echo "Introduce la puerta de enlace (ej. 192.168.1.1):"
+        read puerta_enlace
+        echo "Introduce los servidores DNS separados por espacio (ej. 8.8.8.8 8.8.4.4):"
+        read dns_servidores
+
+        # Configuración de IP estática
+        cat <<EOF > /etc/network/interfaces
+# Configuración de la interfaz de red cableada
+auto eth0
+iface eth0 inet static
+    address $ip_estatica
+    netmask $mascara_red
+    gateway $puerta_enlace
+    dns-nameservers $dns_servidores
+EOF
+    else
+        # Configuración por DHCP
+        echo "auto eth0
+iface eth0 inet dhcp" > /etc/network/interfaces
+    fi
+}
+
+# Función para configurar la red WiFi
+configurar_wifi() {
+    echo "¿Quieres configurar la red WiFi? (y/n): "
+    read configurar_wifi
+    if [ "$configurar_wifi" == "y" ]; then
+        echo "Introduce la IP estática para WiFi (ej. 192.168.1.58):"
+        read ip_wifi
+        echo "Introduce la máscara de red (ej. 255.255.255.0):"
+        read mascara_wifi
+        echo "Introduce la puerta de enlace (ej. 192.168.1.1):"
+        read puerta_enlace_wifi
+        echo "Introduce los servidores DNS separados por espacio (ej. 8.8.8.8 8.8.4.4):"
+        read dns_wifi
+        echo "Introduce el nombre de la red WiFi (SSID):"
+        read wifi_ssid
+        echo "Introduce la contraseña de la red WiFi:"
+        read wifi_psk
+
+        # Configuración de WiFi
+        cat <<EOF >> /etc/network/interfaces
+# Configuración de la interfaz WiFi
+auto wlan0
+iface wlan0 inet static
+    address $ip_wifi
+    netmask $mascara_wifi
+    gateway $puerta_enlace_wifi
+    dns-nameservers $dns_wifi
+
+    # Configuración de red inalámbrica
+    wpa-ssid "$wifi_ssid"
+    wpa-psk "$wifi_psk"
+EOF
+    else
+        echo "# Configuración WiFi no configurada, sección comentada" >> /etc/network/interfaces
+        cat <<EOF >> /etc/network/interfaces
+# auto wlan0
+# iface wlan0 inet dhcp
+#     wpa-ssid "SSID_no_configurado"
+#     wpa-psk "PSK_no_configurado"
+EOF
+    fi
+}
+
+# Configuración de SSH para aumentar el tiempo de vida de la conexión
+configurar_ssh() {
+    echo "Configurando SSH..."
+    sed -i '/ServerAliveInterval/d' /etc/ssh/sshd_config
+    sed -i '/ServerAliveCountMax/d' /etc/ssh/sshd_config
+    echo "ServerAliveInterval 60" >> /etc/ssh/sshd_config
+    echo "ServerAliveCountMax 5" >> /etc/ssh/sshd_config
+    systemctl restart ssh
+}
+
+# Deshabilitar suspensión
+deshabilitar_suspension() {
+    echo "Deshabilitando suspensión..."
+    systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+}
+
+# Instalar paquetes básicos
+instalar_paquetes() {
+    echo "Instalando paquetes necesarios..."
+    apt update
+    apt install -y net-tools sudo htop lm-sensors vim
+}
+
+# Configurar el archivo /etc/hostname y /etc/hosts
+configurar_hostname() {
+    echo "Configurando hostname..."
+    hostname="srv.odinhost999"
+    echo $hostname > /etc/hostname
+    echo -e "127.0.0.1\tlocalhost\n127.0.1.1\t$hostname\n::1\tlocalhost ip6-localhost ip6-loopback" > /etc/hosts
+}
+
+# Configuración de bash y alias
+configurar_bash() {
+    echo "Configurando .bashrc..."
+    cat <<'EOF' >> ~/.bashrc
+## Configuración personalizada
+alias ls='ls --color=auto'
+alias la='ls $LS_OPTIONS -lhai'
+alias odin_liberarespacioram='sudo sync; echo 1 | sudo tee /proc/sys/vm/drop_caches | echo "Petición realizada correctamente." && echo "" && free -h'
+PS1='${debian_chroot:+($debian_chroot)}\[\e[0;90m\]debian🎅\[\e[1;33m\][srv.odinhost999] \[\e[1;32m\]\w \[\e[1;32m> '
+source ~/.bashrc
+EOF
+}
+
+# Configurar vim
+configurar_vim() {
+    echo "Configurando Vim..."
+    cat <<'EOF' > ~/.vimrc
+set number
+set cursorline
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set expandtab
+set tabstop=4
+set shiftwidth=4
+syntax on
+set background=dark
+colorscheme industry
+EOF
+}
+
+# Configuración swap
+configurar_swap() {
+    echo "¿Quieres configurar swap? (y/n): "
+    read configurar_swap
+    if [ "$configurar_swap" == "y" ]; then
+        echo "Configurando swap..."
+        sudo dd if=/dev/zero of=/swapfile bs=1G count=4
+        sudo chmod 600 /swapfile
+        sudo mkswap /swapfile
+        sudo swapon /swapfile
+        echo '/swapfile none swap sw 0 0' >> /etc/fstab
+    fi
+}
+
+# Reiniciar el servidor
+reiniciar_servidor() {
+    echo "¿Quieres reiniciar el servidor ahora? (y/n): "
+    read reiniciar
+    if [ "$reiniciar" == "y" ]; then
+        sudo shutdown -r now
+    fi
+}
+
+# Script principal
+main() {
+    configurar_red_cableada
+    configurar_wifi
+    configurar_ssh
+    deshabilitar_suspension
+    instalar_paquetes
+    configurar_hostname
+    configurar_bash
+    configurar_vim
+    configurar_swap
+    reiniciar_servidor
+}
+
+main

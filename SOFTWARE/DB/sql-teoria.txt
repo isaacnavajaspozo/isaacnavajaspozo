@@ -9,6 +9,20 @@ Diagrama de Venn de Bases de Datos:
 - Información: Datos procesados que tienen significado.
 - Conocimiento: Información interpretada que puede ser utilizada para la toma de decisiones.
 
+# Diagrama de Venn: no | yes | no
+SELECT * FROM Usuarios INNER JOIN Post ON usuarios_id = Post.Usuario_id
+
+# Diagrama de Venn: yes | no | no
+SELECT * FROM Usuarios INNER JOIN Post ON usuarios_id = Post.Usuario_id WHERE post.usuario_id IS NULL
+
+# Diagrama de Venn: yes | yes | no
+# Cuando se utiliza esta forma se puede utilizar directamente JOIN en vez de LEFT JOIN, ya que es la forma por defecto
+SELECT * FROM Usuarios LEFT JOIN Post ON usuarios_id = Post.Usuario_id
+
+# Diagrama de Venn: yes | yes | yes
+SELECT * FROM Usuarios LEFT JOIN Post ON usuarios_id = Post.Usuario_id UNION SELECT * FROM Usuarios RIGHT JOIN Post ON usuarios_id = Post.Usuario_id
+
+
 ###############################################################
 1 - SQL BÁSICO
 ###############################################################

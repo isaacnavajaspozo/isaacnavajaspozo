@@ -5,7 +5,6 @@
       "fecha": "2020-02-10",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/HTML/documentacion.txt"
     },
-
     {
       "nombre": "Instalación LAMP · LINUX [php, mariadb, apache2]",
       "fecha": "2024-10-16",
@@ -59,7 +58,7 @@
     {
       "nombre": "Lista de enlaces spam services · URL [spam]",
       "fecha": "2024-10-28",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SYSADMIN/enemys.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/CORREO/enemys.txt"
     },
     {
       "nombre": "Documentación protocolos red · x [x]",
@@ -87,10 +86,14 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/WINDOWS-SERVER/HMAILSERVER/instalacion.txt"
     },
     {
-
       "nombre": "Documentación de máquinas virtuales · VMWare [VMW]",
       "fecha": "2024-11-13",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/VMWARE/documentacion.txt"
+    },
+    {
+      "nombre": "(━━┳ _ ━━┳) oN-999999999 - script configuración inicial de un servidor debian · lINUX [script, Bash scripting]",
+      "fecha": "2024-11-17",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/oN-999999999.txt"
     },
     {
       "nombre": "Uso de Kali linux - USB_booteable_live:instalación_consola · LINUX [bootstrapping]",

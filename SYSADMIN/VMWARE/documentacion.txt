@@ -2,13 +2,13 @@
 ======= 1 - Hacer una copia de una máquina ========
 ===================================================
 
-# a.1$: Me dirijo a la página donde guardo las máquinas
-# a.2$: al crear una máquina nueva se muestra automáticamente la carpeta de referencia por defecto que suele ser: 
+# Me dirijo a la página donde guardo las máquinas
+# al crear una máquina nueva se muestra automáticamente la carpeta de referencia por defecto que suele ser: 
 C:\Users\<tu-usuario>\Documents\Virtual Machines
 
-# b.1$: duplico la carpeta perteneciente a la máquina que quiero duplicar
+# duplico la carpeta perteneciente a la máquina que quiero duplicar
 
-# c.1$: dentro del duplicado localizo el archivo .vmx en mi caso Windows Server 2019.vmx 
-# c.2$: abro el archivo con un editor de texto y modifico el campo "displayName" por el nombre de mí maquina nueva.
+# dentro del duplicado localizo el archivo .vmx en mi caso Windows Server 2019.vmx 
+# abro el archivo con un editor de texto y modifico el campo "displayName" por el nombre de mí maquina nueva.
 
-# d.1$: finalmente, vuelvo a abrir VMWare y ejecuto la nueva máquina.
+# finalmente, vuelvo a abrir VMWare y ejecuto la nueva máquina.
