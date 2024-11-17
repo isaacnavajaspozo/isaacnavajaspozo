@@ -8,7 +8,7 @@
     {
       "nombre": "Instalación LAMP · LINUX [php, mariadb, apache2]",
       "fecha": "2024-10-16",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LAMP/LAMP.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/LAMP/documentacion.txt"
     },
     {
       "nombre": "Instalación y gestión de XFS (recuperación de archivos) · LINUX [xfs]",
@@ -38,12 +38,12 @@
     {
       "nombre": "Uso de Visual studio code · VSC [extensiones, plugins]",
       "fecha": "2024-10-23",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/visual-studio-code.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/IDE/VSC/documentacion.txt"
     },
     {
       "nombre": "Documentación de crontab · LINUX [crontab]",
       "fecha": "2024-10-23",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/CRONTAB/crontab.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/CRONTAB/documentacion.txt"
     },
     {
       "nombre": "Documentación de la teoría SQL · LINUX [sql, mariadb]",
@@ -53,7 +53,7 @@
     {
       "nombre": "Uso de VIM · LINUX [vim]",
       "fecha": "2024-10-23",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/VIM/general.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/IDE/VIM/general.txt"
     },
     {
       "nombre": "Lista de enlaces spam services · URL [spam]",
@@ -63,12 +63,12 @@
     {
       "nombre": "Documentación protocolos red · x [x]",
       "fecha": "2024-10-28",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/protocolos-red.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/PROTOCOLOS/documentacion.txt"
     },
     {
       "nombre": "Manual framework pnkd php · PHP [pnkd]",
       "fecha": "2024-10-30",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/pnkd/documentacion.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/PNKD-PHP/documentacion.txt"
     },
     {
       "nombre": "Documentación servidor debian · srv.odinhost999 [interfaces, ssh, net-tools, .bashrc, sudo, htop, sensors, vim]",
@@ -78,12 +78,12 @@
     {
       "nombre": "Configuración de red Wi-Fi, DNS y ethernet · LINUX [NetworkManager, systemd-resolved, interfaces, netplan, wpa_supplicant]",
       "fecha": "2024-11-05",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/RED/documentacion.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/REDES/documentacion.txt"
     },
     {
       "nombre": "Instalación y configuración inicial de hMailServer · Windows Server [hMailServer]",
       "fecha": "2024-11-15",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/WINDOWS-SERVER/HMAILSERVER/instalacion.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/WINDOWS/WINDOWS-SERVER/HMAILSERVER/instalacion.txt"
     },
     {
       "nombre": "Documentación de máquinas virtuales · VMWare [VMW]",

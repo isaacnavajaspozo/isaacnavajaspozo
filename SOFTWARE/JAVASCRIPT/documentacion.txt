@@ -320,7 +320,7 @@ fetch("https://api.example.com/datos")
   .then((datos) => console.log(datos))
   .catch((error) => console.error("Error:", error));
 
-# fetch más elaborado: 
+# fetch más elaborado con async await: 
 // Función para cargar datos desde la API
 const cargarDatos = async () => {
   try {

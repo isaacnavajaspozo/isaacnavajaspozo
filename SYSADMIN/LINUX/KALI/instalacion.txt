@@ -1,5 +1,5 @@
 # =========================================
-## CONEXIONES WIFI
+## CONEXIONES WIFI:
 
 # verifica el Nombre de tu Red Wi-Fi y crea su Archivo de Configuración
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
@@ -20,7 +20,7 @@ sudo systemctl stop NetworkManager
 sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 sudo dhclient wlan0
 
-# Obtén una Dirección IP
+# Obtén una Dirección IP por DHCP
 sudo dhclient wlan0
 
 # Opcional: Reinicia NetworkManager
@@ -28,7 +28,7 @@ sudo systemctl start NetworkManager
 
 
 # =========================================
-## SERVIDOR SSH
+## SERVIDOR SSH:
 
 # actualizo paquetes e instalo paquete de ssh server
 sudo apt update
@@ -46,10 +46,11 @@ sudo systemctl enable ssh
 
 # conectarme desde:
 ssh usuario@ip_del_servidor
+**********
 
 
 # =========================================
-## CONFIGURACIÓN
+## CONFIGURACIÓN:
 
 # Cambiar idioma
 sudo loadkeys es
@@ -61,9 +62,19 @@ XKBLAYOUT="es"
 # instalar paquete de ifconfig
 sudo apt install net-tools
 
-# Desinstalar interfaz gráfica con tasksel
+
+# =========================================
+## DESINSTALAR LA INTERFAZ:
+
+# pruebo borrando directamente xfce
+sudo apt-get remove --purge kali-desktop-xfce
+sudo apt-get autoremove
+
+# Si no funciona de la manera anterior pruebo con tasksel
 sudo apt-get install tasksel
 sudo tasksel
 
+
+# =========================================
 
 
