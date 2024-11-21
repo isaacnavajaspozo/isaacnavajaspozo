@@ -15,16 +15,16 @@ nano /etc/network/interfaces
     # Interfaz de red
     auto eth0
     iface eth0 inet static
-        address 192.168.1.57      # IP estática
+        address 192.168.1.XX      # IP estática
         netmask 255.255.255.0    
-        gateway 192.168.1.1      
+        gateway 192.168.1.XX      
         dns-nameservers 8.8.8.8 8.8.4.4 
 
     auto wlan0
     iface wlan0 inet static
-        address 192.168.1.58       # IP estática Wifi
+        address 192.168.1.XX       # IP estática Wifi
         netmask 255.255.255.0     
-        gateway 192.168.1.1      
+        gateway 192.168.1.XX      
         dns-nameservers 8.8.8.8 8.8.4.4   
 
         # Configuración de red inalámbrica
