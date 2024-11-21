@@ -3,7 +3,6 @@
 // URL del JSON
 $url = "https://raw.githubusercontent.com/isaacnavajaspozo/isaacnavajaspozo/main/Blog-manuales.json";
 
-
 // Mostrar el arte ASCII
 echo " ________       .___.__\n";
 echo " \\_____  \\    __| _/|__|  ____   \n";
@@ -12,7 +11,7 @@ echo " /    |    \\/ /_/ | |  ||   |  \\\n";
 echo " \\_______  /\\____ | |__||___|  /\n";
 echo "         \\/      \\/          \\/\n";
 echo "\n";
-echo "\n";
+
 // Función para mostrar la barra de carga
 function showLoading() {
     echo " Cargando";
@@ -20,7 +19,6 @@ function showLoading() {
         echo ".";
         sleep(1);
     }
-    echo "\n";
 }
 
 // Mostrar la barra de carga
@@ -39,7 +37,7 @@ if ($data === null) {
 }
 
 // Mostrar los nombres con un número
-echo "\nSelecciona un documento para ver su contenido:\n";
+echo "\n Selecciona un documento para ver su contenido:\n";
 $documents = $data['Blog-manuales'];
 $count = 1;
 

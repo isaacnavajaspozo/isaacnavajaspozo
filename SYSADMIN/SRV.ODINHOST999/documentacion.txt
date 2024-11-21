@@ -48,19 +48,19 @@ apt install net-tools
 
 nano /etc/hostname
 ===========================================================================
-    srv.amesenshi44
+    srv.odinhost999
 ===========================================================================
 
 su
 nano /etc/hostname
 ===========================================================================
-    srv.amesenshi44
+    srv.odinhost999
 ===========================================================================
 
 sudo nano /etc/hosts
 ===========================================================================
 X.X.X.X       localhost
-X.X.X.X       srv.amesenshi44   amesenshi44
+X.X.X.X       srv.odinhost999   odinhost999
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
@@ -81,7 +81,7 @@ nano ~/.bashrc
     alias odin_liberarespacioram='sudo sync; echo 1 | sudo tee /proc/sys/vm/drop_caches | echo "petición realizada correctamente." && echo "" && free -h'
     
     # Cambiar prompt
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[0;90m\]debian🎅\[\e[1;33m\][srv.amesenshi44] \[\e[1;32m\]\w \[\e[1;32m>
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[0;90m\]debian🎅\[\e[1;33m\][srv.odinhost999] \[\e[1;32m\]\w \[\e[1;32m>
 
     # Set colors for ls
     export LS_COLORS="di=1;32:fi=0;37:ln=1;35:so=0;38;5;208:pi=0;34:bd=0;33:cd=0;33:or=0;31:mi=0;31:ex=1;31"
@@ -95,7 +95,7 @@ su
 nano ~/.bashrc
 
 ===========================================================================
-    PS1="\[\e[1;31m\]debian🎅[srv.amesenshi44] \w \$:\[\e[0m\] "
+    PS1="\[\e[1;31m\]debian🎅[srv.odinhost999] \w \$:\[\e[0m\] "
 
     # umask 022
 
