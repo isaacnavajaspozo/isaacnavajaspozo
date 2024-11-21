@@ -1,14 +1,17 @@
- #!/bin/bash
+#!/bin/bash
 
- cat << "EOF"
- ________       .___.__
- \_____  \    __| _/|__|  ____
-  /   |   \  / __ | |  | /    \
- /    |    \/ /_/ | |  ||   |  \
- \_______  /\____ | |__||___|  /
-         \/      \/          \/
+# Para descargar directamente desde Linux:
+# cd / mkdir Odin cd /Odin
+# wget https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/Odin.txt
+# mv Odin.txt Odin.sh
+# chmod +x Odin.sh
 
- EOF
+echo '________       .___.__'
+echo '\_____  \    __| _/|__|  ____'
+echo ' /   |   \  / __ | |  | /    \ '
+echo '/    |    \/ /_/ | |  ||   |  \'
+echo '\_______  /\____ | |__||___|  /'
+echo '        \/      \/          \/'
 
  # URL del JSON
  URL="https://raw.githubusercontent.com/isaacnavajaspozo/isaacnavajaspozo/main/Blog-manuales.json"
