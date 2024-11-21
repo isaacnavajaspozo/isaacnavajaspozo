@@ -1,0 +1,75 @@
+<?php
+
+// URL del JSON
+$url = "https://raw.githubusercontent.com/isaacnavajaspozo/isaacnavajaspozo/main/Blog-manuales.json";
+
+
+// Mostrar el arte ASCII
+echo " ________       .___.__\n";
+echo " \\_____  \\    __| _/|__|  ____   \n";
+echo "  /   |   \\  / __ | |  | /    \\     .\n";
+echo " /    |    \\/ /_/ | |  ||   |  \\\n";
+echo " \\_______  /\\____ | |__||___|  /\n";
+echo "         \\/      \\/          \\/\n";
+echo "\n";
+echo "\n";
+// Función para mostrar la barra de carga
+function showLoading() {
+    echo " Cargando";
+    for ($i = 0; $i < 3; $i++) {
+        echo ".";
+        sleep(1);
+    }
+    echo "\n";
+}
+
+// Mostrar la barra de carga
+showLoading();
+
+// Obtener el JSON
+$json = file_get_contents($url);
+if ($json === false) {
+    die("Error al descargar el JSON.\n");
+}
+
+// Decodificar el JSON
+$data = json_decode($json, true);
+if ($data === null) {
+    die("Error al decodificar el JSON.\n");
+}
+
+// Mostrar los nombres con un número
+echo "\nSelecciona un documento para ver su contenido:\n";
+$documents = $data['Blog-manuales'];
+$count = 1;
+
+foreach ($documents as $document) {
+    echo " $count - " . $document['nombre'] . "\n";
+    $count++;
+}
+
+// Solicitar al usuario que seleccione un número
+$selection = (int) readline("Ingresa el número del documento que deseas ver: ");
+
+// Validar la selección
+if ($selection < 1 || $selection >= $count) {
+    echo "Número inválido. Por favor, selecciona un número de la lista.\n";
+    exit;
+}
+
+// Obtener la URL del documento seleccionado
+$url = $documents[$selection - 1]['url'];
+
+// Verificar si la URL es válida
+if ($url === null) {
+    echo "Número inválido. Por favor, selecciona un número de la lista.\n";
+} else {
+    // Obtener el contenido de la URL
+    $content = file_get_contents($url);
+    if ($content === false) {
+        die("Error al obtener el contenido del documento.\n");
+    }
+
+    echo "\nContenido del documento:\n$content\n";
+}
+?>

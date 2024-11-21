@@ -13,10 +13,10 @@ Modo de inserción: Para editar texto. Presiona i para insertar antes del cursor
 Modo de comandos: Para ejecutar comandos como guardar o salir. Presiona : en modo normal.
 
 4. Navegación básica
-Hacia arriba: k
-Hacia abajo: j
-Hacia la izquierda: h
-Hacia la derecha: l
+Hacia arriba: RePag
+Hacia abajo: AvPag
+Hacia la izquierda: Inicio 
+Hacia la derecha: Fin
 Saltar a la línea siguiente: G (última línea) o gg (primera línea).
 Buscar texto: /texto y presiona Enter. Usa n para siguiente y N para anterior.
 
@@ -33,8 +33,8 @@ Rehacer: Ctrl + r
 Archivo de configuración: Edita ~/.vimrc para personalizar Vim.
 Ejemplo: activar la numeración de líneas:
 vim
-Copiar código
 set number
+# mi configuración personalizada más abajo... 
 
 8. Atajos y combinaciones
 Guardar: :w
@@ -45,7 +45,6 @@ Abrir múltiples archivos: vim archivo1 archivo2, navega con :n y :prev.
 Usa un gestor de plugins como Vim-Plug para agregar funcionalidades.
 Ejemplo de instalación:
 vim
-Copiar código
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 call plug#end()
@@ -54,6 +53,7 @@ call plug#end()
 Tutorial interno: Ejecuta vimtutor en la terminal para un tutorial interactivo.
 
 
+########################################################
 ########################################################
 
 
