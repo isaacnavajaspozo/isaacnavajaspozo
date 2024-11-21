@@ -1,0 +1,41 @@
+ #!/bin/bash
+
+ cat << "EOF"
+ ________       .___.__
+ \_____  \    __| _/|__|  ____
+  /   |   \  / __ | |  | /    \
+ /    |    \/ /_/ | |  ||   |  \
+ \_______  /\____ | |__||___|  /
+         \/      \/          \/
+
+ EOF
+
+ # URL del JSON
+ URL="https://raw.githubusercontent.com/isaacnavajaspozo/isaacnavajaspozo/main/Blog-manuales.json"
+
+ # Obtener el JSON y guardarlo en una variable
+ json=$(curl -s "$URL")
+
+ # Mostrar los nombres con un número
+ echo "Selecciona un documento para ver su contenido:"
+ echo "$json" | jq -r '.["Blog-manuales"] | to_entries | .[] | "\(.key + 1) - \(.value.nombre)"'
+
+ # Solicitar al usuario que seleccione un número
+ read -p "Ingresa el número del documento que deseas ver: " selection
+
+ # Validar la selección
+ if [[ "$selection" =~ ^[0-9]+$ ]]; then
+     index=$((selection - 1))
+     url=$(echo "$json" | jq -r ".\"Blog-manuales\"[$index].url")
+
+     # Verificar si la URL es válida
+     if [[ "$url" != "null" ]]; then
+         # Obtener el contenido de la URL, siguiendo redirecciones
+         content=$(curl -s -L "$url")
+         echo -e "\nContenido del documento:\n$content"
+     else
+         echo "Número inválido. Por favor, selecciona un número de la lista."
+     fi
+ else
+     echo "Por favor, ingresa un número válido."
+ fi

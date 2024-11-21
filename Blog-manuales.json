@@ -71,9 +71,9 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/PNKD-PHP/documentacion.txt"
     },
     {
-      "nombre": "Documentación servidor debian · srv.odinhost999 [interfaces, ssh, net-tools, .bashrc, sudo, htop, sensors, vim]",
+      "nombre": "Documentación servidor debian · srv.amesenshi44 [interfaces, ssh, net-tools, .bashrc, sudo, htop, sensors, vim]",
       "fecha": "2024-11-03",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/srv.odinhost999/documentacion.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/srv.amesenshi44/documentacion.txt"
     },
     {
       "nombre": "Configuración de red Wi-Fi, DNS y ethernet · LINUX [NetworkManager, systemd-resolved, interfaces, netplan, wpa_supplicant]",
@@ -96,14 +96,24 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/oN-999999999.txt"
     },
     {
-      "nombre": "(┻━┻ _ ┻━┻) spaceX-834 - script creador de espacio WEB apache · lINUX [script, Bash scripting, apache2, ftp, SSL]",
+      "nombre": "(┻━┻ _ ┻━┻) X-space-834 - script creador de espacio WEB apache · lINUX [script, Bash scripting, apache2, ftp, SSL]",
       "fecha": "2024-11-17",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/spaceX-834.txt"
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/X-space-834.txt"
     },
     {
       "nombre": "Documentación básica de JavaScript · JS [JavaScript]",
       "fecha": "2020-03-20",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/JAVASCRIPT/documentacion.txt"
+    },
+    {
+      "nombre": "Documentación básica de php · PHP [PHP]",
+      "fecha": "2020-03-20",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/PHP/documentacion.txt"
+    },
+    {
+      "nombre": "( ( - ）︵ ━┳━ )- Odin - script para mostrar documentación en debian · Bash [script, Bash scripting, debian]",
+      "fecha": "2024-11-21",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/Odin.txt"
     },
     {
       "nombre": "Uso de Kali linux - USB_booteable_live:instalación_consola · LINUX [bootstrapping]",

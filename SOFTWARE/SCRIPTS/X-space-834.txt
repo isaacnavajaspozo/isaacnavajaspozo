@@ -1,7 +1,7 @@
-# Creo el archivo con este nombre: spaceX-834.sh 
+# Creo el archivo con este nombre: X-space-834.sh 
 # sudo apt install apache2
-# chmod +x spaceX-834.sh
-# sudo ./spaceX-834.sh
+# chmod +x X-space-834.sh
+# sudo ./X-space-834.sh
 #=======================================[ La documentación comienza aquí ]================================================
 
 #!/bin/bash

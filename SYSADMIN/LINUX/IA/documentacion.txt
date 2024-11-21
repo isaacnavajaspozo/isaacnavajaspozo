@@ -1,0 +1,84 @@
+Sí, puedes interactuar con un modelo de lenguaje a través de un script de Bash, pero necesitarás un programa en Python (o en otro lenguaje) que ejecute el modelo y luego puedes llamar a ese programa desde tu script de Bash. Aquí te muestro cómo hacerlo:
+
+### 1. Crea un script de Python
+
+Primero, crea un script de Python que reciba la entrada desde la línea de comandos y devuelva la respuesta del modelo. Crea un archivo llamado `chat.py`:
+
+```bash
+nano chat.py
+```
+
+Copia y pega el siguiente código en el archivo:
+
+```python
+import sys
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+# Cargar el modelo y el tokenizador
+model_name = "EleutherAI/gpt-neo-2.7B"  # O el modelo que elijas
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+# Obtener la entrada del argumento de línea de comandos
+user_input = " ".join(sys.argv[1:])
+
+# Generar respuesta
+inputs = tokenizer.encode(user_input, return_tensors='pt')
+outputs = model.generate(inputs, max_length=50, num_return_sequences=1)
+response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+print(response)
+```
+
+### 2. Crea un script de Bash
+
+Ahora, crea un script de Bash que llame a tu script de Python. Crea un archivo llamado `chat.sh`:
+
+```bash
+nano chat.sh
+```
+
+Copia y pega el siguiente código en el archivo:
+
+```bash
+#!/bin/bash
+
+echo "Escribe 'salir' para terminar la conversación."
+
+while true; do
+    read -p "Tú: " user_input
+    if [[ "$user_input" == "salir" ]]; then
+        break
+    fi
+
+    # Llamar al script de Python y pasar la entrada del usuario
+    response=$(python3 chat.py "$user_input")
+    echo "Modelo: $response"
+done
+```
+
+### 3. Haz que el script de Bash sea ejecutable
+
+Guarda el archivo y sal del editor. Luego, haz que el script de Bash sea ejecutable:
+
+```bash
+chmod +x chat.sh
+```
+
+### 4. Ejecuta el script de Bash
+
+Ahora puedes ejecutar el script de Bash:
+
+```bash
+./chat.sh
+```
+
+### 5. Interactúa con el modelo
+
+Escribe tus preguntas o mensajes en la terminal, y el modelo te responderá. Escribe "salir" para terminar la conversación.
+
+### Notas
+
+- Asegúrate de que tanto `chat.py` como `chat.sh` estén en el mismo directorio o proporciona la ruta correcta al script de Python en el script de Bash.
+- Este enfoque permite que el script de Bash actúe como una interfaz para interactuar con el modelo de lenguaje a través de Python.
+- Recuerda que el modelo puede requerir una cantidad significativa de recursos, así que asegúrate de que tu sistema tenga suficiente capacidad.
