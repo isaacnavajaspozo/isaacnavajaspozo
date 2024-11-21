@@ -71,11 +71,6 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/PNKD-PHP/documentacion.txt"
     },
     {
-      "nombre": "Documentación servidor debian · srv.amesenshi44 [interfaces, ssh, net-tools, .bashrc, sudo, htop, sensors, vim]",
-      "fecha": "2024-11-03",
-      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/srv.amesenshi44/documentacion.txt"
-    },
-    {
       "nombre": "Configuración de red Wi-Fi, DNS y ethernet · LINUX [NetworkManager, systemd-resolved, interfaces, netplan, wpa_supplicant]",
       "fecha": "2024-11-05",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/LINUX/REDES/documentacion.txt"
@@ -121,7 +116,7 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/Odin-php.txt"
     },
     {
-      "nombre": "Documentación de configuración inicial de servidsor Odin · SRV.ODINHOST999 [debian installer, linux]",
+      "nombre": "Documentación de configuración inicial de servidsor Odin · SRV.ODINHOST999 [debian installer, linux, interfaces, ssh, net-tools, .bashrc, sudo, htop, sensors, vim]",
       "fecha": "2024-10-02",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/SRV.ODINHOST999/documentacion.txt"
     },
