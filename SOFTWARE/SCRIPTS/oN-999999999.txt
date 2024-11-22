@@ -79,7 +79,27 @@ EOF
     fi
 }
 
-# Configuración de SSH para aumentar el tiempo de vida de la conexión
+# Función para instalar SSH si no está instalado
+instalar_ssh() {
+    if ! command -v ssh &> /dev/null; then
+        echo "SSH no está instalado. Instalando..."
+        # Para sistemas basados en Debian/Ubuntu
+        if [ -f /etc/debian_version ]; then
+            apt update
+            apt install -y openssh-server
+        # Para sistemas basados en Red Hat/CentOS
+        elif [ -f /etc/redhat-release ]; then
+            yum install -y openssh-server
+        else
+            echo "Sistema no soportado para la instalación de SSH."
+            exit 1
+        fi
+    else
+        echo "SSH ya está instalado."
+    fi
+}
+
+# Función para configurar SSH para aumentar el tiempo de vida de la conexión
 configurar_ssh() {
     echo "Configurando SSH..."
     sed -i '/ServerAliveInterval/d' /etc/ssh/sshd_config
@@ -104,18 +124,36 @@ instalar_paquetes() {
 
 # Configurar el archivo /etc/hostname y /etc/hosts
 configurar_hostname() {
-    echo "Configurando hostname..."
-    hostname="srv.odinhost999"
-    echo $hostname > /etc/hostname
-    echo -e "127.0.0.1\tlocalhost\n127.0.1.1\t$hostname\n::1\tlocalhost ip6-localhost ip6-loopback" > /etc/hosts
+    echo "¿Qué nombre de host deseas configurar? (ejemplo: srv.odinhost999): "
+    read hostname
+
+    # Verificar si se ingresó un nombre de host válido
+    if [ -z "$hostname" ]; then
+        echo "El nombre de host no puede estar vacío. Por favor, ingresa un nombre válido."
+        return 1
+    fi
+
+    echo "Configurando hostname a: $hostname..."
+
+    # Establecer el nombre de host en /etc/hostname
+    echo $hostname | sudo tee /etc/hostname > /dev/null
+
+    # Configurar el archivo /etc/hosts
+    echo -e "127.0.0.1\tlocalhost\n127.0.1.1\t$hostname\n::1\tlocalhost ip6-localhost ip6-loopback" | sudo tee /etc/hosts > /dev/null
+
+    # Aplicar el nuevo hostname
+    sudo hostnamectl set-hostname $hostname
+
+    echo "Hostname configurado correctamente a: $hostname"
 }
+
 
 # Configuración de bash y alias
 configurar_bash() {
     echo "Configurando .bashrc..."
     cat <<'EOF' >> ~/.bashrc
 ## Configuración personalizada
-PS1="\[\e[1;31m\]debian🎅[srv.amesenshi44] \w \$:\[\e[0m\] "
+PS1="\[\e[1;31m\]debian🎅[/h] \w \$:\[\e[0m\] "
 
     # umask 022
 
@@ -173,8 +211,6 @@ PS1="\[\e[1;31m\]debian🎅[srv.amesenshi44] \w \$:\[\e[0m\] "
     echo "Memoria libre: $(free -h | awk '/^Mem:/ {print $4}')"
     echo "Espacio en disco: $(df -h / | awk '/\// {print $4}')"
     echo ""
-===========================================================================
-source ~/.bashrc
 EOF
 }
 
@@ -256,14 +292,71 @@ configurar_swap() {
     echo "¿Quieres configurar swap? (y/n): "
     read configurar_swap
     if [ "$configurar_swap" == "y" ]; then
-        echo "Configurando swap..."
-        sudo dd if=/dev/zero of=/swapfile bs=1G count=4
+        echo "¿Cuántos gigas de swap quieres configurar? (por ejemplo, 4): "
+        read swap_gigas
+
+        # Verificar si el valor es un número positivo
+        if ! [[ "$swap_gigas" =~ ^[0-9]+$ ]] || [ "$swap_gigas" -le 0 ]; then
+            echo "Por favor, ingresa un número válido mayor a 0."
+            return 1
+        fi
+
+        echo "Configurando swap de $swap_gigas GB..."
+
+        # Crear el archivo swap
+        sudo dd if=/dev/zero of=/swapfile bs=1G count=$swap_gigas
+
+        # Configurar permisos y activar el swap
         sudo chmod 600 /swapfile
         sudo mkswap /swapfile
         sudo swapon /swapfile
-        echo '/swapfile none swap sw 0 0' >> /etc/fstab
+
+        # Agregar la entrada al archivo fstab para que el swap se monte automáticamente al reiniciar
+        echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+        echo "Swap de $swap_gigas GB configurado correctamente."
     fi
 }
+
+# Función para crear un nuevo usuario con privilegios de sudo
+crear_usuario_sudo() {
+    echo "¿Quieres crear un nuevo usuario con privilegios de sudo? (y/n): "
+    read respuesta
+
+    if [ "$respuesta" != "y" ]; then
+        echo "No se creará un nuevo usuario."
+        return 0
+    fi
+
+    # Solicitar el nombre de usuario
+    echo "Introduce el nombre del nuevo usuario:"
+    read nombre_usuario
+
+    # Solicitar la contraseña
+    echo "Introduce la contraseña para el nuevo usuario:"
+    read -s contraseña
+
+    # Crear el nuevo usuario
+    sudo adduser --gecos "" "$nombre_usuario" --disabled-password
+
+    # Establecer la contraseña para el nuevo usuario
+    echo "$nombre_usuario:$contraseña" | sudo chpasswd
+
+    # Agregar el nuevo usuario al grupo sudo
+    sudo usermod -aG sudo "$nombre_usuario"
+
+    # Crear enlaces simbólicos para .bashrc y .vimrc
+    sudo ln -s /home/usuario_existente/.bashrc /home/"$nombre_usuario"/.bashrc
+    sudo ln -s /home/usuario_existente/.vimrc /home/"$nombre_usuario"/.vimrc
+
+    # Cambiar la propiedad de los enlaces simbólicos
+    sudo chown "$nombre_usuario":"$nombre_usuario" /home/"$nombre_usuario"/.bashrc
+    sudo chown "$nombre_usuario":"$nombre_usuario" /home/"$nombre_usuario"/.vimrc
+
+    echo "El usuario '$nombre_usuario' ha sido creado y se le han otorgado privilegios de sudo."
+    echo "Los archivos .bashrc y .vimrc super se comparten con el nuevo usuario."
+}
+
 
 # Reiniciar el servidor
 reiniciar_servidor() {
@@ -274,18 +367,33 @@ reiniciar_servidor() {
     fi
 }
 
-# Script principal
+# Función principal
 main() {
-    configurar_red_cableada
-    configurar_wifi
-    configurar_ssh
-    deshabilitar_suspension
-    instalar_paquetes
-    configurar_hostname
-    configurar_bash
-    configurar_vim
-    configurar_swap
-    reiniciar_servidor
+    echo "Selecciona una opción:"
+    echo "1) Configurar todo (red, ssh, paquetes, vim/vimrc, .bashrc, usuario su, update...)"
+    echo "2) Crear un usuario con privilegios su y links de vimrc y .bashrc"
+    read opcion
+
+    if [ "$opcion" -eq 1 ]; then
+        configurar_red_cableada
+        configurar_wifi
+        instalar_ssh
+        configurar_ssh
+        deshabilitar_suspension
+        instalar_paquetes
+        configurar_hostname
+        configurar_bash
+        source ~/.bashrc
+        crear_usuario_sudo
+        apt update -y
+        apt upgrade -y
+        reiniciar_servidor
+    elif [ "$opcion" -eq 2 ]; then
+        crear_usuario_sudo
+    else
+        echo "Opción no válida."
+    fi
 }
 
+# Ejecutar la función principal
 main
