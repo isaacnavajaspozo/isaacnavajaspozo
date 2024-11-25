@@ -1,4 +1,20 @@
 ###############################################################
+? - ÍNDICE
+###############################################################
+
+  # 0 - PRINCIPIOS DE BASES DE DATOS Y DIAGRAMAS DE VENN
+  # 1 - SQL BÁSICO
+  # 2 - SQL EN LINUX
+  # 3 - FUNCIONES AVANZADAS EN SQL
+  # 4 - TIPOS DE DATOS Y CÓMO SE UTILIZAN EN LA DB
+  # 5 - DML (Data Manipulation Language)
+  # 6 - DML · SELECT
+  # 7 - DCL (Data Control Language)
+  # 8 - TCL (Transaction Control Language)
+
+
+
+###############################################################
 0 - PRINCIPIOS DE BASES DE DATOS Y DIAGRAMAS DE VENN
 ###############################################################
 
@@ -21,6 +37,7 @@ SELECT * FROM Usuarios LEFT JOIN Post ON usuarios_id = Post.Usuario_id
 
 # Diagrama de Venn: yes | yes | yes
 SELECT * FROM Usuarios LEFT JOIN Post ON usuarios_id = Post.Usuario_id UNION SELECT * FROM Usuarios RIGHT JOIN Post ON usuarios_id = Post.Usuario_id
+
 
 
 ###############################################################
@@ -56,15 +73,24 @@ TCL (Transaction Control Language):
 - RELEASE SAVEPOINT: Elimina un punto de guardado.
 - SET TRANSACTION: Establece el aislamiento de la transacción.
 
+
+
 ###############################################################
 2 - SQL EN LINUX
 ###############################################################
 
-El uso de SQL en Linux generalmente implica el uso de sistemas de gestión de bases de datos como MySQL, PostgreSQL o SQLite. Las operaciones básicas se realizan a través de la línea de comandos o mediante herramientas gráficas. A continuación, se describen algunas de las herramientas más utilizadas:
+En sistemas Linux, el uso de SQL suele realizarse a través de gestores como MySQL, PostgreSQL o SQLite. 
+[Mariadb:Mysql]:
 
-- MySQL: Se accede a través del comando `mysql -u usuario -p`.
-- PostgreSQL: Se accede a través del comando `psql -U usuario -d base_de_datos`.
-- SQLite: Se accede mediante el comando `sqlite3 nombre_de_base_de_datos`.
+# mysql -u usuario -p
+Para iniciar sesión en MySQL o MariaDB desde la terminal
+
+# CREATE DATABASE nombre_base;
+Crear una base de datos
+
+# USE nombre_base;
+Usar una base de datos
+
 
 ###############################################################
 3 - FUNCIONES AVANZADAS EN SQL
@@ -118,6 +144,8 @@ Tablas Temporales (Temporary Tables):
 - Definición: Tablas que existen solo durante la sesión actual.
 - Ejemplo: `CREATE TEMPORARY TABLE nombre_tabla (...);`
 
+
+
 ###############################################################
 4 - TIPOS DE DATOS Y CÓMO SE UTILIZAN EN LA DB
 ###############################################################
@@ -142,3 +170,244 @@ Tablas Temporales (Temporary Tables):
 5. Otros Tipos:
 - **enum**: Almacena un valor de un conjunto definido de valores.
 - **set**: Almacena múltiples valores de un conjunto definido.
+
+
+
+###############################################################
+5 - DML (Data Manipulation Language)
+###############################################################
+
+# INSERT INTO people(last_name, first_name) VALUES('Hernandez', 'Laura')
+Agrega un registro a la tabla people con los valores 'Hernandez' en last_name y 'Laura' en first_name.
+
+# UPDATE people SET last_name= 'Chavez' WHERE person_id = 1
+Cambia el apellido a Chavez en la tabla people, pero solo para el registro donde person_id es 1.
+
+# DELETE FROM people WHERE person_id = 1
+Borra el registro de la tabla people donde person_id es 1.
+
+TRUNCATE TABLE nombre_tabla;
+Borra todas las filas de una tabla pero conserva su estructura y configuración.
+
+# SELECT first_name, Last_name FROM people
+Muestra los valores de las columnas first_name y last_name de la tabla people. Más adelante veremos más detalles del comando SELECT.
+
++------------------+
+|   Foreign keys   |
++------------------+
+Las claves foráneas conectan una tabla con la primary key de otra. Estas siempre deben ser NOT NULL y generalmente tienen una relación de "uno a muchos". 
+Por ejemplo, si usamos user_id de otra tabla, será la parte "de muchos" en people.
+Cuando se eliminan o actualizan registros relacionados, puedes configurar estas opciones:
+
+    + cascade: 
+    Si un registro cambia o se elimina en una tabla, el cambio o eliminación también se aplica automáticamente en la tabla relacionada.
+
+    + restrict: 
+    No permite eliminar un registro si tiene datos relacionados en otra tabla. Primero debes borrar los datos relacionados.
+
+    + set null: 
+    Si eliminas un registro en la tabla principal, los registros relacionados en la otra tabla quedarán con un valor NULL.
+
+
+** Nota sobre tablas transitivas ** :
+- En una relación transitiva, la foreign key está en la tabla con cardinalidad "uno", y la tabla conectada es "de muchos".
+- En los gestos de db puedo usar herramientas como Database/Reverse Engineer para crear diagramas que muestran las relaciones y cardinalidades entre tablas.
+
+
+
+###############################################################
+6 - DML · SELECT
+###############################################################
+
+# Métodos de un Query:
+El orden para usar los métodos en un query es el siguiente:
+
+SELECT: Indica qué datos quieres mostrar.
+
+        AS: Asigna un alias (un subnombre) a una columna o tabla.
+        *: Selecciona todos los atributos de una tabla.
+        AVG(): Calcula el promedio de un campo.
+        COUNT(): Cuenta los registros de un campo.
+        SUM(): Suma los valores de un campo.
+        MAX(): Devuelve el valor máximo de un campo.
+        MIN(): Devuelve el valor mínimo de un campo.
+        YEAR(): Extrae el año de una fecha. También puedes usar MONTHNAME() para obtener el nombre del mes.
+        GROUP_CONCAT(): Combina resultados en una lista separada por comas.
+
+FROM: Indica de dónde provienen los datos (la tabla o tablas).
+
+WHERE: Aplica filtros para mostrar solo los datos que cumplan ciertas condiciones.
+
+        LIKE %valor%: Busca registros que contengan valor.
+            %valor: Registros que terminan en valor.
+            valor%: Registros que comienzan con valor.
+
+BETWEEN: Busca registros entre dos valores. 
+Por ejemplo:
+----------------------------------------------------------------------------
+    WHERE fecha_publicacion BETWEEN '2020-01-01' AND '2020-12-13';
+    IS NULL: Filtra registros donde el valor es nulo.
+    IS NOT NULL: Filtra registros donde el valor no es nulo.
+    AND: Combina varias condiciones (ej. IS NULL AND campo > 10).
+----------------------------------------------------------------------------
+
+ORDER BY: Ordena los resultados.
+
+        ASC: Orden ascendente (por defecto).
+        DESC: Orden descendente.
+        LIMIT: Restringe la cantidad de resultados que devuelve el query.
+
+GROUP BY: Agrupa los datos por un valor común. 
+Por ejemplo:
+----------------------------------------------------------------------------
+    SELECT apellido, AVG(nota) AS promedio 
+    FROM alumnos 
+    GROUP BY apellido;
+    Esto calcula el promedio de las notas agrupadas por el mismo apellido.
+----------------------------------------------------------------------------
+
+HAVING: Filtra los resultados de un GROUP BY. Similar a WHERE, pero funciona sobre los grupos. 
+Por ejemplo:
+----------------------------------------------------------------------------
+    SELECT apellido, AVG(nota) AS promedio 
+    FROM alumnos 
+    GROUP BY apellido 
+    HAVING promedio > 7;
+----------------------------------------------------------------------------
+
+NESTED QUERIES (Consultas Anidadas): Son queries dentro de otros. Se escriben entre paréntesis y se usan en métodos como FROM o WHERE. 
+Por ejemplo:
+----------------------------------------------------------------------------
+    SELECT nombre 
+    FROM (SELECT * FROM alumnos WHERE nota > 7) subconsulta 
+    WHERE subconsulta.fecha_public = '2023-01-01';
+----------------------------------------------------------------------------
+
+
+
+###############################################################
+7 - DCL (Data Control Language)
+###############################################################
+
+# Crear usuario:
+CREATE USER 'usuario'@'host' IDENTIFIED BY 'contraseña';
+CREATE USER 'usuario1'@'11.0.0.0' IDENTIFIED BY 'contraseña';
+
+# Otorgar permisos:
+GRANT permiso1, permiso2 ON tabla TO usuario;
+GRANT SELECT, INSERT ON tabla1 TO usuario1;
+
+# WITH GRANT OPTION:
+Permite al usuario otorgar esos mismos permisos a otros. Usa PUBLIC para otorgar permisos a todos los usuarios de la base de datos.
+GRANT SELECT ON tabla1 TO usuario1 WITH GRANT OPTION;
+GRANT SELECT ON tabla1 TO PUBLIC;
+
+
+# roles
+-------------------------------------------------------------
+# Crear un rol:
+CREATE ROLE rol;
+
+# Asignar permisos al rol:
+GRANT permiso ON tabla TO rol;
+
+# Asignar el rol a usuarios:
+GRANT rol TO usuario1, usuario2;
+
+---------------------------------------
+CREATE ROLE analista;
+GRANT SELECT ON tabla1 TO analista;
+GRANT analista TO usuario1, usuario2;
+---------------------------------------
+
+
+
+###############################################################
+8 - TCL (Transaction Control Language)
+###############################################################
+
+Usa START TRANSACTION o BEGIN para comenzar una transacción.
+
+# COMMIT
+Confirma y hace permanentes los cambios de la transacción actual.
+----------------------------------------------------------------
+START TRANSACTION;
+UPDATE productos SET stock = stock - 1 WHERE id = 123;
+INSERT INTO historial_ventas (producto_id, cantidad, fecha) VALUES (123, 1, NOW());
+COMMIT;
+----------------------------------------------------------------
+
+
+# ROLLBACK
+Deshace todos los cambios de la transacción actual, restaurando el estado anterior.
+----------------------------------------------------------------
+START TRANSACTION;
+UPDATE productos SET stock = stock - 1 WHERE id = 123;
+INSERT INTO historial_ventas (producto_id, cantidad, fecha) VALUES (123, 1, NOW());
+ROLLBACK;
+----------------------------------------------------------------
+
+
+# SAVEPOINT
+Crea un punto de guardado dentro de la transacción para deshacer cambios específicos.
+----------------------------------------------------------------
+START TRANSACTION;
+UPDATE productos SET stock = stock - 1 WHERE id = 123;
+SAVEPOINT punto_de_guardado;
+INSERT INTO historial_ventas (producto_id, cantidad, fecha) VALUES (123, 1, NOW());
+ROLLBACK TO SAVEPOINT punto_de_guardado;
+----------------------------------------------------------------
+
+
+# ROLLBACK TO SAVEPOINT
+Revierte los cambios realizados después de un punto de guardado.
+----------------------------------------------------------------
+START TRANSACTION;
+UPDATE productos SET stock = stock - 1 WHERE id = 123;
+SAVEPOINT punto_de_guardado;
+INSERT INTO historial_ventas (producto_id, cantidad, fecha) VALUES (123, 1, NOW());
+RELEASE SAVEPOINT punto_de_guardado;
+----------------------------------------------------------------
+
+
+# RELEASE SAVEPOINT
+Elimina un punto de guardado. Una vez eliminado, no se puede volver a él.
+----------------------------------------------------------------
+START TRANSACTION;
+UPDATE productos SET stock = stock - 1 WHERE id = 123;
+SAVEPOINT punto_de_guardado;
+INSERT INTO historial_ventas (producto_id, cantidad, fecha) VALUES (123, 1, NOW());
+RELEASE SAVEPOINT punto_de_guardado;
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
