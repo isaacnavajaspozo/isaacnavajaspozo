@@ -184,7 +184,7 @@ show mac address-table | include B3D1           # muestra las direcciones MAC fi
 ------------------------------------------
 Vlan    Mac Address       Type       Ports
 ----    -----------       ----       -----
-1       1c1a.dfb8.b3d1    DYNAMIC    g0/35      # la interfaz en la que esta conectada esta mac es g0/35
+1       1XFa.Df38.R351    DYNAMIC    g0/35      # la interfaz en la que esta conectada esta mac es g0/35
 ------------------------------------------
 config                                          # accedo al modo privilegiado, para poder editar la VLAN
 interface g0/35                                 # le digo al switch que voy a atacar sobre la interfaz g0/35, entrando en su boquilla
