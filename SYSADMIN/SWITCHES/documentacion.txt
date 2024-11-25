@@ -1,201 +1,157 @@
-# =======[ Comandos switches ]====================================================================
+=======[ Comandos switches ]====================================================================
+================================================================================================
 
 ## Privilegios en un switch:
-
 Los switches suelen operar bajo diferentes niveles de privilegios. Estos niveles determinan qué comandos puedes ejecutar:
-|
-+-- # Modo usuario (User EXEC):
-| Nivel básico, permite visualizar información básica pero no realizar configuraciones.
-|
-+-- # Modo privilegiado (Privileged EXEC):
-| Nivel intermedio, permite ejecutar comandos de diagnóstico y ver configuraciones detalladas.
-|
-+-- # Modo de configuración global (Global Configuration):
-| Nivel avanzado, permite configurar el switch.
-|
-+-- # Modo de configuración específica (Interface Configuration, Line Configuration, etc.):
-Configura detalles específicos como interfaces o líneas de consola.
+  |
+  +-- # Modo usuario (User EXEC): 
+  |  Nivel básico, permite visualizar información básica pero no realizar configuraciones.
+  |
+  +-- # Modo privilegiado (Privileged EXEC): 
+  |  Nivel intermedio, permite ejecutar comandos de diagnóstico y ver configuraciones detalladas.
+  |
+  +-- # Modo de configuración global (Global Configuration): 
+  |  Nivel avanzado, permite configurar el switch.
+  |
+  +-- # Modo de configuración específica (Interface Configuration, Line Configuration, etc.): 
+    Configura detalles específicos como interfaces o líneas de consola.
+
 
 ## Lista detallada de comandos y sus usos:
 
-| Comando                        | Nivel de privilegio       | Descripción                                                 |
-| ------------------------------ | ------------------------- | ----------------------------------------------------------- |
-| `enable`                       | Usuario -> Privilegiado   | Cambia al modo privilegiado.                                |
-| `disable`                      | Privilegiado -> Usuario   | Vuelve al modo usuario.                                     |
-| `show interface brief`         | Privilegiado              | Muestra el estado y configuración de interfaces.            |
-| `show running-config`          | Privilegiado              | Muestra la configuración actual en ejecución.               |
-| `show startup-config`          | Privilegiado              | Muestra la configuración guardada en memoria NVRAM.         |
-| `show mac address-table`       | Privilegiado              | Lista la tabla MAC completa del switch.                     |
-| `show version`                 | Privilegiado              | Muestra información del hardware y versión de software.     |
-| `config`                       | Privilegiado              | Entra al modo configuración global.                         |
-| `interface [puerto]`           | Configuración global      | Selecciona una interfaz específica.                         |
-| `description [texto]`          | Configuración de interfaz | Añade una descripción al puerto.                            |
-| `switchport mode access`       | Configuración de interfaz | Configura el puerto como modo de acceso.                    |
-| `switchport mode trunk`        | Configuración de interfaz | Configura el puerto como troncal.                           |
-| `vlan [ID]`                    | Configuración global      | Crea o selecciona una VLAN.                                 |
-| `no vlan [ID]`                 | Configuración global      | Elimina una VLAN específica.                                |
-| `show vlan brief`              | Privilegiado              | Muestra un resumen de todas las VLANs configuradas.         |
-| `line console 0`               | Configuración global      | Configura la línea de consola.                              |
-| `password [contraseña]`        | Configuración de línea    | Configura una contraseña para el acceso por consola.        |
-| `enable password [contraseña]` | Configuración global      | Configura una contraseña para el modo privilegiado.         |
-| `enable secret [contraseña]`   | Configuración global      | Configura una contraseña cifrada para el modo privilegiado. |
-| `write`                        | Privilegiado              | Guarda los cambios realizados en la configuración.          |
-| `reload`                       | Privilegiado              | Reinicia el switch.                                         |
-| `show logging`                 | Privilegiado              | Muestra el registro de eventos y errores del sistema.       |
+| Comando                                  | Nivel de privilegio        | Descripción                                                    |
+|------------------------------------------|----------------------------|----------------------------------------------------------------|
+| `enable`                                 | Usuario -> Privilegiado    | Cambia al modo privilegiado.                                   |
+| `disable`                                | Privilegiado -> Usuario    | Vuelve al modo usuario.                                        |
+| `show interface brief`                   | Privilegiado               | Muestra el estado y configuración de interfaces.               |
+| `show running-config`                    | Privilegiado               | Muestra la configuración actual en ejecución.                  |
+| `show startup-config`                    | Privilegiado               | Muestra la configuración guardada en memoria NVRAM.            |
+| `show mac address-table`                 | Privilegiado               | Lista la tabla MAC completa del switch.                        |
+| `show version`                           | Privilegiado               | Muestra información del hardware y versión de software.        |
+| `config`                                 | Privilegiado               | Entra al modo configuración global.                            |
+| `interface [puerto]`                     | Configuración global       | Selecciona una interfaz específica.                            |
+| `description [texto]`                    | Configuración de interfaz  | Añade una descripción al puerto.                               |
+| `switchport mode access`                 | Configuración de interfaz  | Configura el puerto como modo de acceso.                       |
+| `switchport mode trunk`                  | Configuración de interfaz  | Configura el puerto como troncal.                              |
+| `vlan [ID]`                              | Configuración global       | Crea o selecciona una VLAN.                                    |
+| `no vlan [ID]`                           | Configuración global       | Elimina una VLAN específica.                                   |
+| `show vlan brief`                        | Privilegiado               | Muestra un resumen de todas las VLANs configuradas.            |
+| `line console 0`                         | Configuración global       | Configura la línea de consola.                                 |
+| `password [contraseña]`                  | Configuración de línea     | Configura una contraseña para el acceso por consola.           |
+| `enable password [contraseña]`           | Configuración global       | Configura una contraseña para el modo privilegiado.            |
+| `enable secret [contraseña]`             | Configuración global       | Configura una contraseña cifrada para el modo privilegiado.    |
+| `write`                                  | Privilegiado               | Guarda los cambios realizados en la configuración.             |
+| `reload`                                 | Privilegiado               | Reinicia el switch.                                            |
+| `show logging`                           | Privilegiado               | Muestra el registro de eventos y errores del sistema.          |
+
 
 ================================================================================================
-
 ## Explicación detallada de comandos y ejemplos:
 
 ### Verificación y diagnóstico:
-
 Estos comandos ayudan a inspeccionar el estado del switch y diagnosticar problemas:
 
-# show interface brief
-
-Muestra un resumen del estado de las interfaces.
-Ejemplo de salida:
-
----
-
+  # show interface brief
+  Muestra un resumen del estado de las interfaces.
+  Ejemplo de salida:
+  ---------------------------------------------------------------
     Interface              Status         Protocol        VLAN
     Gi0/1                 connected      up              99
     Gi0/2                 notconnect     down            1
+  ---------------------------------------------------------------
 
----
-
-# show mac address-table
-
-Lista la tabla MAC completa. Puedes filtrar por una dirección específica:
-
----
-
+  # show mac address-table
+  Lista la tabla MAC completa. Puedes filtrar por una dirección específica:
+  ---------------------------------------------------------------
     show mac address-table | include 1c1a
+  ---------------------------------------------------------------
 
----
+  # show running-config
+  # show startup-config
+  Muestran la configuración actual y la configuración guardada respectivamente.
 
-# show running-config
-
-# show startup-config
-
-Muestran la configuración actual y la configuración guardada respectivamente.
 
 ================================================================================================
-
 ### Configuración de interfaces:
-
 Estos comandos se utilizan para modificar el comportamiento de las interfaces:
 
-# interface [puerto]
+  # interface [puerto]
+  Selecciona un puerto específico para configurarlo.
 
-Selecciona un puerto específico para configurarlo.
+  # description [texto]
+  Añade una descripción útil al puerto, como "Conexión a Servidor" o "Cámara de Seguridad".
 
-# description [texto]
+  # switchport mode access
+  # switchport mode trunk
+  Configuran un puerto como modo de acceso (para dispositivos finales) o troncal (para interconectar switches).
 
-Añade una descripción útil al puerto, como "Conexión a Servidor" o "Cámara de Seguridad".
-
-# switchport mode access
-
-# switchport mode trunk
-
-Configuran un puerto como modo de acceso (para dispositivos finales) o troncal (para interconectar switches).
 
 ================================================================================================
-
 ### Configuración de VLANs
 
-# Crear una VLAN
-
----
-
+  # Crear una VLAN
+  ---------------------------------------------------------------
     vlan 20
     name EMPLEADOS
     exit
+  ---------------------------------------------------------------
 
----
-
-# Eliminar una VLAN
-
----
-
+  # Eliminar una VLAN
+  ---------------------------------------------------------------
     no vlan 20
+  ---------------------------------------------------------------
 
----
-
-# Asignar una VLAN a un puerto
-
----
-
+  # Asignar una VLAN a un puerto
+  ---------------------------------------------------------------
     interface g0/1
     switchport mode access
     switchport access vlan 20
+  ---------------------------------------------------------------
 
----
-
-# Ver todas las VLANs configuradas
-
----
-
+  # Ver todas las VLANs configuradas
+  ---------------------------------------------------------------
     show vlan brief
+  ---------------------------------------------------------------
 
----
 
 ================================================================================================
-
 ### Configuración de seguridad
 
-# Configurar contraseñas
-
-Configurar una contraseña básica para consola:
-
----
-
+  # Configurar contraseñas
+  Configurar una contraseña básica para consola:
+  ---------------------------------------------------------------
     line console 0
     password mi_contraseña
     login
+  ---------------------------------------------------------------
 
----
-
-Configurar una contraseña cifrada para el modo privilegiado:
-
----
-
+  Configurar una contraseña cifrada para el modo privilegiado:
+  ---------------------------------------------------------------
     enable secret contraseña_segura
+  ---------------------------------------------------------------
 
----
-
-# Filtrar acceso por MAC (opcional)
-
----
-
+  # Filtrar acceso por MAC (opcional)
+  ---------------------------------------------------------------
     mac address-table static 1c1a.dfb8.b3d1 vlan 20 interface g0/1
+  ---------------------------------------------------------------
 
----
 
 ================================================================================================
-
 ## Resolución de problemas y mejores prácticas
 
-# Guardar siempre los cambios
+  # Guardar siempre los cambios
+  Usa el comando `write` o `copy running-config startup-config` para evitar perder configuraciones tras un reinicio.
 
-Usa el comando `write` o `copy running-config startup-config` para evitar perder configuraciones tras un reinicio.
-
-# Diagnosticar problemas comunes
-
-Interfaz en estado `err-disabled`:
-
----
-
+  # Diagnosticar problemas comunes
+  Interfaz en estado `err-disabled`:
+  ---------------------------------------------------------------
      show interfaces status err-disabled
      no shutdown
-
----
-
-VLAN no configurada:
-
----
-
+  ---------------------------------------------------------------
+  
+  VLAN no configurada:
+  ---------------------------------------------------------------
      show vlan brief
      vlan [ID]
+  ---------------------------------------------------------------
 
----
