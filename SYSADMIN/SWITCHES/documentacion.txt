@@ -52,7 +52,6 @@ Los switches suelen operar bajo diferentes niveles de privilegios. Estos niveles
 
 
 
-
 ================================================================================================
 ## Explicación detallada de comandos y ejemplos:
 
@@ -64,8 +63,8 @@ Estos comandos ayudan a inspeccionar el estado del switch y diagnosticar problem
   Ejemplo de salida:
   ---------------------------------------------------------------
     Interface              Status         Protocol        VLAN
-    Gi0/1                 connected      up              99
-    Gi0/2                 notconnect     down            1
+    Gi0/1                 connected         up             99
+    Gi0/2                 notconnect       down             1
   ---------------------------------------------------------------
 
   # show mac address-table
@@ -77,7 +76,6 @@ Estos comandos ayudan a inspeccionar el estado del switch y diagnosticar problem
   # show running-config
   # show startup-config
   Muestran la configuración actual y la configuración guardada respectivamente.
-
 
 
 
@@ -94,7 +92,6 @@ Estos comandos se utilizan para modificar el comportamiento de las interfaces:
   # switchport mode access
   # switchport mode trunk
   Configuran un puerto como modo de acceso (para dispositivos finales) o troncal (para interconectar switches).
-
 
 
 
@@ -127,7 +124,6 @@ Estos comandos se utilizan para modificar el comportamiento de las interfaces:
 
 
 
-
 ================================================================================================
 ### Configuración de seguridad
 
@@ -151,7 +147,6 @@ Estos comandos se utilizan para modificar el comportamiento de las interfaces:
 
 
 
-
 ================================================================================================
 ## Resolución de problemas y mejores prácticas
 
@@ -171,3 +166,34 @@ Estos comandos se utilizan para modificar el comportamiento de las interfaces:
      vlan [ID]
   ---------------------------------------------------------------
 
+
+
+
+===================================================================================================================================
+===================================================================================================================================
+==============================================[ E J E M P L O S ]==================================================================
+===================================================================================================================================
+
+
+=======[ Ejemplo de como cambiar de VLAN ]=======================================================
+
+enable                                          # accedo al modo privilegiado
+show interface brief                            # muestra el estado y la configuración de todas las interfaces
+(busco la mac a través del router)              # en este ejmplo la mac podria ser: 10-40-57-C0-B3-D1 | el estandar de los switch es mostrar la mac de la siguiente forma 1040.57C0.B3D1
+show mac address-table | include B3D1           # muestra las direcciones MAC filtrando por la última numeración de la mac 
+------------------------------------------
+Vlan    Mac Address       Type       Ports
+----    -----------       ----       -----
+1       1c1a.dfb8.b3d1    DYNAMIC    g0/35      # la interfaz en la que esta conectada esta mac es g0/35
+------------------------------------------
+config                                          # accedo al modo privilegiado, para poder editar la VLAN
+interface g0/35                                 # le digo al switch que voy a atacar sobre la interfaz g0/35, entrando en su boquilla
+description EJEMPLO1-PC                         # le agrego una descripción para que me sea más facíl de reconocerla la proxima vez
+show interface g0/35                            # verifico que la descripción se a cambiado, mostrando solo los datos de la interfaz sobre la que estoy atacando
+shutdown                                        # dejo de hacer link con esa interfaz
+switchport pvid 99                              # una vez que no da señal, le modifico su VLAN 
+no shutdown                                     # le vuelvo a dar señal (link), con la VLAN modificada
+show interface brief                            # muestro otra vez todas las interfaces para asegurarme los cambios
+quit                                            # dejo de atacar la interfaz g0/35, salgo de su boquilla 
+write                                           # guardo los datos para que aunque reinicie persistan
+!                                               # salgo del modo con privilegios y vuelvo al modo usuario
