@@ -10,7 +10,7 @@
   #         Objetos y métodos
   #         Clases
   #         JSON
-  # 2 - JavaScript Core
+  # 2 - JavaScript Core V8
   # 3 - Manipulación de Arrays
   #         Métodos de transformación
   #         Métodos de manipulación
@@ -31,6 +31,7 @@
   #         Fetch API
   #         Callbacks
   #         Promesas
+  #         async/await
   # 12 - Configuración de herramientas
   #         Prettier
   # 13 - JavaScript avanzado
@@ -186,13 +187,13 @@ let obj = JSON.parse(json); // Convierte de JSON a objeto
 console.log(obj); // { id: 1, nombre: 'Ana' }
 
 
-# ======[ 2 - JavaScript Core ]=========================
+# ======[ 2 - JavaScript Core V8 ]======================
 # ======================================================
 
 +------------------------------------+
 |                                    |                                        WEB APIs
-|                                    |                                +------------------------+
-|                JS                  |                                |  DOM (XML HttpRquest)  |
+|                JS                  |                                +------------------------+
+|                                    |                                |  DOM (XML HttpRquest)  |
 |                                    |                                |  AJAX (XMLHttpRequest) |
 |  Memory Heap        Call Stack     |                                |  Timeout (setTimeout)  |
 |                                    |                                +------------------------+
@@ -386,6 +387,35 @@ Promise.all([1, 2, 3].map(obtenerPersonaje))
   .then((personajes) => console.log(personajes))
   .catch((err) => console.log(`Error con ID ${err}`));
 
+async/await:
+--------------------------------------------------------
+Se utiliza cuando estás trabajando con promesas y operaciones asincrónicas, como solicitudes HTTP (fetch), temporizadores, o interacciones con bases de datos.
+
+async: convierte una función en asincrónica, haciendo que devuelva una promesa.
+await: espera la resolución de una promesa antes de continuar con la ejecución.
+try/catch: es esencial para manejar errores en código asincrónico.
+
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Datos cargados');
+    }, 2000);
+  });
+}
+
+async function obtenerDatos() {
+  try {
+    let datos = await fetchData();  // Espera a que la promesa se resuelva
+    console.log(datos);             // "Datos cargados"
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+obtenerDatos();
+
+
+
 
 # ======[ 12 - Configuración de herramientas ]==========
 # ======================================================
@@ -416,9 +446,8 @@ new Proxy(): nos va a cargar en memoria diferentes datos con los que trabajar, t
   + PrevState = trabaja con states actualizados o de ciclo.
   + Snapshot = si tu componente tiene un ciclo de getSnapshotBeforeUpdate() el valor que devuelve se actualiza con snapshot, (es una forma de trabajo que raramente se utiliza).
 
-mapear con .this:
+Mapear con .this:
 --------------------------------------------------------
-
 .bind() crea una nueva función con un contexto específico, sin ejecutarla inmediatamente. Ej; this.example.bind(this)
 .call() ejecuta la función inmediatamente con el contexto proporcionado y los parámetros dados de forma individual.
 .apply() ejecuta la función inmediatamente con el contexto proporcionado y los parámetros dados como un arreglo.
