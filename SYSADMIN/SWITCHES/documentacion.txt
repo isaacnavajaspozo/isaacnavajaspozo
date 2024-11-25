@@ -50,6 +50,25 @@ Los switches suelen operar bajo diferentes niveles de privilegios. Estos niveles
 | `show logging`                           |🟥 Privilegiado               | Muestra el registro de eventos y errores del sistema.          |
 
 
+## Atajos útiles en el prompt del switch:
+
+| Atajo                                  | Descripción                                                       | Ejemplo                                |
+|----------------------------------------|-------------------------------------------------------------------|----------------------------------------|
+| include                                | Filtrar texto                                                     | show mac address-table | include B3D1  |
+| exclude                                | Excluir texto                                                     | show log | exclude LINK                |
+| begin                                  | Mostrar líneas previas                                            | show log | begin ERROR                 |
+| ?                                      | Muestra opciones disponibles para un comando parcial.             | show ?                                 |
+| Tabulación                             | Completa automáticamente el comando o subcomando.                 | Escribir "sho" y pulsar Tab.           |
+| Ctrl+C                                 | Cancela un comando en ejecución o vuelve al prompt inicial.       | Durante un comando largo.              |
+| Ctrl+Z                                 | Salir al modo privilegiado desde cualquier submodo.               | Desde configuración global.            |
+| Ctrl+A                                 | Mueve el cursor al inicio de la línea actual.                     | En un comando largo.                   |
+| Ctrl+E                                 | Mueve el cursor al final de la línea actual.                      | En un comando largo.                   |
+| Ctrl+U                                 | Borra todo el texto desde el cursor hasta el inicio.              | Editando una línea de comando.         |
+| Up Arrow / Down Arrow                  | Navega por el historial de comandos.                              | Repetir un comando anterior.           |
+| !<número>                              | Repite un comando específico del historial.                       | !10 ejecuta el décimo comando.         |
+| show history                           | Muestra el historial completo de comandos.                        | show history.                          |
+| Tabulación doble                       | Muestra todas las opciones disponibles para un comando.           | show y luego pulsar Tab dos veces.     |
+
 
 
 ================================================================================================
