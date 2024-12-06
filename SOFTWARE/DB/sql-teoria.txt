@@ -177,18 +177,19 @@ Tablas Temporales (Temporary Tables):
 5 - DML (Data Manipulation Language)
 ###############################################################
 
+# INSERT:
 # INSERT INTO people(last_name, first_name) VALUES('Hernandez', 'Laura')
 Agrega un registro a la tabla people con los valores 'Hernandez' en last_name y 'Laura' en first_name.
 
+# UPDATE:
 # UPDATE people SET last_name= 'Chavez' WHERE person_id = 1
 Cambia el apellido a Chavez en la tabla people, pero solo para el registro donde person_id es 1.
 
+# DELETE:
 # DELETE FROM people WHERE person_id = 1
 Borra el registro de la tabla people donde person_id es 1.
 
-TRUNCATE TABLE nombre_tabla;
-Borra todas las filas de una tabla pero conserva su estructura y configuración.
-
+# SELECT
 # SELECT first_name, Last_name FROM people
 Muestra los valores de las columnas first_name y last_name de la tabla people. Más adelante veremos más detalles del comando SELECT.
 
@@ -297,10 +298,19 @@ CREATE USER 'usuario1'@'11.0.0.0' IDENTIFIED BY 'contraseña';
 GRANT permiso1, permiso2 ON tabla TO usuario;
 GRANT SELECT, INSERT ON tabla1 TO usuario1;
 
+# Revocar permisos:
+REVOKE permiso1, permiso2 ON tabla FROM 'usuario'@'host';
+REVOKE SELECT, INSERT ON tabla1 FROM 'usuario1'@'11.0.0.0';
+
 # WITH GRANT OPTION:
 Permite al usuario otorgar esos mismos permisos a otros. Usa PUBLIC para otorgar permisos a todos los usuarios de la base de datos.
 GRANT SELECT ON tabla1 TO usuario1 WITH GRANT OPTION;
+GRANT SELECT ON tabla1 TO 'usuario2'@'192.168.1.1';
 GRANT SELECT ON tabla1 TO PUBLIC;
+
+# Revocar permisos a todos:
+REVOKE UPDATE ON tabla2 FROM 'usuario2'@'192.168.1.1';
+REVOKE SELECT ON tabla1 FROM PUBLIC;
 
 
 # roles
@@ -325,7 +335,6 @@ GRANT analista TO usuario1, usuario2;
 ###############################################################
 8 - TCL (Transaction Control Language)
 ###############################################################
-
 Usa START TRANSACTION o BEGIN para comenzar una transacción.
 
 # COMMIT

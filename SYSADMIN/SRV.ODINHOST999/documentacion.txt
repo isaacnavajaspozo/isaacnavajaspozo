@@ -6,6 +6,15 @@
 # Tabién dispongo de una memoria SSD interna de 60GB que utilizaré después
 
 ---------------------------------------------------------------
+# descargar imagen iso
+
+# la descargo desde la página principal de debian la opción netisnt de amd64
+# solo configuro las siguientes opciones: 
+[x] SSH Server
+[x] Utilidades estándar del sistema
+
+
+---------------------------------------------------------------
 # cambiar ip estática
 su 
 nano /etc/network/interfaces
@@ -21,16 +30,19 @@ nano /etc/network/interfaces
         dns-nameservers 8.8.8.8 8.8.4.4 
 
     auto wlan0
+    # allow-hotplug wlan0
+    # iface wlan0 inet static
     iface wlan0 inet static
         address 192.168.1.XX       # IP estática Wifi
         netmask 255.255.255.0     
-        gateway 192.168.1.XX      
+        gateway 192.168.1.1      
         dns-nameservers 8.8.8.8 8.8.4.4   
 
         # Configuración de red inalámbrica
         wpa-ssid "Nombre_de_red"        # Nombre de tu red WiFi
         wpa-psk "Contraseña_de_red"     # Contraseña de tu red WiFi
 ===========================================================================
+systemctl restart networking
 
 # amplio tiempo de ssh y deshabilitar la suspensión
 su
@@ -41,7 +53,8 @@ nano /etc/ssh/sshd_config
      ServerAliveInterval 60
      ServerAliveCountMax 5
 ===========================================================================
-
+systemctl start sshd
+systemctl enable sshd
 
 # instalo paquete de redes
 apt install net-tools

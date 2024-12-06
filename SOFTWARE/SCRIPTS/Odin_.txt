@@ -41,25 +41,10 @@ json=$(curl -s "$URL")
 # Terminar la barra de carga
 kill $!
 
-# Procesar argumentos
-search_term=""
-while getopts "s:" opt; do
-    case $opt in
-        s) search_term="$OPTARG" ;;
-        *) echo "Opción no válida"; exit 1 ;;
-    esac
-done
-
-# Filtrar los nombres según el término de búsqueda
-if [ -n "$search_term" ]; then
-    echo ""
-    echo "Resultados que contienen '$search_term':"
-    echo "$json" | jq -r --arg term "$search_term" '.["Blog-manuales"] | to_entries | .[] | select(.value.nombre | contains($term)) | " \(.key + 1) - \(.value.nombre)"'
-else
-    echo ""
-    echo "Selecciona un documento para ver su contenido:"
-    echo "$json" | jq -r '.["Blog-manuales"] | to_entries | .[] | " \(.key + 1) - \(.value.nombre)"'
-fi
+# Mostrar los nombres con un número
+echo ""
+echo " Selecciona un documento para ver su contenido:"
+echo "$json" | jq -r '.["Blog-manuales"] | to_entries | .[] | " \(.key + 1) - \(.value.nombre)"'
 
 # Solicitar al usuario que seleccione un número
 read -p "Ingresa el número del documento que deseas ver: " selection
