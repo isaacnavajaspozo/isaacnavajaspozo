@@ -59,7 +59,9 @@
         #imagen{
             display: block;
             margin: auto;
-            width: 150px;
+            width: 200px;
+            filter: hue-rotate(80deg) saturate(900%);
+            padding-top:30px
         }
 
         h1{
@@ -244,7 +246,7 @@
                 columnDefs: [
                     { targets: [0, 1], visible: true }
                 ],
-                dom: '<"row"<"col-sm-12 text-start pt-3"f>>t',
+                dom: '<"row"<"col-sm-12 text-start pt-4"f>>t',
                 initComplete: function () {
                     $('div.dataTables_filter input').css({ 'width': '300px' });
                 }
