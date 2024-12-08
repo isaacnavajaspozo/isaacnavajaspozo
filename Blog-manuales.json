@@ -26,6 +26,16 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/REPARACION-ORDENADORES/componentes.txt"
     },
     {
+      "nombre": "Documentación de reparación de un ordenador · HARDWARE SOFTWARE LINUX WINDOWS [hardware software pc]",
+      "fecha": "2024-07-05",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/REPARACION-ORDENADORES/reparacion.txt"
+    },
+    {
+      "nombre": "Documentación de herramientas iniciales en un ordenador · LINUX WINDOWS [hardware software pc]",
+      "fecha": "2024-07-05",
+      "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/REPARACION-ORDENADORES/reparacion.txt"
+    },
+    {
       "nombre": "Instalación y gestión SAMBA con o sin active directory · LINUX [samba]",
       "fecha": "2024-06-30",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SYSADMIN/SAMBA/samba-con-active-directory.txt"
@@ -106,7 +116,7 @@
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/PHP/documentacion.txt"
     },
     {
-      "nombre": "(━━━︵━┳━)- Odin - script para mostrar documentación en debian · LINUX WINDOWS [script, Bash scripting, debian, PHP]",
+      "nombre": "(━━━︵━┳━)- Odin - script para mostrar esta documentación· LINUX WINDOWS [script, Bash scripting, debian, PHP]",
       "fecha": "2024-11-21",
       "url": "https://isaacnavajaspozo.github.io/isaacnavajaspozo/SOFTWARE/SCRIPTS/Odin.txt"
     },

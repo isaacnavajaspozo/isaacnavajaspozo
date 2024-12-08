@@ -1,0 +1,37 @@
+########################################################################################################################################
+#############################################[ IMPORTANTE!!!!!!!! ]#####################################################################
+########################################################################################################################################
+
+1 - Clonar el disco en un disco de prueba y trabajar sobre ese disco de prueba.
+
+
+########################################################################################################################################
+#############################################[ REPARACIÓN WINDOWS ]#####################################################################
+########################################################################################################################################
+
+
+====[ Herramientas ]===========================================
+# Preparación de dispositivo USB:
+1 - Creo con Ventoy un USB con imagenes de instalación y herramientas útiles:
+    * MediCat                       # Para utilizar imágenes LIVE y acceder a herramientas de diagnóstico y recuperación de sistemas operativos.
+    * Windows Repair Toolbox        # Conjunto de herramientas para reparar problemas comunes de Windows y optimizar el rendimiento del sistema.
+    * FixWin                        # Herramienta que permite solucionar problemas comunes de Windows mediante una interfaz sencilla y accesible.
+    * CrystalDiskInfo               # Utilidad para monitorear la salud y el estado de los discos duros y SSD, proporcionando información detallada sobre su rendimiento.
+
+
+
+
+
+
+
+
+
+
+
+########################################################################################################################################
+#############################################[ REPARACIÓN LINUX ]#######################################################################
+########################################################################################################################################
+
+====[ Herramientas ]===========================================
+
+* R-Linux
