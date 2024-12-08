@@ -1,3 +1,7 @@
+===========================================================================================================================================
+========================================[ INSTALACIÓN ]====================================================================================
+===========================================================================================================================================
+
 ====[ Teoría ]===================================================
 
 | Nombre                   | Memoria       | Organización                                        |
@@ -6,28 +10,46 @@
 | MiFare Classic 4K        | 4.096 bytes   | 32 sectores con 64 bytes y 8 sectores con 256 bytes |
 
 
-# La proxmox dispone de dos tipos de tecnologías distintas:
+# La proxmark dispone de dos tipos de tecnologías distintas:
  
-    - La parte de arriba : Antena de 13.56 MHz:
+    - La parte de arriba [High Frequency] : Antena de 13.56 MHz:
         incluye tarjetas que cumplen con el estándar ISO 14443, como las tarjetas MIFARE (por ejemplo, MIFARE Classic, MIFARE Ultralight) y las tarjetas ISO 15693. Estas son utilizadas en aplicaciones como transporte público, sistemas de pago y acceso a edificios.
   
-    - La parte de abajo : Antena de 125 kHz: 
+    - La parte de abajo [Low Frequency] : Antena de 125 kHz: 
         incluyen tarjetas como las de tipo EM4100, que son comúnmente utilizadas en sistemas de control de acceso y en aplicaciones de identificación.
 
 
 [ HARDWARE ]: 
-+-----------------+
-|                 |
-|    13.56 MHz    |
-|                 |
-|                 |
-+-----------------+
-|                 || boot
-|     125 kHz     |
-|                 || conector de edición
-|                 |
-+----------__-----+
-        tensión
++--------------------------------------------------+
+|                   Proxmark3                      |
+|                                                  |
+|   +------------------------------------------+   |
+|   |                                          |   |
+|   |              Proxmark3 Board             |   |
+|   |                                          |   |
+|   +------------------------------------------+   |
+|                                                  |
+|   +----------------------+  +----------------+   |
+|   |  USB (micro-USB)     |  |   Reset Button |   |
+|   |  [ power & data ]    |  |   [reset]      |   |
+|   +----------------------+  +----------------+   |
+|                                                  |
+|    +-----------------------------------------+   |
+|    |   U.FL or SMA Antenna Connector         |   |
+|    |   [ connect to RFID antenna ]           |   |
+|    +-----------------------------------------+   |
+|                                                  |
+|    +-----------------------------------------+   |
+|    |   JTAG (Debugging)                     |    |
+|    |   [ low-level debugging ]              |    |
+|    +-----------------------------------------+   |
+|                                                  |
+|    +-----------------------------------------+   |
+|    |   Battery Connector (optional)         |    |
+|    |   [ for autonomous use ]               |    |
+|    +-----------------------------------------+   |
++--------------------------------------------------+
+
 
 
 
@@ -40,49 +62,89 @@ apt update                                                      # actualizo repo
 apt install -y git build-essential libreadline-dev gcc-arm-none-eabi libusb-1.0-0-dev pkg-config cmake libnewlib-arm-none-eabi              # instalo las dependencias necesarias
 git clone https://github.com/RfidResearchGroup/proxmark3.git    # clono el repositorio en la carpeta raíz
 cd proxmark3                                                    # entro en el proyecto clonado
-make clean && make all                                          # compilo el software
+make clean && make PLATFORM=PM3OTHER                            # compilo el software para la proxmark3
 --------------------------------------------------------
     # en el caso de que salga al final un error:                # si me da error instalo las dependencias a las que me da error y vulvo a compilar, 
                                                                 # en mi caso me da error con debian los siguientes paquetes
         apt install liblz4-dev
         apt install libbz2-dev
         apt install libssl-dev
-        make clean && make all
+        make clean && make PLATFORM=PM3OTHER 
 --------------------------------------------------------
 
-# conecto el cable a la Proxmark por el conector de tensión mientras pulso el botón de boot
+# ¡IMPORTANTE!
+# conecto el cable a la Proxmark por el conector de batería mientras pulso el botón de reset (tras 5 segundos lo suelto)
 lsusb                                                            # para comprobar que el USB está leyendo la proxmark
 --------------------------------------------------------
 Bus 001 Device 010: ID 2d2d:504d proxmark.org Proxmark3
 --------------------------------------------------------
 
+# flashear (actualizar) el firmware completo del dispositivo Proxmark3
+./pm3-flash-fullimage
 
-
-====[ Ejecución ]=================================================
-
-./client/proxmark3 /dev/ttyACM0                                 # ejecuta la proxmark
-
-
-
-
+# se usa para iniciar la interfaz del Proxmark3 y establecer la comunicación con el dispositivo
+cd client
+./proxmark3 /dev/ttyACM0
 
 
 
-
-su                                                                  # entro como super para tener permisos
-apt install git build-essential libreadline-dev libusb-1.0-0-dev    # instalo las dependencias necesarias
-git clone https://github.com/Proxmark/proxmark3.git                 # clono el repositorio
-cd proxmark3                                                        # entro a la carpeta clonada
-make clean & make all                                               # compilo el software
+===========================================================================================================================================
+========================================[ MODIFICAR TARJETA]===============================================================================
+===========================================================================================================================================
 
 
-    # en el caso de que salga el siguiente error: 
-        -----------------------------------------------------------------------------
-        pcsc.c:27:10: fatal error: winscard.h: No existe el fichero o el directorio
-        27 | #include <winscard.h>
-            |          ^~~~~~~~~~~~
-        -----------------------------------------------------------------------------
-    # lanzo el siguiente comando: 
-        apt install libpcsclite-dev
+  8888888b.  888b     d888  .d8888b.
+  888   Y88b 8888b   d8888 d88P  Y88b
+  888    888 88888b.d88888      .d88P
+  888   d88P 888Y88888P888     8888"
+  8888888P"  888 Y888P 888      "Y8b.
+  888        888  Y8P  888 888    888
+  888        888   "   888 Y88b  d88P
+  888        888       888  "Y8888P"    [ ☕ ]
 
 
+====[ Identificar tecnología ]===================================
+
+[usb] pm3 --> help              # me va a servir para mostrar los comandos
+[usb] pm3 --> hf                # me sirve para mostrarme los comandos con una tarjeta high frecuency
+                                # puedo buscar con lf si quiero la otra antena
+# coloco la tarjeta encima de la antena de Hig frecuency
+[usb] pm3 --> hf search         # con la tarjeta colocada va a buscar que tipo de tarjeta es y sus características
+
+# como datos importantes de la tarjeta son el UID, ATQA y el SAK
+# en lo primero que me voy a fija es en el tipo de tarjeta, en mi caso es una MIFARE CLASSIC
+# al ser una mifare vuelvo a lanzar un "hf", y observo que tengo que lanzar un "mf" para ->  MIFARE RFIDs... 
+[usb] pm3 --> hf mf
+
+
+====[ Hardcodear keys ]==========================================
+# chk se utiliza para verificar el estado de la tarjeta MIFARE Classic, como la lectura de bloques de datos y el estado de las claves de autenticación
+[usb] pm3 --> hf mf chk
+
+# si necesitamos comandos especificmos le podemos pasar:
+[usb] pm3 --> hf mf chk --help
+
+[+] -----+-----+--------------+---+--------------+----
+[+]  Sec | Blk | key A        |res| key B        |res
+[+] -----+-----+--------------+---+--------------+----
+[+]  000 | 003 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  001 | 007 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  002 | 011 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  003 | 015 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  004 | 019 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  005 | 023 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  006 | 027 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  007 | 031 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  008 | 035 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  009 | 039 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  010 | 043 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  011 | 047 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  012 | 051 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  013 | 055 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  014 | 059 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+]  015 | 063 | ------------ | 0 | A0B0C0D0E0F0 | 1
+[+] -----+-----+--------------+---+--------------+----
+[+] ( 0:Failed / 1:Success )
+
+
+====[ Leer sectores de tarjeta ]===================================
