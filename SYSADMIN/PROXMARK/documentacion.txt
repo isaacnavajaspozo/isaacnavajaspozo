@@ -148,3 +148,27 @@ cd client
 
 
 ====[ Leer sectores de tarjeta ]===================================
+# rdsc se utiliza para leer los datos de un sector específico de una tarjeta MIFARE Classic
+# por lo general en el sector 000 se guarda la identidad del usuario, a quien corresponde
+# son pocos los sectores donde se guarda información útil
+
+# hf mf rdsc -s <sector> -k B0B1B2B3B4B5 -b
+hf mf rdsc -s 003 -k B0B1B2B3B4B5 -b
+
+[=]   # | sector 03 / 0x03                                | ascii
+[=] ----+-------------------------------------------------+-----------------
+[=]  12 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+[=]  13 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+[=]  14 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+[=]  15 | 00 00 00 00 00 00 FF 07 80 69 B0 B1 B2 B3 B4 B5 | .........i......
+
+
+# solo en el caso de que el anterior comando no me esté devolviendo el ascii desencriptado:
+-----------------------------------------------------------------------------------------------
+    # si quiero desencriptar los hash que me devuelven tengo que instalar el paquete xxd
+    apt install xxd -y
+
+    # salgo del programa de la proxmark3 y ejecuto:
+    echo "HASH _DE_LA_PROXMARK" | xxd -r; echo
+
+
