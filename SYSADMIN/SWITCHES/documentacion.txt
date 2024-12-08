@@ -36,6 +36,7 @@ Los switches suelen operar bajo diferentes niveles de privilegios. Estos niveles
 | config                                 |🟥 Privilegiado               | Entra al modo configuración global.                            |
 | interface [puerto]                     |🟦 Configuración global       | Selecciona una interfaz específica.                            |
 | description [texto]                    |🟪 Configuración de interfaz  | Añade una descripción al puerto.                               |
+| switchport pvid                        |🟪 Configuración de interfaz  | Configura el puerto en que VLAN va a tener acceso              |
 | switchport mode access                 |🟪 Configuración de interfaz  | Configura el puerto como modo de acceso.                       |
 | switchport mode trunk                  |🟪 Configuración de interfaz  | Configura el puerto como troncal.                              |
 | vlan [ID]                              |🟦 Configuración global       | Crea o selecciona una VLAN.                                    |

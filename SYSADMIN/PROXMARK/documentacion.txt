@@ -1,0 +1,88 @@
+====[ Teoría ]===================================================
+
+| Nombre                   | Memoria       | Organización                                        |
+|--------------------------|---------------|-----------------------------------------------------|
+| MiFare Classic 1K        | 1.024 bytes   | 16 sectores con 64 bytes                            |
+| MiFare Classic 4K        | 4.096 bytes   | 32 sectores con 64 bytes y 8 sectores con 256 bytes |
+
+
+# La proxmox dispone de dos tipos de tecnologías distintas:
+ 
+    - La parte de arriba : Antena de 13.56 MHz:
+        incluye tarjetas que cumplen con el estándar ISO 14443, como las tarjetas MIFARE (por ejemplo, MIFARE Classic, MIFARE Ultralight) y las tarjetas ISO 15693. Estas son utilizadas en aplicaciones como transporte público, sistemas de pago y acceso a edificios.
+  
+    - La parte de abajo : Antena de 125 kHz: 
+        incluyen tarjetas como las de tipo EM4100, que son comúnmente utilizadas en sistemas de control de acceso y en aplicaciones de identificación.
+
+
+[ HARDWARE ]: 
++-----------------+
+|                 |
+|    13.56 MHz    |
+|                 |
+|                 |
++-----------------+
+|                 || boot
+|     125 kHz     |
+|                 || conector de edición
+|                 |
++----------__-----+
+        tensión
+
+
+
+====[ Instalación ]==============================================
+
+# repositorio : https://github.com/Proxmark/proxmark3
+
+su                                                              # entro como super para tener permisos
+apt update                                                      # actualizo repositorios
+apt install -y git build-essential libreadline-dev gcc-arm-none-eabi libusb-1.0-0-dev pkg-config cmake libnewlib-arm-none-eabi              # instalo las dependencias necesarias
+git clone https://github.com/RfidResearchGroup/proxmark3.git    # clono el repositorio en la carpeta raíz
+cd proxmark3                                                    # entro en el proyecto clonado
+make clean && make all                                          # compilo el software
+--------------------------------------------------------
+    # en el caso de que salga al final un error:                # si me da error instalo las dependencias a las que me da error y vulvo a compilar, 
+                                                                # en mi caso me da error con debian los siguientes paquetes
+        apt install liblz4-dev
+        apt install libbz2-dev
+        apt install libssl-dev
+        make clean && make all
+--------------------------------------------------------
+
+# conecto el cable a la Proxmark por el conector de tensión mientras pulso el botón de boot
+lsusb                                                            # para comprobar que el USB está leyendo la proxmark
+--------------------------------------------------------
+Bus 001 Device 010: ID 2d2d:504d proxmark.org Proxmark3
+--------------------------------------------------------
+
+
+
+====[ Ejecución ]=================================================
+
+./client/proxmark3 /dev/ttyACM0                                 # ejecuta la proxmark
+
+
+
+
+
+
+
+
+su                                                                  # entro como super para tener permisos
+apt install git build-essential libreadline-dev libusb-1.0-0-dev    # instalo las dependencias necesarias
+git clone https://github.com/Proxmark/proxmark3.git                 # clono el repositorio
+cd proxmark3                                                        # entro a la carpeta clonada
+make clean & make all                                               # compilo el software
+
+
+    # en el caso de que salga el siguiente error: 
+        -----------------------------------------------------------------------------
+        pcsc.c:27:10: fatal error: winscard.h: No existe el fichero o el directorio
+        27 | #include <winscard.h>
+            |          ^~~~~~~~~~~~
+        -----------------------------------------------------------------------------
+    # lanzo el siguiente comando: 
+        apt install libpcsclite-dev
+
+

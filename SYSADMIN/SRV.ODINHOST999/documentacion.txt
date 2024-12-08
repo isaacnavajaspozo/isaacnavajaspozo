@@ -50,8 +50,8 @@ systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 nano /etc/ssh/sshd_config
 ===========================================================================
-     ServerAliveInterval 60
-     ServerAliveCountMax 5
+    Port 22
+    PasswordAuthentication yes
 ===========================================================================
 systemctl start sshd
 systemctl enable sshd
