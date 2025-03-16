@@ -69,7 +69,7 @@ Here are some ideas to get you started:
 [![package Nagios](https://img.shields.io/badge/package-Nagios-pink)](https://www.nagios.org/)
 [![package Cacti](https://img.shields.io/badge/package-Cacti-pink)](https://www.cacti.net/)
 [![package Docker](https://img.shields.io/badge/package-docker-pink)](https://www.docker.com/)
-[![package Docker-compose](https://img.shields.io/badge/package-docker-compose-pink)](https://www.docker.com/)
+[![package Docker compose](https://img.shields.io/badge/package-docker-compose-pink)](https://www.docker.com/)
 
 [![Electronics PLCboard](https://img.shields.io/badge/Electronics-PLCboard-000000)](https://jlcpcb.com/)
 [![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-000000)](<[https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/)>)
