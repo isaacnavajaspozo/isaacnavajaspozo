@@ -12,7 +12,7 @@ Here are some ideas to get you started:
 - 📫 How to reach me: isaacnavajasit@duck.com
 - ⚡ Fun fact: "Follow the white rabbit"
 
-### アイザック・ナバハス・ポゾ
+### [Tecnologías]:
 
 [![Javascript npm](https://img.shields.io/badge/JavaScript-npm/npx-yellow)](https://www.npmjs.com/)
 [![Javascript JQuery](https://img.shields.io/badge/JavaScript-JQuery-yellow)](https://jquery.com/)
@@ -62,18 +62,20 @@ Here are some ideas to get you started:
 [![Server Proxmox](https://img.shields.io/badge/Server-Proxmox-18c2c3)](https://www.proxmox.com/en/)
 
 [![package ipTables](https://img.shields.io/badge/package-ipTables-pink)](<[https://www.netfilter.org/](https://www.netfilter.org/projects/iptables/index.html)>)
-[![package xfs](https://img.shields.io/badge/package-xfs-pink)](https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html)
 [![package git](https://img.shields.io/badge/package-Git-pink)](https://git-scm.com/)
 [![package restic](https://img.shields.io/badge/package-restick-pink)](https://restic.net/)
 [![Server Asterisk](https://img.shields.io/badge/Server-Asterisk-pink)](https://www.asterisk.org/)
 [![Server Samba](https://img.shields.io/badge/Server-Samba-pink)](https://www.samba.org/)
 [![Server Nagios](https://img.shields.io/badge/Server-Nagios-pink)](https://www.nagios.org/)
 [![Server Cacti](https://img.shields.io/badge/Server-Cacti-pink)](https://www.cacti.net/)
+[![Server Docker](https://img.shields.io/badge/docker-pink)](https://www.docker.net/](https://www.docker.com/)
+[![Server Docker-compose](https://img.shields.io/badge/docker-compose-pink)](https://www.docker.net/](https://www.docker.com/)
 
 [![Electronics PLCboard](https://img.shields.io/badge/Electronics-PLCboard-000000)](https://jlcpcb.com/)
 [![Electronics Arduino](https://img.shields.io/badge/Electronics-Arduino-000000)](<[https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.arduino.cc/)>)
 [![Electronics Raspberry](https://img.shields.io/badge/Electronics-Raspberry-000000)](<[https://www.hpe.com/us/en/compute/hpc/supercomputing/cray-exascale-supercomputer.html](https://www.raspberrypi.com/)>)
 [![Electronics ESP32](https://img.shields.io/badge/Electronics-ESP32-000000)](https://www.espressif.com/en/products/socs/esp32)
+[![Electronics ESP8266](https://img.shields.io/badge/Electronics-ESP8266-000000)](https://www.espressif.com/en/products/socs/esp8266)
 
 ## ⚗️ Pnkd (Framework PHP)
 
