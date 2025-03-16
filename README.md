@@ -63,7 +63,7 @@ Here are some ideas to get you started:
 
 [![package ipTables](https://img.shields.io/badge/package-ipTables-pink)](<[https://www.netfilter.org/](https://www.netfilter.org/projects/iptables/index.html)>)
 [![package git](https://img.shields.io/badge/package-Git-pink)](https://git-scm.com/)
-[![package restic](https://img.shields.io/badge/package-restick-pink)](https://restic.net/)
+[![package restic](https://img.shields.io/badge/package-Restick-pink)](https://restic.net/)
 [![package Asterisk](https://img.shields.io/badge/package-Asterisk-pink)](https://www.asterisk.org/)
 [![package Samba](https://img.shields.io/badge/package-Samba-pink)](https://www.samba.org/)
 [![package Nagios](https://img.shields.io/badge/package-Nagios-pink)](https://www.nagios.org/)
