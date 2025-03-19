@@ -77,7 +77,7 @@ Here are some ideas to get you started:
 [![Electronics ESP32](https://img.shields.io/badge/Electronics-ESP32-000000)](https://www.espressif.com/en/products/socs/esp32)
 [![Electronics ESP8266](https://img.shields.io/badge/Electronics-ESP8266-000000)](https://www.espressif.com/en/products/socs/esp8266)
 
-## 👁️ Cliclop3 (BatchScript cybersecurity Windows)
+## 🧙 Cliclop3 (BatchScript cybersecurity Windows)
 
 [Go to Ciclop3 repository](https://github.com/isaacnavajaspozo/Ciclop3)
 
