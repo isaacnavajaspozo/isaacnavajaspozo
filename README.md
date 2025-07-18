@@ -52,8 +52,11 @@ Here are some ideas to get you started:
 [![CMS WordPress](https://img.shields.io/badge/CMS-WordPress-grey)](https://developer.wordpress.org/)
 [![CMS PrestaShop](https://img.shields.io/badge/CMS-PrestaShop-grey)](https://devdocs.prestashop-project.org/)
 [![CMS WebFlow](https://img.shields.io/badge/CMS-WebFlow-grey)](https://webflow.com/)
+[![CMS Make](https://img.shields.io/badge/CMS-Make-grey)](https://www.make.com/en)
+[![CMS n8n](https://img.shields.io/badge/CMS-n8n-grey)](https://n8n.io/)
 
 [![Server Debian](https://img.shields.io/badge/Server-Debian-18c2c3)](https://www.debian.org/index.es.html)
+[![Server Debian (netinst)](https://img.shields.io/badge/Server-Debian-netinst-18c2c3)](https://www.debian.org/CD/netinst/)
 [![Server Kali Purple](https://img.shields.io/badge/Server-KaliPurple-18c2c3)](https://www.kali.org/blog/kali-linux-2023-1-release/)
 [![Server Ubuntu Server](https://img.shields.io/badge/Server-UbuntuServer-18c2c3)](https://ubuntu.com/download/server)
 [![Server ArchLinux](https://img.shields.io/badge/Server-ArchLinux-18c2c3)](https://archlinux.org/)
