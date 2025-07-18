@@ -82,11 +82,11 @@ Here are some ideas to get you started:
 
 ## ⚗️ iSNF · Systems Integration and New Features
 
-[Go to Pinkragon repository](https://github.com/isaacnavajaspozo/pnkd-php)
+[Go to Pinkragon repository](https://github.com/isaacnavajaspozo/iSNF)
 
 ```bash
   # Download iSNF
-  git clone https://github.com/isaacnavajaspozo/pnkd-php
+  git clone https://github.com/isaacnavajaspozo/iSNF
 
 ```
 
