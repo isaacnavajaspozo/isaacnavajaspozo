@@ -1,0 +1,459 @@
+# Proxmox VE (PVE) · Documentación 10/07/2025
+=======[❌ TEORIA ]=================================================================================
+[🧮 Arquitectura Interna Proxmox]:
+# KVM sirve para virtualizar máquinas completas en Linux, permitiéndote ejecutar múltiples sistemas operativos (VMs) aislados sobre un mismo host físico, Proxmox utiliza el KVM que ya viene en el kernel de Linux, integrándolo con:
+#     - QEMU (para emulación de hardware "vm")
+#     - LXC (para contenedores)
+#     - libvirt y sus propias APIs para gestión
+#     - Su propia interfaz web y CLI (pve)
+
++-------------------+  +-------------+      
+|  Virtual Machine  |  |  CONTAINER  |      # KVM (Kernel-based Virtual Machine): Es capaz de crear máquinas virtuales utilizando al KVM[QUEMU] del Linux principal (Hipervisor) 
+|        KVM        |  |     LXC     |      # LXC (Linux Containers): Es capaz de crear contenedores utilizando al KVM[LXC] del Linux principal (aunque en realidad no utiliza el hipervisor, si no que es virtualización a nivel de sistema operativo, aprobechando el mismo kernel) 
++-------------------+  +-------------+
+          |                   |
++------------------------------------+
+|             PROXMOX VE             |
++------------------------------------+
+                  |
++------------------------------------+      # Como Proxmox es una virtualización de tipo 1 el hipervisor y el S.O forman parte del mismo. En las virtualizaciones tipo 2 se separa el S.O del Hipervisor
+|             HIPERVISOR             |      # Sistema principal de KVM del servidor Linux Kernel, del que va a utilizar Proxmox para virtualizar sus máquinas y crear los contenedores
++------------------------------------+      # El Hipervisor no es una parte separatoría si no que es el propio kernel del Linux de Proxmox, pero lo granulo para comprender mejor cada parte
++------------------------------------+      # El hipervisor utiliza el LXC y el KVM integrado en el propio Linux Kernel para luego desde Proxmox crear las máquinas virtuales y los contenedores
+|               LINUX                |      # Distribución/Linux por defecto para Proxmox: Debian
++------------------------------------+
+                  |
++------------------------------------+      # Storage (ZFS, LVM, Ceph, ext4, etc)
+|              HARDWARE              |      #   + Espacio asignado por disco virtual a cada VM/CT.
++------------------------------------+      #   + Snapshots, backups y thin provisioning según el tipo de almacenamiento.
++---------------+  +-----------------+      # Gestión de recursos
+|    STORAGE    |  |     NETWORK     |      #   + CPU: Puedes asignar núcleos virtuales (vCPU). Proxmox permite overcommit.
++---------------+  +-----------------+      #   + RAM: Limitada, puedes usar ballooning para ajustar dinámicamente.
+                                            #   + Disco: Asignado como almacenamiento virtual (raw, qcow2, LVM, ZVOL).
+                                            #   + Red: Interfaces virtuales puenteadas al host (bridge).                      
+
+[🧮 Fundamento técnico discos]:
+- Thinpool : Permitir asignar más almacenamiento virtual del que realmente tienes disponible físicamente.
+
+[🧮 Fundamento técnico vCPU]:
+- Overcommit: Overcommit (o sobre-asignación) se refiere a la práctica de reservar más recursos virtuales (CPU, memoria, disco, etc.) de los que físicamente hay disponibles en el host. El overcommit de CPU es posible porque Proxmox/KVM permite asignar más vCPUs que cores físicos.
+- Time-slicing: El scheduler (programador de procesos) reparte el tiempo de cada core físico en pequeñas rebanadas (“time slices”). Cada vCPU de cada VM entra en cola y recibe su rebanada cuando le toque turno, hasta que se agoten o pase el slice al siguiente hilo.
+- Linux KVM/QEMU y el scheduler (programador de procesos) del host manejan la distribución del tiempo de CPU entre las VMs, gestionando el acceso concurrente.
+- Cores asignados en Proxmox: pertenece a vCPUs (virtual CPU) que configuras para cada VM (máquina virtual), "esto quiere decir que no pertenece a los cores físicos reales si no a los virtuales".
+
+[🧮 Fundamento técnico Cluster] HA (políticas de alta disponibilidad):
+# Un cluster es cuando tienes 2 o más nodos Proxmox trabajando juntos, compartiendo gestión de recursos, VMs, etc.
+
+- Nodo: va a ser cada uno de los espacios dentro del “Datacenter” y reprensenta cada hardware (los servidores)
+
+- split-brain: Es cuando un cluster se divide por un fallo de red, y dos partes creen que son la válidas, actuando al mismo tiempo. Esto puede provocar: Corrupción de discos compartidos, Dos VMs corriendo con el mismo ID (una por nodo) e Inconsistencias.
+
+- Quorum: En Proxmox VE (que utiliza Corosync como capa de clustering), el “quorum” es el mecanismo que asegura que sólo un subconjunto mayoritario de nodos pueda tomar decisiones válidas (como iniciar/migrar/apagar) sobre el estado del clúster y sus recursos. El quorum es un mecanismo de seguridad que garantiza que el cluster tiene suficientes nodos comunicándose entre sí para operar con seguridad (sin perdida de datos). Sirve para evitar particiones cerebrales o split-brain. El quorum por simplificarlo sirve para saber que nodo esta activo o desactivado, funciona por votos y los dispositivos tienen que ser de número impar. El quorum no va a permitir habilitar nuevos servicios o nuevas máquinas etc si el quorum esta desabilitado, en el caso de que el quorum este habilitado todo seguirá funcionando correctamente. Como el comando "pvecm" epertenece al cluster está directamente relacionado con el quorum.
+    Se basa en el número de nodos activos y visibles entre sí:
+      quorum = (número de nodos / 2) + 1
+    * Ejemplo Cluster de 3 nodos: Quorum mínimo: 2 nodos activos y conectados
+    * Ejemplo Cluster de 4 nodos: Quorum mínimo: 3 nodos activos
+    * Ejemplo Si no hay quorum: el nodo bloquea operaciones de gestión (crear/mover VMs, etc.)
+    ❗¿Por qué mejor número impar en quorum?
+    Con número impar: Siempre hay una mayoría clara y Menos probabilidad de empates
+    Con número par: Si la red se parte 2 y 2 → ningún grupo tiene mayoría y Resultado: todo se bloquea
+
+- QDevice: Se instala en una máquina física (con bajos recursos ya que solo corre un servicio llamado corosync-qnetd) cuando los nodos actuales son pares (ya que para que funcione el quorum tienen que ser impares). Es un tercer votante neutral de voto (solo vota), que no ejecuta VMs, pero sirve para desempatar y ayudar al quorum (se añade a un cluster Proxmox con nodos pares para ayudar a mantener quorum).
+    Es útil cuando: Tienes solo 2 nodos físicos y No puedes añadir un tercer nodo completo
+    Es ligero, solo vota en el cluster y Se configura con corosync + qnetd
+    * Ejemplo Tienes 2 nodos (node1 y node2): Si node1 y node2 pierden conexión entre ellos → El qdevice vota por el que siga conectado a él y Solo ese nodo mantiene quorum, el otro se aísla.
+
+
+[🧮 Forma técnica y directa según cómo Proxmox gestiona RAM y CPU]:
+# esto es una estimación peor siempre puede ser relativo según necesidades
+🧠 RAM – Repartición física (sin overcommit):
+- La RAM se reserva de forma exclusiva para cada VM/CT.
+- Si tienes 4GB RAM físicas y restas ~1GB para el sistema (Proxmox + servicios), te quedan 3GB útiles. Si cada VM tiebe 1GB de RAM puedo crear hasta 3 VMs.
+🧩 No se recomienda consumir el 100% de la RAM disponible. Siempre deja margen para el sistema (~1GB mínimo en tu caso).
++--------------------+----------------------+------------------------+
+| RAM disponible     | RAM por VM/CT        | Máquinas posibles      |
++--------------------+----------------------+------------------------+
+| 4GB (total)        | 1GB sistema host      | ~3GB útiles           |
+| ~3GB para VMs/CTs  | 1GB por VM            | Hasta 3 VMs           |
+| ~3GB para VMs/CTs  | 512MB por VM          | Hasta 6 VMs           |
+| ~3GB para VMs/CTs  | 256MB por CT (LXC)    | Hasta 10–11 CTs       |
++--------------------+----------------------+------------------------+
+
+⚙️ CPU – Asignación lógica (overcommit permitido):
+- Las vCPU son virtuales, puedes tener más vCPUs que cores físicos.
+- Generalmente se usa overcommit: por ejemplo, 4 cores físicos pueden soportar 6–8 vCPUs o más.
+- Lo importante es la carga real de uso.
+⚠️ Estoy repartiendo tiempo de CPU, no creando potencia adicional real.  
+🧠 Overcommit con prudencia: evalación según la carga real que cada VM va a generar y los picos de ejecución en tiempos asignados, no solo el número de vCPUs.
++----------------+-----------------------------------+------------------------+
+| Cores físicos  | VMs ligeras posibles (con 1 vCPU) | Recomendación          |
++----------------+-----------------------------------+------------------------+
+| 4              | 6–8 VMs (light use) o 12–20 LXCs  | OK con bajo uso        |
+| 4              | 3–4 VMs (alta carga) o 8–10 LXCs  | Mejor rendimiento      |
++----------------+-----------------------------------+------------------------+
+
+Método                         | ¿CPU física directa?         | Descripción técnica
+-------------------------------|------------------------------|-------------------------------------------------------------
+Asignar vCPU (por defecto )    | ❌ No                       | Lo más común. El hipervisor distribuye el uso entre vCPUs.
+CPU pinning                    | ✅ Parcialmente             | Asocia vCPUs a cores físicos específicos. Ejemplos: taskset, numactl, configuración en XML/QEMU args.
+CPU passthrough                | ✅ Sí, pero para PCI        | Passthrough para hardware PCI (GPU, etc.). No aplica para CPU.
+
+-------------------------------------------------------------------------------------
+Consejos técnicos:
+- Usa drivers **virtio** para disco y red, mejora rendimiento y compatibilidad.
+- Habilita **ballooning** para RAM en laboratorios para mejor gestión dinámica.
+- Para menos overhead, considera usar contenedores (LXC) en vez de VMs.
+- Aplica **CPU limits y CPU shares** para controlar recursos si varias VMs se activan a la vez.
+-------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------
+❗ Ejemplo con Hardware (1TB HDD, 4GB RAM, 4 CPU):
+Supuestos:
+- Sistema base Proxmox requiere ~512MB – 1GB RAM y ~10-20GB de disco.
+- Asignamos 3GB RAM y ~950GB para VMs/CTs.
+- CPU puede sobreprovisionarse (ej: 6-8 vCPUs repartidas en 4 cores físicos).
+
++----------------+---------------+------------+----------------+--------------------+
+| Tipo           | RAM Asignada  | CPU (vCPU) | Disco Asignado | Máquinas posibles  |
++----------------+---------------+------------+----------------+--------------------+
+| VM ligera      | 512MB         | 1 vCPU     | 10GB           | 5–6 VMs            |
+| LXC básico     | 256MB         | 0.5 vCPU   | 2GB            | 8–10 CTs           |
+| VM media       | 1GB           | 1 vCPU     | 20GB           | 2–3 VMs            |
+| Mezcla VM+CT   | VMs: 2×1GB    | 2×1 vCPU   | 40GB total     | + 4 CTs con 512MB  |
++----------------+---------------+------------+----------------+--------------------+
+
+🧠 Recomendaciones:
+Usa LXC para servicios Linux siempre que puedas → mayor densidad.
+Activa RAM ballooning en VMs si el SO lo soporta.
+Usa ZFS si necesitas snapshots/flexibilidad, pero requiere más RAM.
+Mantén siempre RAM libre para el sistema (~1GB mínimo).
+Si vas a tener muchas VMs, considera ampliar la RAM del ejemplo.
+-------------------------------------------------------------------------------------
+
+
+
+=======[❌ PASOS A SEGUIR DE INSTALACIÓN ]==========================================================
+# sigo los pasos según la instalación requerida:
+
+          - Crear unidad ISO: Instalación de ISO Proxmox VE
+          - Configuración de red:
+          - Configuración de discos y unidades: (unidad ISOs)
+          - Configuración de scripts: Scripts de la comunidad (Post, hardening...)
+          - Crear cluster : En el caso de ser necesario HA → configuro y creo cluster
+                    + Configurar nodo como cluster (NTP activo y en hora)
+                    + Configurar Recursos Comunes del Cluster
+
+
+
+=======[❌ CREAR UNIDAD ISO ]=======================================================================
+# descargar iso
+https://www.proxmox.com/en/downloads
+
+## acceso proxmox instalación
+Proxmox Virtual Environment : https://www.proxmox.com/en/downloads [Proxmox VE 8.4 ISO Installer]
+- Disco en ext4 (el espacio es para la instalación de proxmox)
+- zona horaria
+- <password-root>
+- ip
+- DNS Server: 255.255.255.0
+htts://<ip>:8006
+
+
+
+=======[❌ CONFIGURACIÓN DE RED E INSTALACIÓN MÍNIMA ]==============================================
+# comprobar que la red está bien configurada
+vim /etc/network/interfaces
+
+# instalación mínima
+apt update && apt upgrade
+apt install btop vim -y
+
+## SSH
+# entro por ssh y modifico la terminal
+vim ~/.bashrc
+--------------------------------------------------------------
+## alias del servidor
+alias ls='ls -ha --color=auto --group-directories-first'
+alias la='ls  -lhai --group-directories-first'
+alias _liberarespacioram='sudo sync; echo 1 | sudo tee /proc/sys/vm/drop_caches | echo "pe    tición realizada correctamente." && echo "" && free -h'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias grep='grep --color=auto'
+alias df='df --exclude-type=tmpfs'
+
+## Cambiar diseño del prompt (estilo cyberpunk)
+# **************************************
+PS1='\[\e[1;31m\]\u箱[\H] \w $: \[\e[0m\]'
+
+## cambiar colores para ls (estilo cyberpunk)
+# **************************************
+# Estilo técnico oscuro
+LS_COLORS=""
+LS_COLORS+="di=1;38;5;240:"     # directorios en gris oscuro técnico
+LS_COLORS+="fi=0;38;5;248:"     # archivos normales en gris medio
+LS_COLORS+="ln=1;33:"           # enlaces simbólicos en amarillo
+LS_COLORS+="so=1;38;5;94:"      # sockets en púrpura oscuro
+LS_COLORS+="pi=1;33:"           # pipes (tuberías) en amarillo
+LS_COLORS+="bd=1;38;5;236:"     # dispositivos de bloque en gris carbón
+LS_COLORS+="cd=1;38;5;238:"     # dispositivos de carácter en gris plomo
+LS_COLORS+="or=1;38;5;124:"     # archivos rotos en rojo sangre oscuro
+LS_COLORS+="mi=1;38;5;124:"     # archivos inexistentes en rojo sangre oscuro
+LS_COLORS+="ex=1;31"            # ejecutables en rojo brillante
+--------------------------------------------------------------
+
+# modifico el archivo vim
+cd /
+vim .vimrc
+--------------------------------------------------------------
+" ~/.vimrc simplificado estilo cyberpunk acorde a LS_COLORS
+set number                                    " Muestra números de línea
+set cursorline                                " Resalta línea actual
+set scrolloff=5                               " Mantiene 5 líneas arriba/abajo
+set incsearch                                 " Búsqueda incremental
+set hlsearch                                  " Resalta resultados búsqueda
+set ignorecase                                " Ignora mayúsculas/minúsculas
+set smartcase                                 " Caso sensible si hay mayúsculas
+set expandtab                                 " Usa espacios en lugar de tabs
+set tabstop=4
+set shiftwidth=4
+set wildmenu                                  " Mejor autocompletado en cmd
+syntax on
+set background=dark
+
+" Colores personalizados básicos para consola
+highlight Normal ctermfg=248 ctermbg=236      " Texto gris medio / fondo gris carbón
+highlight Comment ctermfg=33                  " Comentarios azul marino fuerte
+highlight LineNr ctermfg=240                  " Números gris oscuro
+highlight CursorLine ctermbg=238              " Fondo línea cursor gris plomo
+highlight Keyword ctermfg=61                  " Palabras clave azul cobalto apagado
+highlight Function ctermfg=94                 " Funciones púrpura oscuro
+highlight Statement ctermfg=124               " Sentencias rojo sangre oscuro
+highlight Visual ctermbg=240                  " Selección gris oscuro
+
+set laststatus=2                              " Siempre mostrar línea de estado
+set noerrorbells                              " Sin sonidos de error
+set clipboard=unnamedplus                     " Usa portapapeles del sistema
+--------------------------------------------------------------
+
+
+
+=======[❌ CONFIGURACIÓN DE DISCOS Y UNIDADES ]=====================================================
+# primero creo el Thinpool y lo añado como almacenamiento
+Thinpool : Permitir asignar más almacenamiento virtual del que realmente tienes disponible físicamente.
+
+# creo la partición mayor en modo LVM-Thin
+Nodo > Disk > LVM-Thin > Create Thinpool 
+  > [ ] add storage    # si lo seleccionas se agregará automáticamente al almacenamiento
+
+# crea un almacenamiento (para asociar el tipo de almacenamiento y agregarlo al nodo)
+Datacenter > Storage > Add > LVM-Thin > Selecciona "nombre-disco"
+# desde aquí configuro el tipo de unidad que voy a crear pudiendo ser por ejemplo en Directory (Disk Image, ISO Image, Container, Backup...)
+# según las opciones al clicar en el nodo > storage me dará unas selecciones u otras
+
++--------------+-----------------------------+----------------------------------------+
+| Tipo         | Uso adecuado                | Contenido a seleccionar (“Content”)    |
++--------------+-----------------------------+----------------------------------------+
+| LVM-Thin     | Discos para VM/CT           | Disk image, Container                  |
+| LVM          | Solo discos de VM           | Disk image                             |
+| Directory    | Ficheros: ISOs, backups...  | ISO image, Backup, Container, Disk img |
+| ZFS          | Similar a LVM-Thin + snaps  | Disk image, Container, ISO*            |
+| NFS / CIFS   | Almacenamiento en red       | ISO, Backup, Container, Disk image     |
+| Ceph         | Cluster distribuido         | Disk image, Container                  |
++--------------+-----------------------------+----------------------------------------+
+* ZFS solo permite ISO si se monta como dataset compatible
+
+
+## en el caso de necesitar más discos físicos 
+----------------------------------------------------------
+# 1. (Opcional) Verifica y limpia particiones del disco nuevo
+lsblk                     # Verifica el disco, por ejemplo /dev/sdb
+fdisk /dev/sdb
+  - d                     # Elimina particiones si existen
+  - n                     # Crear nueva partición (por defecto, usa todo el disco). Hay que hacerlo en el caso que se requieran particiones del disco, en el caso de que solo sea una no es necesario ya que vamos a crear un thinpool
+  - w                     # Guarda y sale
+
+# 2. (Opcional) Verifica estado del disco [Verifica salud SMART]
+# S.M.A.R.T = sistema integrado en discos duros y SSDs que permite auto-monitorear su salud y detectar fallos potenciales antes de que ocurran
+smartctl -iHA /dev/sdb
+
+# 3. Crear Thinpool desde Proxmox
+# Thinpool : Permitir asignar más almacenamiento virtual del que realmente tienes disponible físicamente.
+GUI: Node > Disks > LVM-Thin > Create: 
+  - Select disk: /dev/sdb
+  - Name: thinpool-disk2
+  - Opcional: eliminar particiones existentes (GUI lo hace)
+  - Esto crea automáticamente PV + VG + Thin Pool
+
+# 4. Añadir Thinpool como almacenamiento
+GUI: Datacenter > Storage > Add > LVM-Thin
+  - ID: lvm-disk2
+  - Volume Group: el creado (vg-thinpool-disk2, por ejemplo)
+  - Thin Pool: thinpool-disk2
+  - Content: Disk image, Container
+
+# 5. (Opcional) Verifica LVM
+pvdisplay
+vgdisplay
+lvdisplay
+----------------------------------------------------------
+
+
+## yo en mi caso en local (pve) que es mi unidad de almacenamiento de proxmox no quiero que contenga más de 20GB y por defecto le dá 100GB 
+
+# 1. Comprueba el tamaño actual
+lvdisplay /dev/pve/data                   # compruebo el almacenamiento (90GB)
+lvs                                       # Vista resumida
+
+# 2. Verifica si hay VMs o CTs en ejecución
+qm list                                   # Máquinas virtuales
+pct list                                  # Contenedores
+
+# 3. Asegúrate de que 'local-lvm' no tenga discos asignados
+ls /dev/pve/                              # Revisa qué volúmenes hay
+ls /var/lib/lvm                           # Si usas LVM directamente
+du -sh /dev/pve/data                      # Verifica espacio usado
+
+# ⚠️ Asegúrate que esté vacío o solo ocupado parcialmente
+
+# 4. Reducción del volumen
+lvresize -L 20G /dev/pve/data
+# o:
+lvreduce -L 20G /dev/pve/data             # Interactivo y más seguro
+
+# 5. Verifica
+lvs
+
+
+
+=======[❌ CONFIGURACIÓN DE SCRIPTS ]===============================================================
+# cambio el tema
+usuario (arriba a la derecha) > Color Theme > Proxmox Dark
+
+# instalamos el script inicializador
+https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install
+(proxmox:selecciono el nodo) > Shell > (copio y pego el script)
+- y /all
+
+# instalo script para cambiar a powersave (elige como el CPU escala su frecuencia y consumo de los watts)
+https://community-scripts.github.io/ProxmoxVE/scripts?id=scaling-governor
+[*] powersave
+- y
+
+# instalo script para ver si el procesador tiene alguna actualización
+https://community-scripts.github.io/ProxmoxVE/scripts?id=microcode
+[*] intel-microcode_3.20240514.1_amd64.deb
+- y
+
+# ⚠️ de este último script no se si fiarme ya que es de alguien independiente y no oficial de proxmox, lo quiero dejar documentado por si agún día es útil para mí
+# instalo script proxmenux para tareas de administrador de servidor (drivers, máquinas virtuales...)
+# https://github.com/MacRimi/ProxMenux
+# en la pagina princial, donde muestra el readme solo tengo que copiar y pegar el instalador : bash -c "$(wget -qLO - https://raw.githubusercontent.com/MacRimi/ProxMenux/main/install_proxmenux.sh)"
+# - normal
+# - y
+#
+# para abrirlo "menu"
+# ahora desde proxmox puedo isntalar paquetes de proxmox sin tener que salir de proxmox, ahora en este ejemplo voy a instalar adguards sin salir de proxmox
+# > menu
+#   > Proxmox Helpers Script
+#   > search : adguards
+#   > yes
+#   > Desafult Settings
+
+# reinicio el servidor proxmox
+- reiniciar
+
+
+
+=======[❌ CREAR CLUSTER ]==========================================================================
+# antes de iniciar con los cluster hay que intentar que los dispositivos o servidores sean los más parecido posible a ser posible exactamente iguales
+
+[🧮 creo un cluster]::
+# Para migrar un nodo, el nodo que vamos a migrar como cluster no debe tener ninguna máquina virtual ni contenedor y además que contenga el mismo NTP "timedatectl status"
+# una vez tenga el nodo limpio me dirijo al otro nodo (al que vamos a migrar el nuevo nodo) y hago lo siguiente:
+# ejemplo proxmox pve1
+-----------------------------------------------------------------
+Datacenter > Cluster (pve1) > Create Cluster
+          Cluster Demo: <nombre>
+          Cluster Network: <asigno_la_ip_dentro_del_cluster>
+          > create
+# una vez creado
+Datacenter > Cluster (pve1) > Join Information > Copy Information
+-----------------------------------------------------------------
+
+# ejemplo proxmox pve2
+-----------------------------------------------------------------
+Datacenter > Cluster (pve2) > Join Information >           
+          > Information: <pego_información_copiada_anteriormente>
+          > Password: <contraseña>
+-----------------------------------------------------------------
+
+# ejemplo proxmox pve1
+# refresco página y ya debería ver el cluster creado son dos nodos pve1 y pve2
+# para comprobar su funcionamiento y en caso opcional puedo migrar una máquina del pve1 al pve2 
+Datacenter > Cluster (pve1) > VM (ejemplo: 101) > Sumary > Migrate       
+          > Target Mode: pve2
+          > Migrate
+
+[🧮 configuro quorum]::
+https://www.youtube.com/watch?v=t5yvfnFvQrU
+# en el caso de que tenga un número impar de dispositivos me aseguro que el quorum funciona correctamente
+Datacenter > HA > Quoruom:OK
+
+
+
+=======[❌ CREAR UNA MÁQUINA VIRTUAL ]===============================================================
+# buena práctica para mejor visualización
+⚙️ > Sort Key: Name
+
+# creo una nueva máquina virtual
+sobre el Node indicado > Create VM
+
+# para crear una máquina virtual o contenedor es recomendable hacerlo desde:
+local-lvm
+
+# Ajustes al crear la máquina:
+Create VM
+------------------------------------------------------------------------------
++ General:
+*********************************************************
+Name: ~
+_
++ OS:
+*********************************************************
+Storage: Synology (para producción) | local (para pruebas o desarrollo)
+OS: (selecciono la última versión de cada S.O)
+_
++ System:
+*********************************************************
+_
++ Disk:
+*********************************************************
+Bus/Devicec: SATA | 0
+Storage: Synology (para producción) | local (para pruebas o desarrollo)
+Disk Size: 40 GiB (o los necesarios)
+Cache: Write Back
+         + Write back: mejor rendimiento, ideal para entornos donde la velocidad de I/O es prioritaria y hay respaldo eléctrico (UPS, almacenamiento con caché protegida). Riesgo de pérdida de datos en fallo.
+         + Write through: mayor seguridad y consistencia, mejor para datos críticos o producción donde la integridad es prioritaria, aunque con menor rendimiento.
+  
+[x] Avanced
+~
+[x] SSD emulation
+_
++ CPU:
+*********************************************************
+# es recomendable poner un socket y varios cores
+Sockets: 1 
+Cores: 4
+_
++ Memory:
+*********************************************************
+Memory (MiB): 2048 (o los que sean necesarios, en este caso 2GB | 4096 = 4GB) 
+_
++ Network:
+*********************************************************
+Bridge: vmbr0
+VLAN Tag: (el tag de vlan correspondiente no la vlan de red)
+Model: 
+------------------------------------------------------------------------------
+
