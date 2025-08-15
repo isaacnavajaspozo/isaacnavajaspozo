@@ -79,25 +79,3 @@ Here are some ideas to get you started:
 [![Electronics ESP32](https://img.shields.io/badge/Electronics-ESP32-000000)](https://www.espressif.com/en/products/socs/esp32)
 [![Electronics ESP8266](https://img.shields.io/badge/Electronics-ESP8266-000000)](https://www.espressif.com/en/products/socs/esp8266)
 
-
-## ⚗️ iSNF · Systems Integration and New Features
-
-[Go to Pinkragon repository](https://github.com/isaacnavajaspozo/iSNF)
-
-```bash
-  # Download iSNF
-  git clone https://github.com/isaacnavajaspozo/iSNF
-
-```
-
-## 🔮 Libraries
-
-`Adminer`, `Fullcalendar`, `DataTable`, `PHP_XLSXWriter`, `Chartjs`, `Highlight`, `Moment`, `Dompdf`, `Quill`, `p0wny-shell`, `Bootstrap` ...
-
-[Go to Libraries repository](https://github.com/isaacnavajaspozo/Libraries)
-
-```bash
-  # Access Pinkragon and download the libraries into the appropriate folder.
-  cd ./Pinkragon-PHP/srv/
-  git clone https://github.com/isaacnavajaspozo/Libraries libreries
-```
