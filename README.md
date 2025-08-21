@@ -7,7 +7,7 @@ Here are some ideas to get you started:
 -->
 
 - 🔭 I’m currently working on Grafometal.
-- 🌱 I’m currently learning UOC
+- 🌱 I’m currently learning Isabel I
 - 📫 How to reach me: isaacnavajasit@duck.com
 - 🐇 Fun fact: "Follow the white rabbit"
 
